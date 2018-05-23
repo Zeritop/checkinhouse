@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Check In House</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	{!!Html::style('css-bootstrap/bootstrap.min.css')!!}
+    {!!Html::style('css/fonts.css')!!}
+    {!!Html::style('css/carousel.css')!!}
+</head>
+<body>
+
+	<!--Nav bar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<a class="navbar-brand" href="admin" style="margin-left: 20px">Check In House</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        	<span class="navbar-toggler-icon"></span>
+        </button>
+		<div class="collapse navbar-collapse" id="navbarText">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active">
+					<a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Herramienta</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Personal</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Boleta</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Transporte</a>
+				</li>
+			</ul>
+			<form class="form-inline my-2 my-lg-0">
+      			<input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+      			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+    		</form>
+		</div>			
+	</nav>
+	@yield('content')
+
+
+<!--Footer-->
+<footer class="footer bg-dark text-white">
+
+    <div style="background-color: #0AA91C;">
+        <div class="container">
+            <div class="row py-4 d-flex align-items-center">
+                <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
+                    <h6 class="mb-0 text-white">Contactanos en nuestras redes sociales!</h6>
+                </div>
+
+                <div class="col-md-6 col-lg-7 text-center text-md-right">
+                    <!--Facebook-->
+                    <a class="fb-ic ml-0">
+                        <i class="fa fa-facebook text-white mr-lg-4 fa-2x"> </i>
+                    </a>
+                    <!--Twitter-->
+                    <a class="tw-ic">
+                        <i class="fa fa-twitter white-text mr-lg-4"> </i>
+                    </a>
+                    <!--Google +-->
+                    <a class="gplus-ic">
+                        <i class="fa fa-google-plus white-text mr-lg-4"> </i>
+                    </a>
+                    <!--Linkedin-->
+                    <a class="li-ic">
+                        <i class="fa fa-linkedin white-text mr-lg-4"> </i>
+                    </a>
+                    <!--Instagram-->
+                    <a class="ins-ic">
+                        <i class="fa fa-instagram white-text mr-lg-4"> </i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Footer Links-->
+    <div class="container mt-5 mb-4 text-center text-md-left">
+        <div class="row mt-3">
+
+            <!--Primera columna-->
+            <div class="col-md-3 col-lg-4 col-xl-3 mb-4">
+                <h6 class="text-uppercase font-weight-bold">
+                    <strong>Nombre compañia</strong>
+                </h6>
+                <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #151515;">
+                <p>Check In House y algo mas ponemos.</p>
+            </div>
+
+            <!--Segunda columna-->
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                <h6 class="text-uppercase font-weight-bold">
+                    <strong>Productos</strong>
+                </h6>
+                <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #151515;">
+                <p>
+                    <a href="#!">Ruedas</a>
+                </p>
+                <p>
+                    <a href="#!">Martillo</a>
+                </p>
+                <p>
+                    <a href="#!">Aceite</a>
+                </p>
+                <p>
+                    <a href="#!">hola</a>
+                </p>
+            </div>
+
+            <!--Tercera columna-->
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                <h6 class="text-uppercase font-weight-bold">
+                    <strong>Enlaces Utiles</strong>
+                </h6>
+                <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #151515;">
+                <p>
+                    <a href="#!">Your Account</a>
+                </p>
+                <p>
+                    <a href="#!">Become an Affiliate</a>
+                </p>
+                <p>
+                    <a href="#!">Shipping Rates</a>
+                </p>
+                <p>
+                    <a href="#!">Help</a>
+                </p>
+            </div>
+
+            <!--Cuarta columna-->
+            <div class="col-md-4 col-lg-3 col-xl-3">
+                <h6 class="text-uppercase font-weight-bold">
+                    <strong>Contacto</strong>
+                </h6>
+                <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #151515;">
+                <p>
+                    <i class="fa fa-home mr-3"></i> Talcahuano, Concepción Chile</p>
+                <p>
+                    <i class="fa fa-envelope mr-3"></i> algo@ejemplo.com</p>
+                <p>
+                    <i class="fa fa-phone mr-3"></i> + 569 1223345</p>
+                <p>
+                    <i class="fa fa-print mr-3"></i> + 569 23456567</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Copyright-->
+    <div class="footer-copyright py-3 text-center" style="background-color: #151515;">
+        © 2018
+    </div>
+</footer>
+
+                      
+
+<script src="js-bootstrap/jquery-3.2.1.min.js"></script>
+<script src="js-bootstrap/bootstrap.min.js"></script>
+</body>
+</html>
