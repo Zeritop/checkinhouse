@@ -12,4 +12,8 @@
 */
 
 Route::get('/', 'PrincipalController@index');
+Route::get('index', 'PrincipalController@index');
+Route::get('servicios', 'PrincipalController@servicios');
+Route::get('nosotros', 'PrincipalController@nosotros');
+
 Route::get('admin','PrincipalController@admin');

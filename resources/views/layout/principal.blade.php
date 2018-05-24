@@ -11,20 +11,22 @@
 
 	<!--Nav bar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<a class="navbar-brand" href="admin" style="margin-left: 20px">Check In House</a>
+		<a class="navbar-brand" href="index" style="margin-left: 20px">
+        <!--<img src="Imagenes/checkin2.jpg" width="100" height="45" class="d-inline-block align-top"- alt="">-->    
+        Check In House</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         	<span class="navbar-toggler-icon"></span>
         </button>
 		<div class="collapse navbar-collapse" id="navbarText">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item active">
-					<a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+					<a class="nav-link" href="index">Inicio <span class="sr-only">(current)</span></a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">Herramienta</a>
+					<a class="nav-link" href="servicios">Servicios</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">Personal</a>
+					<a class="nav-link" href="nosotros">Nosotros</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="#">Boleta</a>
@@ -54,12 +56,12 @@
 
                 <div class="col-md-6 col-lg-7 text-center text-md-right">
                     <!--Facebook-->
-                    <a class="fb-ic ml-0">
-                        <i class="fa fa-facebook text-white mr-lg-4 fa-2x"> </i>
-                    </a>
+                   <a class="btn-floating btn-sm btn-fb">
+                        <i class="fa fa-facebook"></i>
+                   </a>
                     <!--Twitter-->
                     <a class="tw-ic">
-                        <i class="fa fa-twitter white-text mr-lg-4"> </i>
+                        <span class="fa fa-twitter"> </span>
                     </a>
                     <!--Google +-->
                     <a class="gplus-ic">
@@ -85,7 +87,7 @@
             <!--Primera columna-->
             <div class="col-md-3 col-lg-4 col-xl-3 mb-4">
                 <h6 class="text-uppercase font-weight-bold">
-                    <strong>Nombre compañia</strong>
+                    <strong>Nombre cooperativa</strong>
                 </h6>
                 <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #151515;">
                 <p>Check In House y algo mas ponemos.</p>
@@ -94,19 +96,19 @@
             <!--Segunda columna-->
             <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
                 <h6 class="text-uppercase font-weight-bold">
-                    <strong>Productos</strong>
+                    <strong>Servicios</strong>
                 </h6>
                 <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #151515;">
                 <p>
-                    <a href="#!">Ruedas</a>
+                    <a href="#!">Cambio aceite</a>
                 </p>
                 <p>
-                    <a href="#!">Martillo</a>
+                    <a href="#!">Lavado</a>
                 </p>
                 <p>
-                    <a href="#!">Aceite</a>
+                    <a href="#!">Aire ruedas</a>
                 </p>
-                <p>
+                <p> 
                     <a href="#!">hola</a>
                 </p>
             </div>
@@ -118,16 +120,16 @@
                 </h6>
                 <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #151515;">
                 <p>
-                    <a href="#!">Your Account</a>
+                    <a href="#!">Su cuenta</a>
                 </p>
                 <p>
-                    <a href="#!">Become an Affiliate</a>
+                    <a href="#!">Conviertase en un afiliado</a>
                 </p>
                 <p>
-                    <a href="#!">Shipping Rates</a>
+                    <a href="#!">Tarifas de envío</a>
                 </p>
                 <p>
-                    <a href="#!">Help</a>
+                    <a href="#!">Ayuda</a>
                 </p>
             </div>
 
