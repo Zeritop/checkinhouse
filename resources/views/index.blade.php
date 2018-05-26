@@ -61,6 +61,22 @@
         </div>
     </div>
   <br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">Ubicanos!! 
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d799.1869344951222!2d-73.11058867078533!3d-36.752625724218824!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x96683549c6c1e56d%3A0xff62291ec117d3b8!2sVallenar+259%2C+Talcahuano%2C+Regi%C3%B3n+del+B%C3%ADo+B%C3%ADo!5e0!3m2!1ses-419!2scl!4v1527303646883" width="550" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </div>      
+    
+
+  <div class="col-md-6 ml-auto">Ubicanos!! 
+     <iframe src="https://www.google.com/maps/embed?pb=!4v1527303539925!6m8!1m7!1sVDvWsV2U1MfAZ_8Qm3gtFQ!2m2!1d-36.75246114541383!2d-73.11001080442982!3f59.4698515728279!4f-16.53824635021698!5f0.7820865974627469" width="550" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
+          
+      </div>
+  </div>
+</div>
+  
+
 </body>
 </html>
 @stop

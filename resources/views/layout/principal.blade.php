@@ -3,17 +3,18 @@
 <head>
 	<title>Check In House</title>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	{!!Html::style('css-bootstrap/bootstrap.min.css')!!}
-    {!!Html::style('css/fonts.css')!!}
-    {!!Html::style('css/carousel.css')!!}
+	<link rel="stylesheet" type="text/css" href="css-bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/fonts.css">
+    <link rel="stylesheet" type="text/css" href="css/carousel.css">
+    <link rel="shortcut icon" type="image/x-icon" href="Imagenes/checkin2.ico">
 </head>
 <body>
 
 	<!--Nav bar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		<a class="navbar-brand" href="index" style="margin-left: 20px">
-        <!--<img src="Imagenes/checkin2.jpg" width="100" height="45" class="d-inline-block align-top"- alt="">-->    
-        Check In House</a>
+            <img src="Imagenes/checkin2.png" width="180" height="70" class="d-inline-block align-top"- alt="">    
+        </a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         	<span class="navbar-toggler-icon"></span>
         </button>
@@ -47,7 +48,7 @@
 <!--Footer-->
 <footer class="footer bg-dark text-white">
 
-    <div style="background-color: #0AA91C;">
+    <div style="background-color: #5FB404;">
         <div class="container">
             <div class="row py-4 d-flex align-items-center">
                 <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
