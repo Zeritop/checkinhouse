@@ -40,6 +40,11 @@
       			<input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
       			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
     		</form>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="admin">Ingresar</a>
+                </li>
+            </ul>
 		</div>			
 	</nav>
 	@yield('content')
@@ -88,7 +93,7 @@
             <!--Primera columna-->
             <div class="col-md-3 col-lg-4 col-xl-3 mb-4">
                 <h6 class="text-uppercase font-weight-bold">
-                    <strong>Nombre cooperativa</strong>
+                    <strong>Nombre empresa</strong>
                 </h6>
                 <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #151515;">
                 <p>Check In House y algo mas ponemos.</p>
@@ -101,16 +106,16 @@
                 </h6>
                 <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #151515;">
                 <p>
-                    <a href="#!">Cambio aceite</a>
+                    <a href="#!">Limpieza</a>
                 </p>
                 <p>
-                    <a href="#!">Lavado</a>
+                    <a href="#!">Lubricación</a>
                 </p>
                 <p>
-                    <a href="#!">Aire ruedas</a>
+                    <a href="#!">Electricidad</a>
                 </p>
                 <p> 
-                    <a href="#!">hola</a>
+                    <a href="#!">Otros</a>
                 </p>
             </div>
 
@@ -143,7 +148,7 @@
                 <p>
                     <i class="fa fa-home mr-3"></i> Talcahuano, Concepción Chile</p>
                 <p>
-                    <i class="fa fa-envelope mr-3"></i> algo@ejemplo.com</p>
+                    <i class="fa fa-envelope mr-3"></i> checkinhouse@gmail.com</p>
                 <p>
                     <i class="fa fa-phone mr-3"></i> + 569 1223345</p>
                 <p>
