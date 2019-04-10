@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="utf-8">
+<head><meta http-equiv="Content-Type" content="text/html; charset=gb18030">
+	
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    {!!Html::style('css-bootstrap/bootstrap.min.css')!!}
-    {!!Html::style('css/fonts.css')!!}
+    <link rel="stylesheet" type="text/css" href="css-bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/fonts.css">
 	<title>Administración</title>
 </head>
 

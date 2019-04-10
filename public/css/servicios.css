@@ -1,0 +1,36 @@
+a:hover,a:focus{
+    text-decoration: none;
+    outline: none;
+}
+
+#imagenCA{
+    background-color: #3ADF00;
+    width: 150px;
+    height: 150px;
+    padding: 20px;
+    border-radius: 100px; 
+    margin: 15px;
+}
+
+#imagenCA:hover{
+    background-color: #000;
+}
+
+#cajaTextoAceite{
+    background-color: #3ADF00;
+    color: #fff;
+    padding: 15px;
+    width: 100%;
+    border-radius: 10px;
+    text-align: justify;
+}
+
+@media screen and (max-width:991px) and (min-width: 768px){
+    #aceites{
+        display: none;
+    }
+
+}
+
+
+

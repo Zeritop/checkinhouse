@@ -13,7 +13,53 @@
 
 Route::get('/', 'PrincipalController@index');
 Route::get('index', 'PrincipalController@index');
+Route::get('intranet', 'IntranetController@intranet')->name('intranet');
 Route::get('servicios', 'PrincipalController@servicios');
 Route::get('nosotros', 'PrincipalController@nosotros');
-
+Route::get('programarservicios', 'PrincipalController@programarservicios');
+Route::get('horarios', 'PrincipalController@horarios');
+Route::get('correo', 'PrincipalController@correo');
+Route::resource('mail', 'MailController');
+Route::get('ingresar','PrincipalController@ingresar');
 Route::get('admin','PrincipalController@admin');
+Route::post('login','Auth/LoginController@login')->name('login');
+Route::post('register','Auth/RegisterController@login')->name('register');
+Route::post('logOut','Auth\LoginController@logOut')->name('logOut');
+Route::get('cuenta','PrincipalController@cuenta')->name('cuenta');
+Route::get('cotizacion','PrincipalController@cotizacion');
+Route::get('crear','PrincipalController@crear');
+
+Route::resource('clientes','ClienteController');
+Route::resource('domicilios','DomicilioController');
+Route::resource('personales','PersonalController');
+Route::resource('usuarios','UsuarioController');
+Route::resource('uusers','UserController');
+Route::resource('herramientas','HerramientaController');
+Route::resource('servicioss','ServicioController');
+Route::resource('diagnosticogeneral','DiagnosticoController');
+Route::resource('mantenimientofrenos','FrenoController');
+
+
+Auth::routes();
+
+/*Route::group(['middleware' => ['web']], function () {
+    Route::get('intranet', 'IntranetController@intranet')->name('intranet');
+    Route::get('ingresar','PrincipalController@ingresar');
+    Route::post('login','Auth\LoginController@login')->name('login');
+    Route::post('register','Auth\RegisterController@login')->name('register');
+    Route::post('logout','Auth\LoginController@logOut')->name('logout');
+});*/
+
+Route::group(['middleware' => ['web', 'auth']], function(){
+    Route::get('/intranet', function(){
+       if(Auth::user()->admin == 0){
+           return view('intranet/users/index');
+       } else{
+           $users['users'] = \App\User::all();
+           return view('intranet/index', $users);
+       }
+    });
+});
+
+
+

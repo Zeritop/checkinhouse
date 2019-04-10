@@ -1,0 +1,9 @@
+@media screen and (max-width:1024px){
+    #caja-imagen{
+                position: relative;
+                right: 30px;
+                height: 70px;
+                bottom: 8px;
+
+    }
+}

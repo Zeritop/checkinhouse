@@ -1,0 +1,51 @@
+#cajaNombre{
+	width: 40%;
+	text-align: center;
+	padding: 10px;
+	display: inline-block;
+	float: right;
+	margin-top: 30px;
+	margin-right: 20px;	
+}
+
+#logoCot{
+	margin-left: 60px;
+}
+
+#parrafoCont{
+	width: 30%;
+	text-align: center;
+	margin-left: 50px;
+}
+
+#tablaIden{
+	position: relative;
+	display: inline-block;
+	float: right;
+	margin-right: 20px;
+	bottom: 120px;
+}
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  
+}
+
+#tablaDatCli{
+	position: relative;
+	display: inline-block;
+	margin-left: 50px;
+	margin-right: 20px;
+
+}
+
+#tablaDatCli2{
+	position: relative;
+	display: inline-block;
+	margin-left: 50px;
+	margin-right: 20px;
+	float: right;
+	bottom: 8px;
+}
+

@@ -1,5 +1,121 @@
-img{
-	max-height: 200px;
-	max-width: 250px;
+/*img{
+	max-height: 500px;
+	max-width: 600px;
+}*/
+
+
+#imagenNosotros1{
+	position: absolute;
+	width: 50%;
+	height: 600px;
+	
+}
+
+
+#misionLetra{
+	position: absolute;
+	left: 60%;
+	top: 100px;
+}
+
+#cajaMision{
+	position: absolute;
+	width: 40%;
+	color: white;
+	left: 60%;
+	top: 150px;
+	text-align: justify;
+	font-family: 'Nova Flat', cursive;
+	padding-top: 20px;
+}
+
+#imagenNosotros2{
+	float: right;
+	width: 60%;
+	height: 600px;
+}
+
+#cajaVision{
+	position: relative;
+	width: 30%;
+	color: white;
+	top: 400px;
+	text-align: justify;
+	font-family: 'Nova Flat', cursive;
+	padding-top: 20px;
+	padding-right: 20px;
+
+}
+
+#visionLetra{
+	position: relative;
+	left: 10%;
+	top: 400px;
+}
+
+
+@media screen and (max-width:640px) {
+	#cajaMision{
+		position: relative;
+		width: 65%;
+		left: 20%;
+
+	}
+
+	#cajaVision{
+		top: 75px;
+		width: 65%;
+		margin-bottom: 50%;
+		left: 20%;
+		padding-top: 0px;
+	}
+	
+	#misionLetra{
+		left: 30%;
+	}
+
+
+	#visionLetra{
+	position: absolute;
+	left: 30%;
+	top: 30px;
+	}
+
+	#imagenNosotros1{
+		display: none;
+	}
+
+	#imagenNosotros2{
+		display: none;
+	}
+}
+
+@media screen and (max-width:990px) and (min-width: 640px) {
+	#imagenNosotros2{
+		height: 400px;
+	}
+
+	#imagenNosotros1{
+		height: 400px;
+	}
+
+	#cajaMision{
+		width: 55%;
+	}
+
+	#cajaVision{
+		width: 55%;
+		left: -13%;
+	}
+
+	#visionLetra{
+		left: -13%;
+	}
+}
+
+@media screen and (max-width:1000px) and (min-width: 990px) {
+	#cajaMision{
+		width: 40%;
+	}
 }
 
