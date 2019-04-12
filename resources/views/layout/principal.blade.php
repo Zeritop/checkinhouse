@@ -95,7 +95,7 @@
 	<!--Nav bar -->
 <nav class="navbar navbar-expand-lg">
         <div style="background-color: #3ADF00" id="caja-imagen">
-            <a class="navbar-brand" href="/" style="margin-left: 20px">
+            <a class="navbar-brand" href="{{url('/')}}" style="margin-left: 20px">
             <img src="Imagenes/cih.svg" width="200" height="67" class="d-inline-block align-top"- alt="">    
         </a>
         </div>
@@ -106,26 +106,26 @@
 		<div class="collapse navbar-collapse" id="navbarText" style="background-color: #000; z-index: 1;">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item active">
-					<a class="nav-link" id="textNavbar" href="/">INICIO <span class="sr-only">(current)</span></a>
+					<a class="nav-link" id="textNavbar" href="{{url('/')}}">INICIO <span class="sr-only">(current)</span></a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" id="textNavbar" href="nosotros">NOSOTROS</a>
+					<a class="nav-link" id="textNavbar" href="{{url('nosotros')}}">NOSOTROS</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" id="textNavbar" href="servicios">SERVICIOS</a>
+					<a class="nav-link" id="textNavbar" href="{{url('servicios')}}">SERVICIOS</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" id="textNavbar" href="programarservicios">PROGRAMAR SERVICIOS</a>
+					<a class="nav-link" id="textNavbar" href="{{url('programarservicios')}}">PROGRAMAR SERVICIOS</a>
 				</li> 
                 <li class="nav-item">
-                    <a class="nav-link" id="textNavbar"  href="crear">COTIZAR</a>
+                    <a class="nav-link" id="textNavbar"  href="{{url('crear')}}">COTIZAR</a>
                 </li> 
 			      
 			</ul>
 			
 			<ul class="navbar-nav ml-auto">
 			    <li class="nav-item">
-                    <a class="nav-link" id="textNavbar"  href="ingresar" style="color: blue;" >INGRESAR</a>
+                    <a class="nav-link" id="textNavbar"  href="{{url('ingresar')}}" style="color: blue;" >INGRESAR</a>
                 </li>    
 			</ul>
 		</div>			
@@ -163,7 +163,7 @@
                 <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #151515;">
     
                 <p>
-                    <a href="servicios" id="linkFooter">Lubricación</a>
+                    <a href="{{url('servicios')}}" id="linkFooter">Lubricación</a>
                 </p>
               
             </div>

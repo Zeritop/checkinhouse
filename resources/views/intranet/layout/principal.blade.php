@@ -36,16 +36,16 @@
   <!-- Sidebar -->
   <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
     <ul class="nav sidebar-nav">
-      <li class="sidebar-brand"> <a href="intranet" style="background-color: #3ADF00; color: #fff;">
+      <li class="sidebar-brand"> <a href="{{url('intranet')}}" style="background-color: #3ADF00; color: #fff;">
                        Intranet CIH
                     </a>
 
       </li>
       <li> 
-        <a href="intranet">Home</a>
+        <a href="{{url('intranet')}}">Home</a>
       </li>
       <li> 
-        <a href="calendario/Web/my-calendar.php">Calendario</a>
+        <a href="{{url('calendario/Web/my-calendar.php')}}">Calendario</a>
       </li>
       
 
@@ -54,19 +54,19 @@
         <ul class="dropdown-menu" role="menu">
           <li class="dropdown-header">Listado para administrar</li>
           <li> 
-            <a href="clientes">Clientes</a>
+            <a href="{{url('clientes')}}">Clientes</a>
           </li> 
           <li> 
-        <a href="uusers">Usuarios</a>
+        <a href="{{url('uusers')}}">Usuarios</a>
       </li>
           <li>
-            <a href="domicilios">Domicilio</a>
+            <a href="{{url('domicilios')}}">Domicilio</a>
           </li>
           <li>
-            <a href="personales">Personal</a>
+            <a href="{{url('personales')}}">Personal</a>
           </li>
           <li>
-            <a href="herramientas">Herramientas</a>
+            <a href="{{url('herramientas')}}">Herramientas</a>
           </li>
           <!--<li>
             <a href="#">Separated link</a>
@@ -80,13 +80,13 @@
 
         <ul class="dropdown-menu" role="menu">
           <li class="dropdown-header">Administrar Servicios</li>
-          <li><a href="servicioss">Cambio de Aceite</a>
+          <li><a href="{{url('servicioss')}}">Cambio de Aceite</a>
 
           </li>
-          <li><a href="diagnosticogeneral">Diagnostico General</a>
+          <li><a href="{{url('diagnosticogeneral')}}">Diagnostico General</a>
 
           </li>
-          <li><a href="mantenimientofrenos">Mantenimiento Frenos</a>
+          <li><a href="{{url('mantenimientofrenos')}}">Mantenimiento Frenos</a>
 
           </li>
         </ul>

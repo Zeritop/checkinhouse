@@ -18,7 +18,7 @@
     <h1 id="textoHome" style="font-size:3vw">LA MEJOR ATENCION PARA SU VEHICULO Y A LA PUERTA DE SU CASA</h1>  
     </div>
       <div id="botonHome">
-      <span><a href="programarservicios" id="aBtnHome">Programa tus servicios</a></span>
+      <span><a href="{{url('programarservicios')}}" id="aBtnHome">Programa tus servicios</a></span>
     </div> 
     <div class="leftupperdiv"></div>
     <div class="rightupperdiv"></div>
@@ -45,7 +45,7 @@
   <br>
   <br>
     
-        <h3 style="text-align: center; color: #04B45F; "><stong>¿POR QUE CONFIAR EN NOSOTROS?</h3></stong>
+        <h3 style="text-align: center; color: #04B45F; "><strong>¿POR QUE CONFIAR EN NOSOTROS?</h3></strong>
         
          <br>
   <br>

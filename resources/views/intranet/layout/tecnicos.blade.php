@@ -35,20 +35,20 @@
   <!-- Sidebar -->
   <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
     <ul class="nav sidebar-nav">
-      <li class="sidebar-brand"> <a href="intranet" style="background-color: #3ADF00; color: #fff;">
+      <li class="sidebar-brand"> <a href="{{url('intranet')}}" style="background-color: #3ADF00; color: #fff;">
                        Intranet CIH
                     </a>
 
       </li>
       <li> 
-        <a href="intranet">Home</a>
+        <a href="{{url('intranet')}}">Home</a>
       </li>
       <li> 
-        <a href="calendario/Web/my-calendar.php">Calendario</a>
+        <a href="{{url('calendario/Web/my-calendar.php')}}">Calendario</a>
       </li>
       </li>
       <li><br>
-          <form method="POST" action="{{ route('logout')}}">
+          <form method="POST" action="{{ route('logOut')}}">
               {{ csrf_field() }}
               <div style="margin-left: 5px;">
                 <button class="btn btn-danger">Cerrar Sesion</button>    
