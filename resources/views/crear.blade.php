@@ -56,7 +56,7 @@
 <div class="row justify-content-center" id="formulario">
 <div class="tab-content" id="nav-tabContent">
     <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-    <form action="cotizacion" method="get">
+    <form action="{{url('cotizacion')}}" method="get">
           <div class="col-md-12">
 		 <div class="form-group"><br>
    <label> Nombre:</label><br> <input type="text" class="form-control" name="nombre" placeholder="Nombre Completo" name="nombre" required></div>
