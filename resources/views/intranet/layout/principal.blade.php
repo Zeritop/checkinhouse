@@ -91,6 +91,9 @@
           </li>
         </ul>
       </li>
+     <li>
+        <a href="{{url('fotos')}}">Fotos</a>
+     </li>
       <li><br>
           <form method="POST" action="{{ route('logOut')}}">
               {{ csrf_field() }}
