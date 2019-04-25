@@ -120,6 +120,9 @@
                 <li class="nav-item">
                     <a class="nav-link" id="textNavbar"  href="{{url('crear')}}">COTIZAR</a>
                 </li> 
+                <li class="nav-item">
+                    <a class="nav-link" id="textNavbar"  href="{{url('productos')}}">PRODUCTOS</a>
+                </li> 
 			      
 			</ul>
 			
