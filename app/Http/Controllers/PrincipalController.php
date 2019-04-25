@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+
 class PrincipalController extends Controller
 {
     
@@ -34,6 +35,7 @@ class PrincipalController extends Controller
     
     public function correo(){
         return view('correo');
+    
     }
     
     

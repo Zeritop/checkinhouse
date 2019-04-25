@@ -29,6 +29,7 @@ Route::get('cuenta','PrincipalController@cuenta')->name('cuenta');
 Route::get('cotizacion','PrincipalController@cotizacion');
 Route::get('crear','PrincipalController@crear');
 
+
 Route::resource('clientes','ClienteController');
 Route::resource('domicilios','DomicilioController');
 Route::resource('personales','PersonalController');
@@ -38,6 +39,8 @@ Route::resource('herramientas','HerramientaController');
 Route::resource('servicioss','ServicioController');
 Route::resource('diagnosticogeneral','DiagnosticoController');
 Route::resource('mantenimientofrenos','FrenoController');
+Route::resource('fotos','FotoController');
+Route::resource('productos','ProductoController');
 
 
 Auth::routes();
