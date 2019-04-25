@@ -43,17 +43,22 @@
     <div class="row justify-content-center col-md-12 col-12 col-sm-12 col-lg-6 ml-auto" id="formulario">
 <div class="tab-content" id="nav-tabContent">
     <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-    {!!Form::open(['route'=> 'mail.store', 'method'=> 'POST'])!!}
+    <!--  {!!Form::open(['route'=> 'mail.store', 'method'=> 'POST'])!!} -->
+    <form action="{{url('cotizacion')}}" method="get">
           <div class="col-md-12">
 		 <div class="form-group"><br>
    <label> Nombre:</label><br> <input type="text" class="form-control" name="nombre" placeholder="Nombre Completo" required></div>
-   
+   <div class="form-group">
+   <label> Empresa:</label><br> <input type="text" class="form-control" name="empresa" placeholder="Opcional"></div>
     <div class="form-group">
     <label>Teléfono:</label><br> <input type="text" class="form-control" name="telefono" placeholder="912345678" required></div>
     
     <div class="form-group">
     <label>Correo Electrónico:</label><br> <input type="email" class="form-control" name="email"  placeholder="ejemplo@algo.com" required></div>
-    <br><br><br><br>
+
+     <div class="form-group">
+    <label>Dirección:</label><br> <input type="text" class="form-control" name="dir"  placeholder="Calle 123" required></div> 
+    <br><br>
    <!-- <div class="form-group">
    <label> RUT:</label><br> <input type="text" class="form-control" placeholder="123456789" name="rut"></div>
    
@@ -166,7 +171,15 @@
       <option>Cambio de Aceites</option>
       <option>Diagnostico General</option>
       <option>Mantencion Frenos</option>
+    </select></div>
+    <div class="form-group">
+      <label for="exampleFormControlSelect1">Precio</label>
+    <select class="form-control" id="exampleFormControlSelect1" name="precio">
+      <option>$10.000</option>
+      <option>$5.000</option>
+      <option>$20.000</option>
     </select>
+    
   </div>
   <div class="form-group">
     <label for="exampleFormControlSelect1">Dia</label>
@@ -206,8 +219,8 @@
   </div>
 	  <button type="submit" class="btn btn-primary">Enviar</button>
 	  <br><br>
-        
-    {!!Form::close()!!}
+     </form>   
+   <!-- {!!Form::close()!!}-->
 </div> 
 </div>
 </div>

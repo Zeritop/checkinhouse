@@ -50,6 +50,15 @@
 					<td style="width: 300px;">&nbsp;[Teléfono]</td>
 					<td style="width: 1000px;">{!! Form::text('telefono', null, array('placeholder' => '','class' => 'form-control', 'required','disabled')) !!}</td>
 				</tr>
+
+				<tr>
+					<td style="width: 300px;">&nbsp;[Día]</td>
+					<td style="width: 1000px;">{!! Form::text('dia', null, array('placeholder' => '','class' => 'form-control', 'required','disabled')) !!}</td>
+				</tr>
+				<tr>
+					<td style="width: 300px;">&nbsp;[Hora]</td>
+					<td style="width: 1000px;">{!! Form::text('hora', null, array('placeholder' => '','class' => 'form-control', 'required','disabled')) !!}</td>
+				</tr>
 			</table>
 			</div>
 			<br>
@@ -64,10 +73,10 @@
 					</tr>
 					<tr>
 						<td>{!! Form::text('servicio', null, array('placeholder' => '','class' => 'form-control', 'required','disabled')) !!}</td>
-						<td style="text-align: center;">$10.000</td>
+						<td style="text-align: center;">{!! Form::text('precio', null, array('placeholder' => '','class' => 'form-control', 'required','disabled')) !!}</td>
 						<td style="text-align: center;">1</td>
 						<td style="text-align: center;">0%</td>
-						<td style="text-align: center;">$10.000</td>
+						<td style="text-align: center;">{!! Form::text('precio', null, array('placeholder' => '','class' => 'form-control', 'required','disabled')) !!}</td>
 					</tr>
 					<tr>
 						<td >&nbsp;</td>
@@ -138,15 +147,15 @@
 				<table>
 					<tr>
 						<td style="width: 144px;"><strong>&nbsp;NETO</strong></td>
-						<td style="width: 141px; text-align: right;">$8.403</td>
+						<td style="width: 141px; text-align: right;"></td>
 					</tr>
 					<tr>
 				<td style="width: 144px;"><strong>&nbsp;IVA 19%</strong></td>
-						<td style="width: 141px; text-align: right;">$1.597</td>
+						<td style="width: 141px; text-align: right;"></td>
 					</tr>
 					<tr>
 						<td style="width: 144px; "><strong>&nbsp;TOTAL</strong></td>
-						<td style="width: 141px; text-align: right;">$10.000</td>
+						<td style="width: 141px; text-align: right;">{!! Form::text('precio', null, array('placeholder' => '','class' => 'form-control', 'required','disabled')) !!}</td>
 					</tr>
 				</table>
 			</div>
