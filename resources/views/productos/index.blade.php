@@ -21,7 +21,10 @@
     <div id="app">
         <div class="row mt-5 my-5 offset-md-1">
             @foreach($fotos as $foto)
+<<<<<<< HEAD
             
+=======
+>>>>>>> seba
             <div style="margin: 15px;" class="alert alert-info">
             <div class="card" style="width: 11rem;">
                 <img height="150px;" src="/storage/{{$foto->nombre}}" class="card-img-top" alt="...">

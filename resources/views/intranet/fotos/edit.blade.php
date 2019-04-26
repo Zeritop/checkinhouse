@@ -6,7 +6,11 @@
 <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
+<<<<<<< HEAD
                 <h2>Editar Foto</h2>
+=======
+                <h2>Editar Producto</h2>
+>>>>>>> seba
             </div>
             <div class="pull-right">
                 <a class="btn btn-primary" href="{{ route('fotos.index') }}"> Atras</a>

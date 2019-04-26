@@ -41,6 +41,10 @@ Route::resource('diagnosticogeneral','DiagnosticoController');
 Route::resource('mantenimientofrenos','FrenoController');
 Route::resource('fotos','FotoController');
 Route::resource('productos','ProductoController');
+<<<<<<< HEAD
+=======
+Route::resource('repuestos','RepuestoController');
+>>>>>>> seba
 
 
 Auth::routes();
