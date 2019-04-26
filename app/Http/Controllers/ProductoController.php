@@ -15,7 +15,7 @@ class ProductoController extends Controller
     public function index()
     {
         $fotos = Foto::orderBy('created_at', 'ASC')
-        ->paginate(5);
+        ->paginate(16);
   
         return view('productos.index',compact('fotos'))
             ->with('i', (request()->input('page', 1) - 1) * 5);

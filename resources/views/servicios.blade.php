@@ -54,7 +54,7 @@
 							<ul class="list-unstyled">	
 							  <li class="media">
 							      <div class="d-none d-sm-block">
-							        <img class="mr-3 rounded" src="Imagenes/aceite5W40.jpg" alt="Responsive image" id="aceites">    
+							           
 							      </div>
 							    
 						   			<div class="media-body">
@@ -67,7 +67,7 @@
 						<div class="col-sm-6 col-md-6">
 		  					<li class="media my-4">
 		  					    <div class="d-none d-sm-block">
-		  					        <img class="mr-3 rounded" src="Imagenes/aceite10W40.jpg" alt="Responsive image" id="aceites">    
+		  					            
 		  					    </div>
 		    						<div class="media-body">
 		      							<h5 class="mt-0 mb-1">ACEITE 10W40</h5>
@@ -83,7 +83,7 @@
 							<ul class="list-unstyled">
 								<li class="media">
 								    <div class="d-none d-sm-block">
-								        <img class="mr-3 rounded" src="Imagenes/aceite20W50.png" alt="Responsive image" id="aceites">    
+								            
 								    </div>
 									
 									<div class="media-body">
@@ -96,7 +96,7 @@
 						<div class="col-md-6">
 							<li class="media my-4">
 							    <div class="d-none d-sm-block">
-							        <img class="mr-3 rounded" src="Imagenes/aceite5W30.png" alt="Responsive image" id="aceites">    
+							            
 							    </div>
 								
 								<div class="media-body">
@@ -114,6 +114,7 @@
     </div>
     
     <br><br>
+	<div class="container">
 	<div class="row col-sm-12 col-md-12 col-12 col-lg-12" style="border: 2px solid #00FF00; border-bottom-left-radius: 50px; border-bottom-right-radius: 50px;">
 	<div id="diagnostico">
 		<div id="cajaTextoAceite" style="text-transform: uppercase;">
@@ -128,10 +129,12 @@
     	 </ul>	     
 
     </div>
+	</div>
+	
 </div>
 
 <br><br>
-
+	<div class="container">
 	<div class="row col-sm-12 col-md-12 col-12 col-lg-12" style="border: 2px solid #00FF00; border-bottom-left-radius: 50px; border-bottom-right-radius: 50px;">
 		<div id="freno">
 			<div id="cajaTextoAceite" style="text-transform: uppercase;">
@@ -142,6 +145,8 @@
 			<br><br>
 		</div>
 	</div>
+	</div>
+	
 
 
 </div><br>
