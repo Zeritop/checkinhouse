@@ -6,10 +6,10 @@
 <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Editar Producto</h2>
+                <h2>Editar Repuesto</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('fotos.index') }}"> Atras</a>
+                <a class="btn btn-primary" href="{{ route('repuestos.index') }}"> Atras</a>
             </div>
         </div>
     </div>
@@ -27,13 +27,11 @@
     @endif
 
 
-
-    {!! Form::model($foto, ['method' => 'PATCH','route' => ['fotos.update', $foto->id]]) !!}
-        @include('intranet.fotos.form1')
+    {!! Form::model($repuesto, ['method' => 'PATCH','route' => ['repuestos.update', $repuesto->id]]) !!}
+        @include('intranet.repuestos.form')
     {!! Form::close() !!}
 
-
-
 </div>
-   
+    
+
 @endsection

@@ -41,6 +41,7 @@ Route::resource('diagnosticogeneral','DiagnosticoController');
 Route::resource('mantenimientofrenos','FrenoController');
 Route::resource('fotos','FotoController');
 Route::resource('productos','ProductoController');
+Route::resource('repuestos','RepuestoController');
 
 
 Auth::routes();
