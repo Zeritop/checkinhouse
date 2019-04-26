@@ -6,10 +6,17 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
+<<<<<<< HEAD
                 <h2>Fotos</h2>
             </div>
             <div class="pull-right">
                 <a class="btn btn-success" href="{{ route('fotos.create') }}"> Crear Nueva Foto</a>
+=======
+                <h2>Productos</h2>
+            </div>
+            <div class="pull-right">
+                <a class="btn btn-success" href="{{ route('fotos.create') }}"> Crear Nuevo Producto</a>
+>>>>>>> seba
             </div>
         </div>
     </div>  

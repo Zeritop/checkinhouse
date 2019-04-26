@@ -68,6 +68,9 @@
           <li>
             <a href="{{url('herramientas')}}">Herramientas</a>
           </li>
+          <li>
+            <a href="{{url('repuestos')}}">Repuestos</a>
+          </li>
           <!--<li>
             <a href="#">Separated link</a>
           </li>
@@ -92,7 +95,11 @@
         </ul>
       </li>
      <li>
+<<<<<<< HEAD
         <a href="{{url('fotos')}}">Fotos</a>
+=======
+        <a href="{{url('fotos')}}">Productos</a>
+>>>>>>> seba
      </li>
       <li><br>
           <form method="POST" action="{{ route('logOut')}}">
