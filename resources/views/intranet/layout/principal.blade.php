@@ -99,11 +99,7 @@
           <a href="{{url('catServs')}}">Categoria Servicios</a>
      </li>
      <li>
-<<<<<<< HEAD
-        <a href="{{url('fotos')}}">Fotos</a>
-=======
         <a href="{{url('fotos')}}">Productos</a>
->>>>>>> seba
      </li>
       <li><br>
           <form method="POST" action="{{ route('logOut')}}">
