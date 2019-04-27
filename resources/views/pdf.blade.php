@@ -1,4 +1,8 @@
+<?php 
+use Illuminate\Support\Facades\DB;
 
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -62,6 +66,8 @@
 			</table>
 			</div>
 			<br>
+			
+
 			<div id="tablaDatCli">
 				<table>
 					<tr>
@@ -71,12 +77,28 @@
 						<th style="background-color: #74DF00; color: white; text-align: center; width: 150px;">DESCUENTO</th>
 						<Th style="background-color: #74DF00; color: white; text-align: center; width: 150px;">TOTAL</Th>
 					</tr>
+
 					<tr>
-						<td>{!! Form::text('servicio', null, array('placeholder' => '','class' => 'form-control', 'required','disabled')) !!}</td>
-						<td style="text-align: center;">{!! Form::text('precio', null, array('placeholder' => '','class' => 'form-control', 'required','disabled')) !!}</td>
+						<td>{!! Form::text('servicio', null, array('placeholder' => '','class' => 'form-control', 'required','id'=>'cosa','disabled')) !!}</td>
+						<?php 
+						$nombre = $_GET['servicio'];
+						
+						
+$servicios = DB::table('servicios')->select('precio')->where('nombre', $nombre)->orderBy('created_at', 'ASC')->get();
+        				
+
+ 
+$resultado = intval(preg_replace('/[^0-9]+/', '', $servicios), 10); 
+
+$neto=round($resultado/1.19);
+$iva=round($neto*0.19);
+$total=$resultado;
+
+						?>
+						<td style="text-align: center;">{!! Form::text('precio', $resultado, array('placeholder' => '','class' => 'form-control', 'required','disabled')) !!}</td>
 						<td style="text-align: center;">1</td>
 						<td style="text-align: center;">0%</td>
-						<td style="text-align: center;">{!! Form::text('precio', null, array('placeholder' => '','class' => 'form-control', 'required','disabled')) !!}</td>
+						<td style="text-align: center;">{!! Form::text('precio', $total, array('placeholder' => '','class' => 'form-control', 'required','disabled')) !!}</td>
 					</tr>
 					<tr>
 						<td >&nbsp;</td>
@@ -147,15 +169,15 @@
 				<table>
 					<tr>
 						<td style="width: 144px;"><strong>&nbsp;NETO</strong></td>
-						<td style="width: 141px; text-align: right;"></td>
+						<td style="width: 141px; text-align: right;">{!! Form::text('precio', $neto, array('placeholder' => '','class' => 'form-control', 'required','disabled')) !!}</td>
 					</tr>
 					<tr>
 				<td style="width: 144px;"><strong>&nbsp;IVA 19%</strong></td>
-						<td style="width: 141px; text-align: right;"></td>
+						<td style="width: 141px; text-align: right;">{!! Form::text('precio', $iva, array('placeholder' => '','class' => 'form-control', 'required','disabled')) !!}</td>
 					</tr>
 					<tr>
 						<td style="width: 144px; "><strong>&nbsp;TOTAL</strong></td>
-						<td style="width: 141px; text-align: right;">{!! Form::text('precio', null, array('placeholder' => '','class' => 'form-control', 'required','disabled')) !!}</td>
+						<td style="width: 141px; text-align: right;">{!! Form::text('precio', $resultado, array('placeholder' => '','class' => 'form-control', 'required','disabled')) !!}</td>
 					</tr>
 				</table>
 			</div>

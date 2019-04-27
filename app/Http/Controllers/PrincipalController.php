@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Servicio;
+
 
 class PrincipalController extends Controller
 {
@@ -56,5 +56,6 @@ class PrincipalController extends Controller
     public function horarios(){
     return view('horarios');
     }
+    
 
        }

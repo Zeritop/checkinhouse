@@ -28,7 +28,7 @@ Route::post('logOut','Auth\LoginController@logOut')->name('logOut');
 Route::get('cuenta','PrincipalController@cuenta')->name('cuenta');
 Route::get('cotizacion','PrincipalController@cotizacion');
 Route::get('crear','PrincipalController@crear');
-
+Route::get('cotizacion2','ServiciooController@cotizacion2');
 Route::resource('clientes','ClienteController');
 Route::resource('domicilios','DomicilioController');
 Route::resource('personales','PersonalController');
@@ -38,6 +38,9 @@ Route::resource('herramientas','HerramientaController');
 Route::resource('servicioss','ServicioController');
 Route::resource('diagnosticogeneral','DiagnosticoController');
 Route::resource('mantenimientofrenos','FrenoController');
+Route::resource('serviciosss','ServiciooController');
+
+
 
 
 Auth::routes();
