@@ -44,7 +44,8 @@ Route::resource('productos','ProductoController');
 <<<<<<< HEAD
 =======
 Route::resource('repuestos','RepuestoController');
->>>>>>> seba
+Route::resource('catServs','CatServController');
+Route::resource('categorias','CategoriaController');
 
 
 Auth::routes();
