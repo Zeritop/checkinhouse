@@ -91,7 +91,7 @@ $servicios = DB::table('servicios')->select('precio')->where('nombre', $nombre)-
 $resultado = intval(preg_replace('/[^0-9]+/', '', $servicios), 10); 
 
 $neto=round($resultado/1.19);
-$iva=round($neto*0.19);
+$iva=round($neto*0.19);	
 $total=$resultado;
 
 						?>
