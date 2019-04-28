@@ -92,12 +92,8 @@
           <li><a href="{{url('mantenimientofrenos')}}">Mantenimiento Frenos</a>
 
           </li>
-          
         </ul>
       </li>
-      <li>
-          <a href="{{url('catServs')}}">Categoria Servicios</a>
-     </li>
      <li>
         <a href="{{url('fotos')}}">Productos</a>
      </li>

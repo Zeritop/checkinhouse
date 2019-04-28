@@ -64,7 +64,7 @@ class FotoController extends Controller
     
         
         return redirect()->route('fotos.index')
-                        ->with('success','Producto creado exitosamente.');
+                        ->with('success','Producto creada exitosamente.');
     }
 
     /**

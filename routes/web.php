@@ -42,8 +42,6 @@ Route::resource('mantenimientofrenos','FrenoController');
 Route::resource('fotos','FotoController');
 Route::resource('productos','ProductoController');
 Route::resource('repuestos','RepuestoController');
-Route::resource('catServs','CatServController');
-Route::resource('categorias','CategoriaController');
 
 
 Auth::routes();
