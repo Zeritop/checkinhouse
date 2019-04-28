@@ -109,11 +109,8 @@ class FotoController extends Controller
          Foto::find($id)->update($request->all());
   
         return redirect()->route('fotos.index')
-<<<<<<< HEAD
-                        ->with('success','Foto actualizada exitosamente');
-=======
+
                         ->with('success','Producto actualizado exitosamente');
->>>>>>> seba
     }
 
     /**
@@ -127,10 +124,6 @@ class FotoController extends Controller
         Foto::find($id)->delete();
   
         return redirect()->route('fotos.index')
-<<<<<<< HEAD
-                        ->with('success','Foto eliminada exitosamente');
-=======
                         ->with('success','Producto eliminado exitosamente');
->>>>>>> seba
     }
 }
