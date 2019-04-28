@@ -57,5 +57,6 @@ class PrincipalController extends Controller
     public function horarios(){
     return view('horarios');
     }
-        
-    }
+    
+
+       }

@@ -48,12 +48,12 @@
 	    <label>Nombre:</label><br>
 	    {!! Form::text('nombre', '', array('class' => 'form-control', 'placeholder' => 'Nombre completo', 'required' => '')) !!}
 	    <!--<input class="form-control" type="text" name="nombre" placeholder="Nombre" required="">-->
-
+</div>	
 	  <div class="form-group">
 	    <label>Telefono:</label><br>
 	    <input class="form-control" type="tel" name="telefono" placeholder="912345678" required="">
 	  </div>	
-		</div>	
+		
 	 <div class="form-group">
 	    <label>Correo Electronico:</label><br>
 	    <input class="form-control" type="mail" name="correo" placeholder="nombre@algo.com" required="">
