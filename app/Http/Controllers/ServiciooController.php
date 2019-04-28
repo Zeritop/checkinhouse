@@ -15,22 +15,14 @@ class ServiciooController extends Controller
      * @return \Illuminate\Http\Response
      */
      
-     public function __construct(){
+     /*public function __construct(){
 
         $this->middleware('auth');
-    }
+    }*/
 
     public function index(Request $request)
     {
-        /*$id = $request->get('id');
-        $nombre = $request->get('nombre');
-        $servicios = Servicio::orderBy('created_at', 'ASC')
-        ->id($id)
-        ->nombre($nombre)
-        ->paginate(5);
-  
-        return view('intranet.servicioss.index',compact('servicios'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);*/
+        
             
         $servicios = DB::table('servicios')->orderBy('created_at', 'ASC')->get();
         
@@ -42,15 +34,7 @@ class ServiciooController extends Controller
     }
     public function index2(Request $request)
     {
-        /*$id = $request->get('id');
-        $nombre = $request->get('nombre');
-        $servicios = Servicio::orderBy('created_at', 'ASC')
-        ->id($id)
-        ->nombre($nombre)
-        ->paginate(5);
-  
-        return view('intranet.servicioss.index',compact('servicios'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);*/
+       
             
         $servicios = DB::table('servicios')->orderBy('created_at', 'ASC')->get();
         
@@ -60,6 +44,17 @@ class ServiciooController extends Controller
         ->with('i', (request()->input('page', 1) - 1) * 5);
         
     }
+
+    public function create()
+    {
+        //
+    }
+
+    public function store(Request $request)
+    {
+        //
+    }
+
 
 
     /**
@@ -79,6 +74,21 @@ class ServiciooController extends Controller
     {
         $servicio = Servicio::find($id);
         return view('serviciosss.show',compact('servicio'));
+    }
+
+    public function edit($id)
+    {
+       //
+    }
+
+    public function update(Request $request, $id)
+    {
+       //
+    }
+
+    public function destroy($id)
+    {
+        //
     }
 
     /**

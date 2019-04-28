@@ -32,7 +32,7 @@ class ServicioController extends Controller
         return view('intranet.servicioss.index',compact('servicios'))
             ->with('i', (request()->input('page', 1) - 1) * 5);*/
             
-        $servicios = DB::table('servicios')->where('nombre', 'Cambio Aceite')->orderBy('created_at', 'ASC')->get();
+        $servicios = DB::table('servicios')->where('nombre', 'Cambio de Aceite')->orderBy('created_at', 'ASC')->get();
         
         
 

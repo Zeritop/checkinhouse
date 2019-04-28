@@ -59,10 +59,9 @@
     <form action="{{url('cotizacion')}}" method="get">
           <div class="col-md-12">
 		 <div class="form-group"><br>
-   <label> Nombre:</label><br> <input type="text" class="form-control" name="nombre" placeholder="Nombre Completo" 
-   required></div>
+   <label> Nombre:</label><br> <input type="text" class="form-control" name="nombre" placeholder="Nombre Completo" name="nombre" required></div>
     <div class="form-group">
-    <label>Empresa:</label><br> <input type="text" name="empresa" class="form-control"  placeholder="Nombre Empresa" ></div>
+    <label>Empresa:</label><br> <input type="text" name="empresa" class="form-control" name="telefono" placeholder="Nombre Empresa" ></div>
   
     
     <div class="form-group">

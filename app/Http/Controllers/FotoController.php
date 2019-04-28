@@ -109,7 +109,6 @@ class FotoController extends Controller
          Foto::find($id)->update($request->all());
   
         return redirect()->route('fotos.index')
-
                         ->with('success','Producto actualizado exitosamente');
     }
 

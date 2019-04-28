@@ -117,7 +117,9 @@
 				<li class="nav-item">
 					<a class="nav-link" id="textNavbar" href="{{url('serviciosss')}}">PROGRAMAR SERVICIOS</a>
 				</li> 
-                
+                <li class="nav-item">
+                    <a class="nav-link" id="textNavbar"  href="{{url('productos')}}">PRODUCTOS</a>
+                </li> 
 			      
 			</ul>
 			

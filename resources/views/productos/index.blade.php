@@ -31,6 +31,7 @@
                         <!--<a href="#" class="btn btn-primary">Comprar</a>--> 
                                               
                     </div>
+                
             </div>
            
         </div>   
