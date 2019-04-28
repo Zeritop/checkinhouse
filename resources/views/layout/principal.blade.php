@@ -112,14 +112,11 @@
 					<a class="nav-link" id="textNavbar" href="{{url('nosotros')}}">NOSOTROS</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" id="textNavbar" href="{{url('servicios')}}">SERVICIOS</a>
+					<a class="nav-link" id="textNavbar" href="{{url('categorias')}}">SERVICIOS</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" id="textNavbar" href="{{url('programarservicios')}}">PROGRAMAR SERVICIOS</a>
+					<a class="nav-link" id="textNavbar" href="{{url('serviciosss')}}">PROGRAMAR SERVICIOS</a>
 				</li> 
-                <li class="nav-item">
-                    <a class="nav-link" id="textNavbar"  href="{{url('crear')}}">COTIZAR</a>
-                </li> 
                 <li class="nav-item">
                     <a class="nav-link" id="textNavbar"  href="{{url('productos')}}">PRODUCTOS</a>
                 </li> 

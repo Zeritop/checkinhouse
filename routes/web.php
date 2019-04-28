@@ -14,7 +14,7 @@
 Route::get('/', 'PrincipalController@index');
 Route::get('index', 'PrincipalController@index');
 Route::get('intranet', 'IntranetController@intranet')->name('intranet');
-Route::get('servicios', 'PrincipalController@servicios');
+
 Route::get('nosotros', 'PrincipalController@nosotros');
 Route::get('programarservicios', 'PrincipalController@programarservicios');
 Route::get('horarios', 'PrincipalController@horarios');
@@ -28,7 +28,7 @@ Route::post('logOut','Auth\LoginController@logOut')->name('logOut');
 Route::get('cuenta','PrincipalController@cuenta')->name('cuenta');
 Route::get('cotizacion','PrincipalController@cotizacion');
 Route::get('crear','PrincipalController@crear');
-
+Route::get('cotizacion2','ServiciooController@cotizacion2');
 
 Route::resource('clientes','ClienteController');
 Route::resource('domicilios','DomicilioController');
@@ -42,6 +42,9 @@ Route::resource('mantenimientofrenos','FrenoController');
 Route::resource('fotos','FotoController');
 Route::resource('productos','ProductoController');
 Route::resource('repuestos','RepuestoController');
+Route::resource('catServs','CatServController');
+Route::resource('categorias','CategoriaController');
+Route::resource('serviciosss','ServiciooController');
 
 
 Auth::routes();
