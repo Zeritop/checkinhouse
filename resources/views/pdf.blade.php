@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 
 
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -207,7 +208,15 @@ $total=$resultado;
 			
 		</div>	
 	</div>
-		
+	<div style="text-align: center"> <br>
+		<form action="{{url('confirmar')}}" method="get">
+			<?php $hora = $_GET['hora']; $servicio = $_GET['servicio']; $dia = $_GET['dia'];?>
+			<select hidden="" name="hora"><option>{{$hora}}</option></select>
+
+			<select hidden="" name="servicio"><option>{{$servicio}}</option></select>
+<select hidden="" name="dia"><option>{{$dia}}</option></select>
+	<button type="submit" class="btn btn-primary">Confirmar Atención</button>	</div>
+		</form>
 </div>
 <br>
 <div style="text-align:center;">La cotización automática se encuentra en desarrollo, más adelante tendra más opciones además de su entrega en formato.pdf para mayor comodidad.</div>

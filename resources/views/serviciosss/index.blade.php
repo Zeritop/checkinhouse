@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,7 +6,9 @@
     <link rel="stylesheet" type="text/css" href="css/programarservicios.css">
     <link rel="shortcut icon" type="image/x-icon" href="Imagenes/definitivo.ico">
     </head>
-
+<?php 
+use Illuminate\Support\Facades\DB;
+?>
 
     
 <body>
@@ -195,24 +198,13 @@
    <div class="form-group">
     <label for="exampleFormControlSelect1">Hora</label>
     <select class="form-control" id="exampleFormControlSelect1" name="hora">
-      <option>8:30</option>
-      <option>9:00</option>
-      <option>9:30</option>
-      <option>10:00</option>
-      <option>10:30</option>
-      <option>11:00</option>
-      <option>11:30</option>
-      <option>12:00</option>
-      <option>12:30</option>
-      <option>13:00</option>
-      <option>13:30</option>
-      <option>14:30</option>
-      <option>15:00</option>
-      <option>15:30</option>
-      <option>16:00</option>
-      <option>16:30</option>
-      <option>17:00</option>
-      <option>17:30</option>
+      <?php $horarios = DB::table('horarios')->where('lugar', 'taller')->where('ocupado',0)->orderBy('id', 'ASC')->get();?><option disabled>Taller</option>
+      @foreach($horarios as $horario)
+            
+            <option>{{$horario->horai}}</option>
+           
+            @endforeach 
+            <option disabled>Terreno No Disponible</option>
     </select>
   </div>
       <button type="submit" class="btn btn-primary">Enviar</button>

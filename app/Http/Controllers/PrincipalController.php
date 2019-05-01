@@ -57,5 +57,14 @@ class PrincipalController extends Controller
     public function horarios(){
     return view('horarios');
     }
+    public function calendario(){
+    return view('calendario');
+    }
+     public function calendario2(){
+    return view('calendario2');
+    }
+        public function confirmar(){
+    return view('confirmar');
+    }
         
     }
