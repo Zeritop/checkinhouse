@@ -1,16 +1,22 @@
-@extends('intranet.layout.principal')
+@extends('intranet.layout.ultimo')
 
 
 @section('content')
-<div style="background-color:#1e1e2f; padding:20px; border-radius:5px;">
-<div class="row">
+<div class="content">
+    <div class="card">
+        <div class="card-header card-header-info">
+            <h2> Ver Usuario  <div class="pull-right">
+                <a class="btn btn-primary" href="{{ route('uusers.index') }}">Atras</a>
+            </div></h2>
+        </div>
+        <div class="card-body">
+
+             <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2> Ver Usuario</h2>
+                
             </div>
-            <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('uusers.index') }}">Atras</a>
-            </div>
+            
         </div>
     </div>
 
@@ -54,5 +60,10 @@
         </div>
     </div>
 </div>
+        </div>
+    </div>
+    
+
+
     
 @endsection

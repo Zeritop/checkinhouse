@@ -1,18 +1,9 @@
-@extends('intranet.layout.principal')
+@extends('intranet.layout.ultimo')
 
 
 @section('content')
-<div style="background-color:#1e1e2f; padding:20px; border-radius:5px;">
-<div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>Clientes</h2>
-            </div>
-            <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('clientes.create') }}"> Crear Nuevo Cliente</a>
-            </div>
-        </div>
-        <div class="pull-right">
+<div class="content">
+    <div class="pull-right">
                 {{ Form::open(['route' => 'clientes.index', 'method' => 'GET', 'class' => 'form-inline']) }}
                     <div class="form-group">
                         {{ Form::text('rut_cli', null, ['class' => 'form-control', 'placeholder' => 'Rut'])}}
@@ -21,16 +12,23 @@
                         {{ Form::text('nom_cli', null, ['class' => 'form-control', 'placeholder' => 'Nombre'])}}
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-default">
-                            <span class="glyphicon glyphicon-search"></span>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="material-icons">
+                                    search
+                                </i>
                         </button>
                     </div>
                     {{ Form::close() }}
             </div>
-    </div>  
 
-
-    @if ($message = Session::get('success'))
+    <div class="card">
+        <div class="card-header card-header-success">
+            <h2>Clientes <div class="pull-right">
+                <a class="btn btn-primary" href="{{ route('clientes.create') }}"> Crear Nuevo Cliente</a>
+            </div></h2>
+        </div>
+        <div class="card-body">
+            @if ($message = Session::get('success'))
         <div class="alert alert-success">
             <p>{{ $message }}</p>
         </div>
@@ -85,9 +83,10 @@
         </tr>
     @endforeach
     </table>
-</div>
-   
 
+        </div>
+    </div>        
+</div>
 
     {!! $clientes->links() !!}
 @endsection

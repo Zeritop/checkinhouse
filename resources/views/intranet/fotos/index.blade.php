@@ -1,21 +1,16 @@
-@extends('intranet.layout.principal')
+@extends('intranet.layout.ultimo')
 
 
 @section('content')
-<div style="background-color:#1e1e2f; padding:20px; border-radius:5px;">
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>Productos</h2>
-            </div>
-            <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('fotos.create') }}"> Crear Nuevo Producto</a>
-            </div>
+<div class="content">
+    <div class="card">
+        <div class="card-header card-header-success">
+            <h2>Productos <div class="pull-right">
+                <a class="btn btn-primary" href="{{ route('fotos.create') }}"> Crear Nuevo Producto</a>
+            </div></h2>
         </div>
-    </div>  
-
-
-    @if ($message = Session::get('success'))
+        <div class="card-body">
+            @if ($message = Session::get('success'))
         <div class="alert alert-success">
             <p>{{ $message }}</p>
         </div>
@@ -56,7 +51,7 @@
 </script>
         <td>
             <a class="btn btn-info" href="{{ route('fotos.show',$foto->id) }}">Ver</a>
-            <a class="btn btn-primary" href="{{ route('fotos.edit',$foto->id) }}">Editar</a>
+            <a class="btn btn-warning" href="{{ route('fotos.edit',$foto->id) }}">Editar</a>
             {!! Form::open(['method' => 'DELETE','route' => ['fotos.destroy', $foto->id], 'onsubmit'=> 'return ConfirmDelete()','style'=>'display:inline']) !!}
             {!! Form::submit('Del', ['class' => 'btn btn-danger']) !!}
             {!! Form::close() !!}
@@ -65,8 +60,9 @@
     @endforeach
     </table>
 
-
-   
+        </div>
+    </div>
 </div>
+   
 {!! $fotos->links() !!}
 @endsection

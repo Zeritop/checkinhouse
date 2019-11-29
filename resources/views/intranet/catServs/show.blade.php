@@ -1,22 +1,17 @@
-@extends('intranet.layout.principal')
+@extends('intranet.layout.ultimo')
 
 
 @section('content')
 
-<div style="background-color:#1e1e2f; padding:20px; border-radius:5px;">
-<div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2> Ver Categoria</h2>
-            </div>
-            <div class="pull-right">
+<div class="content">
+    <div class="card">
+        <div class="card-header card-header-info">
+            <h2> Ver Categoria <div class="pull-right">
                 <a class="btn btn-primary" href="{{ route('catServs.index') }}">Atras</a>
-            </div>
+            </div></h2>
         </div>
-    </div>
-
-
-    <div class="row">
+        <div class="card-body">
+            <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Nombre:</strong>
@@ -48,7 +43,11 @@
             </div>
         </div>
     </div>
-    <img width="500px;" src="/storage/{{ $categoria->foto }}"  alt=""> 
+    <img width="500px;" src="/storage/{{ $categoria->foto }}"  alt="">
+        </div>
+    </div>
 </div>
+ 
+
    
 @endsection

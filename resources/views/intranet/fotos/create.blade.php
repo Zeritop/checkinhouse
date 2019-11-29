@@ -1,21 +1,17 @@
-@extends('intranet.layout.principal')
+@extends('intranet.layout.ultimo')
 
 
 @section('content')
 
-<div style="background-color:#1e1e2f; padding:20px; border-radius:5px;">
-<div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>Crear Nuevo Producto</h2>
-            </div>
-            <div class="pull-right">
+<div class="content">
+    <div class="card">
+        <div class="card-header card-header-success">
+            <h2>Crear Nuevo Producto <div class="pull-right">
                 <a class="btn btn-primary" href="{{ route('fotos.index') }}">Atras</a>
-            </div>
+            </div></h2>
         </div>
-    </div>
-
-    @if (count($errors) < 0)
+        <div class="card-body">
+            @if (count($errors) < 0)
         <div class="alert alert-danger">
             <strong>Whoops!</strong> There were some problems with your input.<br><br>
             <ul>
@@ -31,7 +27,8 @@
     {!! Form::open(array('route' => 'fotos.store','method'=>'POST', 'enctype' => 'multipart/form-data')) !!}
          @include('intranet.fotos.form')
     {!! Form::close() !!}
-
+        </div>
+    </div>
 </div>
     
 @endsection

@@ -1,17 +1,20 @@
-@extends('intranet.layout.principal')
+@extends('intranet.layout.ultimo')
 
 @section('content')
-
- <div style="background-color:#1e1e2f; padding:20px; border-radius:5px;">
- <div class="alert alert-info">
-        <h3>Bienvenido Administrador {{ auth()->user()->name }}</h3>    
-    </div>    
-
-
-
-<img src="Imagenes/cih.svg"><br><br>
-   
+<div class="content">
+	<div class="col-lg-12 col-md-12">
+		<div class="card">
+			 <div class="card-header card-header-info">
+			 	<h4 class="card-title">Bienvenido!</h4>
+			 	<p class="card-category">Administrador {{ auth()->user()->name }}</p>
+			 </div>
+			 <div class="card-body">
+				<img src="Imagenes/cih.svg">			 	
+			 </div>
+		</div>
+	</div>
 </div>
+ 
 
         
     

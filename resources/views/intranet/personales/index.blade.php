@@ -1,18 +1,9 @@
-@extends('intranet.layout.principal')
+@extends('intranet.layout.ultimo')
 
 
 @section('content')
-<div style="background-color:#1e1e2f; padding:20px; border-radius:5px;">
-<div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>Personal</h2>
-            </div>
-            <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('personales.create') }}"> Crear Nuevo Personal</a>
-            </div>
-        </div>
-        <div class="pull-right">
+<div class="content">
+    <div class="pull-right">
                 {{ Form::open(['route' => 'personales.index', 'method' => 'GET', 'class' => 'form-inline']) }}
                     <div class="form-group">
                         {{ Form::text('rut_pers', null, ['class' => 'form-control', 'placeholder' => 'Rut'])}}
@@ -21,16 +12,22 @@
                         {{ Form::text('nom_pers', null, ['class' => 'form-control', 'placeholder' => 'Nombre'])}}
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-default">
-                            <span class="glyphicon glyphicon-search"></span>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="material-icons">
+                                    search
+                                </i>
                         </button>
                     </div>
                     {{ Form::close() }}
             </div>
-    </div>  
-
-
-    @if ($message = Session::get('success'))
+    <div class="card">
+        <div class="card-header card-header-success">
+            <h2>Personal <div class="pull-right">
+                <a class="btn btn-primary" href="{{ route('personales.create') }}"> Crear Nuevo Personal</a>
+            </div></h2>
+        </div>
+        <div class="card-body">
+            @if ($message = Session::get('success'))
         <div class="alert alert-success">
             <p>{{ $message }}</p>
         </div>
@@ -74,7 +71,7 @@
 </script>
         <td>
             <a class="btn btn-info" href="{{ route('personales.show',$personal->id) }}">Ver</a>
-            <a class="btn btn-primary" href="{{ route('personales.edit',$personal->id) }}">Editar</a>
+            <a class="btn btn-warning" href="{{ route('personales.edit',$personal->id) }}">Editar</a>
             {!! Form::open(['method' => 'DELETE','route' => ['personales.destroy', $personal->id],'onsubmit' => 'return ConfirmDelete()','style'=>'display:inline']) !!}
             {!! Form::submit('Del', ['class' => 'btn btn-danger']) !!}
             {!! Form::close() !!}
@@ -84,7 +81,11 @@
     </table>
 
 
-</div>
+
     
     {!! $personales->links() !!}
+        </div>
+    </div>
+</div>
+    
 @endsection

@@ -1,21 +1,16 @@
-@extends('intranet.layout.principal')
+@extends('intranet.layout.ultimo')
 
 
 @section('content')
-<div style="background-color:#1e1e2f; padding:20px; border-radius:5px;">
-<div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>Editar Repuesto</h2>
-            </div>
-            <div class="pull-right">
+<div class="content">
+    <div class="card">
+        <div class="card-header card-header-warning">
+            <h2>Editar Repuesto <div class="pull-right">
                 <a class="btn btn-primary" href="{{ route('repuestos.index') }}"> Atras</a>
-            </div>
+            </div></h2>
         </div>
-    </div>
-
-
-    @if (count($errors) > 0)
+        <div class="card-body">
+            @if (count($errors) > 0)
         <div class="alert alert-danger">
             <strong>Whoops!</strong> There were some problems with your input.<br><br>
             <ul>
@@ -30,8 +25,9 @@
     {!! Form::model($repuesto, ['method' => 'PATCH','route' => ['repuestos.update', $repuesto->id]]) !!}
         @include('intranet.repuestos.form')
     {!! Form::close() !!}
-
+        </div>
+    </div>
 </div>
-    
+  
 
 @endsection

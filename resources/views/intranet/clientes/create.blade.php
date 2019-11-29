@@ -1,19 +1,16 @@
-@extends('intranet.layout.principal')
+@extends('intranet.layout.ultimo')
 
 
 @section('content')
-<div style="background-color:#1e1e2f; padding:20px; border-radius:5px;">
-<div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>Crear Nuevo Cliente</h2>
-            </div>
-            <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('clientes.index') }}">Atras</a>
-            </div>
+<div class="content">
+    <div class="card">
+        <div class="card-header card-header-primary">
+            <h2>Crear Nuevo Cliente <div class="pull-right">
+                <a class="btn btn-info" href="{{ route('clientes.index') }}">Atras</a>
+            </div></h2>
         </div>
-    </div>
-
+        <div class="card-body">
+            
     @if (count($errors) < 0)
         <div class="alert alert-danger">
             <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -30,7 +27,10 @@
     {!! Form::open(array('route' => 'clientes.store','method'=>'POST')) !!}
          @include('intranet.clientes.form')
     {!! Form::close() !!}
-</div>
+
     
+        </div>
+    </div>
+</div>
 
 @endsection

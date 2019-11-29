@@ -1,35 +1,33 @@
-@extends('intranet.layout.principal')
+@extends('intranet.layout.ultimo')
 
 
 @section('content')
-<div style="background-color:#1e1e2f; padding:20px; border-radius:5px;">
-<div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>Usuarios</h2>
-            </div>
-        </div>
-        
+<div class="content">
+    <div class="col-md-12">
         <div class="pull-right">
-                {{ Form::open(['route' => 'uusers.index', 'method' => 'GET', 'class' => 'form-inline']) }}
+                    {{ Form::open(['route' => 'uusers.index', 'method' => 'GET', 'class' => 'form-inline']) }}
                     <div class="form-group">
                         {{ Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Nombre'])}}
                     </div>
                     <div class="form-group">
                         {{ Form::text('email', null, ['class' => 'form-control', 'placeholder' => 'Email'])}}
                     </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-default">
-                            <span class="glyphicon glyphicon-search"></span>
-                        </button>
-                    </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="material-icons">
+                                    search
+                                </i>
+                            </button>
+                        </div>
                     {{ Form::close() }}
-            </div>
-            
-    </div>  
-
-
-    @if ($message = Session::get('success'))
+                </div>
+        <div class="card">
+                <div class="card-header card-header-success">
+                    <h2>Usuarios</h2>
+                </div>
+            <div class="card-body">
+                
+                @if ($message = Session::get('success'))
         <div class="alert alert-success">
             <p>{{ $message }}</p>
         </div>
@@ -67,7 +65,7 @@
 </script>
         <td>
            <a class="btn btn-info" href="{{ route('uusers.show',$user->id) }}">Ver</a>
-            <a class="btn btn-primary" href="{{ route('uusers.edit',$user->id) }}">Editar</a>
+            <a class="btn btn-warning" href="{{ route('uusers.edit',$user->id) }}">Editar</a>
             {!! Form::open(['method' => 'DELETE','route' => ['uusers.destroy', $user->id], 'onsubmit'=> 'return ConfirmDelete()','style'=>'display:inline']) !!}
             {!! Form::submit('Del', ['class' => 'btn btn-danger']) !!}
             
@@ -78,8 +76,15 @@
     @endforeach
     </table>
 
+    </div>
+            
+            
 </div>
+        
+    </div>
     
+</div>
+
 
     {!! $users->links() !!}
 @endsection
