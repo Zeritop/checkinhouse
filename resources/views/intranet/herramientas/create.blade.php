@@ -23,11 +23,11 @@
 
 
 
-    {!! Form::open(array('route' => 'herramientas.store','method'=>'POST')) !!}
+    {!! Form::open(array('route' => 'herramientas.store','method'=>'POST', 'enctype' => 'multipart/form-data')) !!}
          @include('intranet.herramientas.form')
     {!! Form::close() !!}
         </div>
     </div>
 </div>
-   
+
 @endsection

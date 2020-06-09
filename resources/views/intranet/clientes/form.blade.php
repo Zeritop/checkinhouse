@@ -32,7 +32,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Domicilio:</strong>
-                {!! Form::text('cod_dom', null, array('placeholder' => 'Domicilio','class' => 'form-control', 'required')) !!}
+                {!! Form::text('cod_dom_cli', null, array('placeholder' => 'Domicilio','class' => 'form-control', 'required')) !!}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">

@@ -55,20 +55,20 @@ class LoginController extends Controller
         return Redirect::to('ingresar')->with('error_message', 'Logged out correctly');
     }
 
-   
+
    public function login(Request $request){
      $credentials = $this->validate(request(),[
            'email'=>'email|required|string',
            'password'=>'required|string'
-          
+
            ]);
-        
-        
-        
+
+
+
     //return $credentials;
     if(Auth::attempt($credentials)){
         if(Auth::user()->admin == 0){
-           return view('intranet/users/index');
+           return view('index');
        } else if(Auth::user()->admin == 1){
            //$users['users'] = \App\User::all();
            return view('intranet/index');
@@ -76,7 +76,7 @@ class LoginController extends Controller
            return view('intranet/tecnicos/index');
        }
       //return view('intranet/users/index');
-        
+
   }
     return back()
         ->withErrors(['email' => trans('auth.failed')])

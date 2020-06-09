@@ -12,7 +12,7 @@ class ClienteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-     
+
      public function __construct(){
 
         $this->middleware('auth');
@@ -54,7 +54,7 @@ class ClienteController extends Controller
             'ape_cli' => 'required',
             'tel_cli' => 'required',
             'mail_cli' => 'required',
-            'cod_dom' => 'required',
+            'cod_dom_cli' => 'required',
         ]);
 
         Cliente::create($request->all());
@@ -102,7 +102,7 @@ class ClienteController extends Controller
             'ape_cli' => 'required',
             'tel_cli' => 'required',
             'mail_cli' => 'required',
-            'cod_dom' => 'required',
+            'cod_dom_cli' => 'required',
         ]);
 
         Cliente::find($id)->update($request->all());

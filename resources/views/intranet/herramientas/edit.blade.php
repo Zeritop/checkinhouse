@@ -23,10 +23,10 @@
 
 
     {!! Form::model($herramienta, ['method' => 'PATCH','route' => ['herramientas.update', $herramienta->id]]) !!}
-        @include('intranet.herramientas.form')
+        @include('intranet.herramientas.form1')
     {!! Form::close() !!}
         </div>
     </div>
 </div>
-    
+
 @endsection

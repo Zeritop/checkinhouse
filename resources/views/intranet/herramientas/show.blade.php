@@ -25,6 +25,12 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
+                <strong>Alias:</strong>
+                {{ $herramienta->alias_her}}
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
                 <strong>Vida:</strong>
                 {{ $herramienta->vida_her}}
             </div>
@@ -37,11 +43,17 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Taller:</strong>
-                {{ $herramienta->cod_taller}}
+                <strong>Prioridad:</strong>
+                {{ $herramienta->prioridad_her}}
             </div>
         </div>
-       
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Contenedor:</strong>
+                {{ $herramienta->cod_contenedor_her}}
+            </div>
+        </div>
+
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Creado:</strong>
@@ -54,11 +66,17 @@
                 {{ $herramienta->updated_at}}
             </div>
         </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Foto:</strong>
+                {{ $herramienta->foto_her}}
+            </div>
+        </div>
     </div>
-
+<img class="img" width="500px;" src="/storage/{{ $herramienta->foto_her }}">
         </div>
     </div>
 </div>
-  
-    
+
+
 @endsection

@@ -48,7 +48,7 @@
                 <th width="280px">Action</th>
             </tr>
         </thead>
-        
+
     @foreach ($clientes as $cliente)
     <tr>
         <td>{{ ++$i }}</td>
@@ -57,7 +57,7 @@
         <td>{{ $cliente->ape_cli}}</td>
         <td>{{ $cliente->tel_cli}}</td>
         <td>{{ $cliente->mail_cli}}</td>
-        <td>{{ $cliente->cod_dom}}</td>
+        <td>{{ $cliente->cod_dom_cli}}</td>
         <script>
 
   function ConfirmDelete()
@@ -75,17 +75,17 @@
             <a class="btn btn-primary" href="{{ route('clientes.edit',$cliente->id) }}">Editar</a>
             {!! Form::open(['method' => 'DELETE','route' => ['clientes.destroy', $cliente->id], 'onsubmit'=> 'return ConfirmDelete()','style'=>'display:inline']) !!}
             {!! Form::submit('Del', ['class' => 'btn btn-danger']) !!}
-            
-            
+
+
             {!! Form::close() !!}
-            
+
         </td>
         </tr>
     @endforeach
     </table>
 
         </div>
-    </div>        
+    </div>
 </div>
 
     {!! $clientes->links() !!}

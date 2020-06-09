@@ -44,7 +44,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Domicilio:</strong>
-                {{ $cliente->cod_dom}}
+                {{ $cliente->cod_dom_cli}}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">

@@ -12,6 +12,9 @@
                         {{ Form::text('nom_her', null, ['class' => 'form-control', 'placeholder' => 'Nombre'])}}
                     </div>
                     <div class="form-group">
+                        {{ Form::text('alias_her', null, ['class' => 'form-control', 'placeholder' => 'Alias'])}}
+                    </div>
+                    <div class="form-group">
                         <button type="submit" class="btn btn-primary">
                             <i class="material-icons">
                                     search
@@ -40,23 +43,23 @@
                 <th>No</th>
                 <th>Cod</th>
                 <th>Nombre</th>
-                <th>Vida</th>
-                <th>Marca</th>
+                <th>Alias</th>
                 <th>Taller</th>
-                
+                <th>Contenedor</th>
+
                 <th width="280px">Action</th>
             </tr>
         </thead>
-        
+
     @foreach ($herramientas as $herramienta)
     <tr>
         <td>{{ ++$i }}</td>
         <td>{{ $herramienta->cod_her}}</td>
         <td>{{ $herramienta->nom_her}}</td>
-        <td>{{ $herramienta->vida_her}}</td>
-        <td>{{ $herramienta->marca_her}}</td>
-        <td>{{ $herramienta->cod_taller}}</td>
-        
+        <td>{{ $herramienta->alias_her}}</td>
+        <td>{{ $herramienta->cod_taller_her}}</td>
+        <td>{{ $herramienta->cod_contenedor_her}}</td>
+
         <script>
 
   function ConfirmDelete()
@@ -74,16 +77,16 @@
             <a class="btn btn-primary" href="{{ route('herramientas.edit',$herramienta->id) }}">Editar</a>
             {!! Form::open(['method' => 'DELETE','route' => ['herramientas.destroy', $herramienta->id], 'onsubmit'=> 'return ConfirmDelete()','style'=>'display:inline']) !!}
             {!! Form::submit('Del', ['class' => 'btn btn-danger']) !!}
-            
-            
+
+
             {!! Form::close() !!}
-            
+
         </td>
         </tr>
     @endforeach
     </table>
 
-    
+
         </div>
     </div>
 </div>

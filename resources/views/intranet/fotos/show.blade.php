@@ -49,9 +49,9 @@
             </div>
         </div>
     </div>
-    <img width="500px;" src="/storage/{{ $foto->nombre }}"  alt="">
+    <img class="img" width="500px;" src="/storage/{{ $foto->nombre }}" alt="">
         </div>
     </div>
 </div>
-   
+
 @endsection

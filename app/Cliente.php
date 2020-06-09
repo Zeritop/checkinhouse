@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Cliente extends Model
 {
     protected $fillable = [
-        'rut_cli', 'nom_cli', 'ape_cli', 'tel_cli', 'mail_cli', 'cod_dom'
+        'rut_cli', 'nom_cli', 'ape_cli', 'tel_cli', 'mail_cli', 'cod_dom_cli'
     ];
-    
+
       //query Scope
 
     public function scopeRut($query, $rut_cli){

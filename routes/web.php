@@ -1,9 +1,4 @@
 <?php
-
-
-
-
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,7 +20,6 @@ Route::get('horarios', 'PrincipalController@horarios');
 Route::get('correo', 'PrincipalController@correo');
 Route::resource('mail', 'MailController');
 Route::get('ingresar','PrincipalController@ingresar');
-Route::get('admin','PrincipalController@admin');
 Route::post('login','Auth/LoginController@login')->name('login');
 Route::post('register','Auth/RegisterController@login')->name('register');
 Route::post('logOut','Auth\LoginController@logOut')->name('logOut');
@@ -51,6 +45,9 @@ Route::resource('repuestos','RepuestoController');
 Route::resource('catServs','CatServController');
 Route::resource('categorias','CategoriaController');
 Route::resource('serviciosss','ServiciooController');
+Route::resource('generadors','GeneradorController');
+Route::resource('tallers','TallerController');
+Route::resource('contenedors','ContenedorController');
 
 
 Auth::routes();
@@ -73,6 +70,3 @@ Route::group(['middleware' => ['web', 'auth']], function(){
        }
     });
 });
-
-
-

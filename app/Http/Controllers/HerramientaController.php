@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Herramienta;
+use App\Taller;
+use App\Contenedor;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 
 class HerramientaController extends Controller
 {
@@ -12,7 +16,7 @@ class HerramientaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-     
+
      public function __construct(){
 
         $this->middleware('auth');
@@ -20,14 +24,16 @@ class HerramientaController extends Controller
 
     public function index(Request $request)
     {
-        
+
         $cod_her = $request->get('cod_her');
         $nombre = $request->get('nom_her');
+        $alias = $request->get('alias_her');
         $herramientas = Herramienta::orderBy('created_at', 'ASC')
         ->cod($cod_her)
         ->nombre($nombre)
+        ->alias($alias)
         ->paginate(5);
-        
+
         return view('intranet.herramientas.index',compact('herramientas'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -39,7 +45,10 @@ class HerramientaController extends Controller
      */
     public function create()
     {
-        return view('intranet.herramientas.create');
+      $herramientaa = DB::table('tallers')->select('nombre_taller')->get();
+      $herra_contenedor = DB::table('contenedors')->select('nombre_contenedor')->get();
+
+        return view('intranet.herramientas.create', compact('herramientaa', 'herra_contenedor'));
     }
 
     /**
@@ -53,13 +62,31 @@ class HerramientaController extends Controller
         request()->validate([
             'cod_her' => 'required',
             'nom_her' => 'required',
+            'alias_her' => 'required',
             'vida_her' => 'required',
+            'prioridad_her' => 'required',
+            'foto_her' => 'required',
             'marca_her' => 'required',
-            'cod_taller' => 'required',
-            
+            'cod_taller_her' => 'required',
+            'cod_contenedor_her' => 'required',
+
         ]);
-     
-        Herramienta::create($request->all());
+
+
+        //Herramienta::create($request->all());
+        $herramienta = new Herramienta;
+        $herramientatmp = new Herramienta;
+        $herramienta->cod_her = $request->cod_her;
+        $herramienta->nom_her = $request->nom_her;
+        $herramienta->alias_her = $request->alias_her;
+        $herramienta->prioridad_her = $request->prioridad_her;
+        $herramienta->foto_her = Storage::putFile('public', $request->file('foto_her'));
+        $herramienta->foto_her = basename(Storage::putFile('public', $request->file('foto_her')));
+        $herramienta->marca_her = $request->marca_her;
+        $herramienta->vida_her = $request->vida_her;
+        $herramienta->cod_taller_her = $request->cod_taller_her;
+        $herramienta->cod_contenedor_her = $request->cod_contenedor_her;
+        $herramienta->save();
 
         return redirect()->route('herramientas.index')
                         ->with('success','Herramienta creada exitosamente');
@@ -85,8 +112,10 @@ class HerramientaController extends Controller
      */
     public function edit($id)
     {
+       $herramientaa = DB::table('tallers')->select('nombre_taller')->get();
+       $herra_contenedor = DB::table('contenedors')->select('nombre_contenedor')->get();
         $herramienta = Herramienta::find($id);
-        return view('intranet.herramientas.edit',compact('herramienta'));
+        return view('intranet.herramientas.edit',compact('herramienta', 'herramientaa', 'herra_contenedor'));
     }
 
     /**
@@ -102,9 +131,12 @@ class HerramientaController extends Controller
             'cod_her' => 'required',
             'nom_her' => 'required',
             'vida_her' => 'required',
+            'alias_her' => 'required',
+            'prioridad_her' => 'required',
             'marca_her' => 'required',
-            'cod_taller' => 'required',
-            
+            'cod_taller_her' => 'required',
+            'cod_contenedor_her' => 'required',
+
         ]);
         Herramienta::find($id)->update($request->all());
 

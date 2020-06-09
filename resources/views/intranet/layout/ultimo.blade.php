@@ -42,10 +42,10 @@
 
         <ul class="dropdown-menu" role="menu">
           <li class="dropdown-header">Listado para administrar</li>
-          <li> 
+          <li>
             <a class="nav-link" href="{{url('clientes')}}">Clientes</a>
-          </li> 
-          <li> 
+          </li>
+          <li>
         <a href="{{url('uusers')}}">Usuarios</a>
       </li>
           <li>
@@ -59,6 +59,12 @@
           </li>
           <li>
             <a href="{{url('repuestos')}}">Repuestos</a>
+          </li>
+          <li>
+            <a href="{{url('tallers')}}">Talleres</a>
+          </li>
+          <li>
+            <a href="{{url('contenedors')}}">Contenedores</a>
           </li>
           <!--<li>
             <a href="#">Separated link</a>
@@ -83,7 +89,7 @@ build
           <li><a href="{{url('mantenimientofrenos')}}">Mantenimiento Frenos</a>
 
           </li>
-          
+
         </ul>
       </li>
        <li class="nav-item">
@@ -96,7 +102,12 @@ build
           shop
         </i></a>
      </li>
-          
+    <!-- <li class="nav-item">
+        <a class="nav-link" href="{{url('generadors')}}">Generdor CheckList <i class="material-icons">
+          queue
+      </i></a>
+    </li> -->
+
         </ul>
       </div>
     </div>
@@ -159,8 +170,8 @@ build
                   <form method="POST" action="{{ route('logOut')}}">
                     {{ csrf_field() }}
                   <div style="margin-left: 5px;">
-                    <button class="btn btn-danger">Cerrar Sesion</button>    
-                  </div> 
+                    <button class="btn btn-danger">Cerrar Sesion</button>
+                  </div>
                   </form>
                 </div>
               </li>
@@ -209,7 +220,7 @@ build
       </script>
     </div>
   </div>
-  
+
   <!--   Core JS Files   -->
   <script src="{{ asset('assetss/js/core/jquery.min.js') }}"></script>
   <script src="{{ asset('assetss/js/core/popper.min.js') }}"></script>
