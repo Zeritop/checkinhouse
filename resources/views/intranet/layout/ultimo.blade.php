@@ -67,9 +67,7 @@
           <li>
             <a href="{{url('contenedors')}}">Contenedores</a>
           </li>
-          <li>
-            <a href="{{url('vehiculos')}}">Vehiculos</a>
-          </li>
+          
 
           <!--<li>
             <a href="#">Separated link</a>
