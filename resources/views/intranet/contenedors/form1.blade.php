@@ -27,6 +27,12 @@
       </select>
 
     </div>
+    <div>
+      @foreach($cont_taller as $contall)
+      <label style="color: white;">Si no quieres editar el taller, era: {{ $contall->nombre_taller}}</label>
+      @endforeach
+    </div>
+
 
 
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">

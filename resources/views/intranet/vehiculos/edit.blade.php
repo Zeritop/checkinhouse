@@ -5,8 +5,8 @@
 <div class="content">
     <div class="card">
         <div class="card-header card-header-warning">
-            <h2>Editar Contenedor <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('contenedors.index') }}"> Atras</a>
+            <h2>Editar Vehiculo <div class="pull-right">
+                <a class="btn btn-primary" href="{{ route('vehiculos.index') }}"> Atras</a>
             </div></h2>
         </div>
         <div class="card-body">
@@ -22,8 +22,8 @@
     @endif
 
 
-    {!! Form::model($contenedor, ['method' => 'PATCH','route' => ['contenedors.update', $contenedor->id]]) !!}
-        @include('intranet.contenedors.form1')
+    {!! Form::model($vehiculo, ['method' => 'PATCH','route' => ['vehiculos.update', $vehiculo->id]]) !!}
+        @include('intranet.vehiculos.form1')
     {!! Form::close() !!}
         </div>
     </div>

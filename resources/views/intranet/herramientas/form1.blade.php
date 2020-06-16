@@ -43,26 +43,35 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
           <label for="exampleFormControlSelect1">Taller</label>
           <select class="form-control" id="exampleFormControlSelect1" name="cod_taller_her" style="color: black;">
-            <option disabled>Elije un taller...</option>
+            <option disabled selected>Elije un taller...</option>
             @foreach ($herramientaa as $herra)
-            <option>{{ $herra->nombre_taller }}</option>
+            <option value="{{$herra->cod_taller}}">{{ $herra->nombre_taller }}</option>
             @endforeach
           </select>
 
+        </div>
+        <div>
+          @foreach($herr_tall as $herrtall)
+          <label style="color: white;">Si no quieres editar el taller, era: {{ $herrtall->nombre_taller}}</label>
+          @endforeach
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12">
           <label for="exampleFormControlSelect1">Contenedor</label>
           <select class="form-control" id="exampleFormControlSelect1" name="cod_contenedor_her" style="color: black;">
-            <option disabled>Elije un contenedor...</option>
+            <option disabled selected>Elije un contenedor...</option>
             @foreach ($herra_contenedor as $herra)
-            <option>{{ $herra->nombre_contenedor }}</option>
+            <option value="{{$herra->cod_contenedor}}">{{ $herra->nombre_contenedor }}</option>
             @endforeach
           </select>
 
         </div>
-
+        <div>
+          @foreach($herr_cont as $herrcont)
+          <label style="color: white;">Si no quieres editar el contenedor, era: {{ $herrcont->nombre_contenedor}}</label>
+          @endforeach
+        </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Guardar</button>
         </div>
     </div>

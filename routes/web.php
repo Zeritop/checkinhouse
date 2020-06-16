@@ -45,9 +45,10 @@ Route::resource('repuestos','RepuestoController');
 Route::resource('catServs','CatServController');
 Route::resource('categorias','CategoriaController');
 Route::resource('serviciosss','ServiciooController');
-Route::resource('generadors','GeneradorController');
 Route::resource('tallers','TallerController');
 Route::resource('contenedors','ContenedorController');
+Route::resource('vehiculos','VehiculoController');
+Route::resource('chGeneradors','ChGeneradorController');
 
 
 Auth::routes();

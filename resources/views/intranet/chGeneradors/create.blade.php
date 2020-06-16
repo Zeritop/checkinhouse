@@ -4,13 +4,13 @@
 @section('content')
 <div class="content">
     <div class="card">
-        <div class="card-header card-header-warning">
-            <h2>Editar Contenedor <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('contenedors.index') }}"> Atras</a>
+        <div class="card-header card-header-success">
+            <h2>Crear Nueva Tarea <div class="pull-right">
+                <a class="btn btn-primary" href="{{ route('chGeneradors.index') }}">Atras</a>
             </div></h2>
         </div>
         <div class="card-body">
-            @if (count($errors) > 0)
+            @if (count($errors) < 0)
         <div class="alert alert-danger">
             <strong>Whoops!</strong> There were some problems with your input.<br><br>
             <ul>
@@ -22,8 +22,9 @@
     @endif
 
 
-    {!! Form::model($contenedor, ['method' => 'PATCH','route' => ['contenedors.update', $contenedor->id]]) !!}
-        @include('intranet.contenedors.form1')
+
+    {!! Form::open(array('route' => 'chGeneradors.store','method'=>'POST')) !!}
+         @include('intranet.chGeneradors.form')
     {!! Form::close() !!}
         </div>
     </div>

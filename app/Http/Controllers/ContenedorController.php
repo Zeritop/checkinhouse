@@ -21,11 +21,13 @@ class ContenedorController extends Controller
 
     public function index()
     {
-
+      $cont_taller = DB::table('contenedors')->join('tallers','cod_taller', '=', 'nombre_taller_contenedor' )
+                                              ->select('nombre_taller')
+                                              ->get();
       $contenedores = Contenedor::orderBy('created_at', 'ASC')
       ->paginate(5);
 
-      return view('intranet.contenedors.index',compact('contenedores'))
+      return view('intranet.contenedors.index',compact('contenedores', 'cont_taller'))
           ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -36,7 +38,7 @@ class ContenedorController extends Controller
      */
     public function create()
     {
-      $contenedorr = DB::table('tallers')->select('nombre_taller')->get();
+      $contenedorr = DB::table('tallers')->select('nombre_taller', 'cod_taller')->get();
         return view('intranet.contenedors.create', compact('contenedorr'));
     }
 
@@ -70,8 +72,11 @@ class ContenedorController extends Controller
      */
     public function show($id)
     {
+      $cont_taller = DB::table('contenedors')->join('tallers','cod_taller', '=', 'nombre_taller_contenedor' )
+                                              ->select('nombre_taller')
+                                              ->get();
       $contenedor = Contenedor::find($id);
-      return view('intranet.contenedors.show',compact('contenedor'));
+      return view('intranet.contenedors.show',compact('contenedor', 'cont_taller'));
     }
 
     /**
@@ -82,9 +87,12 @@ class ContenedorController extends Controller
      */
     public function edit($id)
     {
-      $contenedorr = DB::table('tallers')->select('nombre_taller')->get();
+      $cont_taller = DB::table('contenedors')->join('tallers','cod_taller', '=', 'nombre_taller_contenedor' )
+                                              ->select('nombre_taller')
+                                              ->get();
+      $contenedorr = DB::table('tallers')->select('nombre_taller', 'cod_taller')->get();
       $contenedor = Contenedor::find($id);
-      return view('intranet.contenedors.edit',compact('contenedor', 'contenedorr'));
+      return view('intranet.contenedors.edit',compact('contenedor', 'contenedorr', 'cont_taller'));
     }
 
     /**

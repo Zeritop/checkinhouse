@@ -33,51 +33,61 @@
         </div>
     @endif
 
+<div class="table-responsive">
+  <table class="table table-hover">
+      <thead>
+          <tr>
+              <th>No</th>
+              <th>nombre</th>
+              <th>descripcion</th>
+              <th>Precio</th>
 
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th>No</th>
-                <th>nombre</th>
-                <th>descripcion</th>
-                <th>Precio</th>
-               
-                <th width="280px">Action</th>
-            </tr>
-        </thead>
-        
-    @foreach ($servicios as $servicio)
-    <tr>
-        <td>{{ ++$i }}</td>
-        <td>{{ $servicio->nombre}}</td>
-        <td>{{ $servicio->descripcion}}</td>
-        <td>{{ $servicio->precio}}</td>
-      
-        <script>
+              <th width="280px">Action</th>
+          </tr>
+      </thead>
 
-  function ConfirmDelete()
-  {
-  var x = confirm("Deseas Eliminarlo?");
-  if (x)
-    return true;
-  else
-    return false;
-  }
+  @foreach ($servicios as $servicio)
+  <tr>
+      <td>{{ ++$i }}</td>
+      <td>{{ $servicio->nombre}}</td>
+      <td>{{ $servicio->descripcion}}</td>
+      <td>{{ $servicio->precio}}</td>
+
+      <script>
+
+function ConfirmDelete()
+{
+var x = confirm("Deseas Eliminarlo?");
+if (x)
+  return true;
+else
+  return false;
+}
 
 </script>
-        <td>
-            <a class="btn btn-info" href="{{ route('diagnosticogeneral.show',$servicio->id) }}">Ver</a>
-            <a class="btn btn-warning" href="{{ route('diagnosticogeneral.edit',$servicio->id) }}">Editar</a>
-            {!! Form::open(['method' => 'DELETE','route' => ['diagnosticogeneral.destroy', $servicio->id], 'onsubmit'=> 'return ConfirmDelete()','style'=>'display:inline']) !!}
-            {!! Form::submit('Del', ['class' => 'btn btn-danger']) !!}
-            
-            
-            {!! Form::close() !!}
-            
-        </td>
-        </tr>
-    @endforeach
-    </table>
+      <td>
+          <a class="btn btn-info" href="{{ route('diagnosticogeneral.show',$servicio->id) }}">
+            <span class="material-icons">
+              visibility
+            </span>
+          </a>
+          <a class="btn btn-warning" href="{{ route('diagnosticogeneral.edit',$servicio->id) }}">
+            <span class="material-icons">
+              edit
+            </span>
+          </a>
+          {!! Form::open(['method' => 'DELETE','route' => ['diagnosticogeneral.destroy', $servicio->id], 'onsubmit'=> 'return ConfirmDelete()','style'=>'display:inline']) !!}
+          {!! Form::button('<span class="material-icons">delete</span>', ['type' => 'submit', 'class' => 'btn btn-danger']) !!}
+
+
+          {!! Form::close() !!}
+
+      </td>
+      </tr>
+  @endforeach
+  </table>
+</div>
+
 
 
         </div>

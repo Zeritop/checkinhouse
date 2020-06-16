@@ -5,8 +5,8 @@
 <div class="content">
     <div class="card">
         <div class="card-header card-header-warning">
-            <h2>Editar Contenedor <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('contenedors.index') }}"> Atras</a>
+            <h2>Editar Tarea <div class="pull-right">
+                <a class="btn btn-primary" href="{{ route('chGeneradors.index') }}"> Atras</a>
             </div></h2>
         </div>
         <div class="card-body">
@@ -22,8 +22,8 @@
     @endif
 
 
-    {!! Form::model($contenedor, ['method' => 'PATCH','route' => ['contenedors.update', $contenedor->id]]) !!}
-        @include('intranet.contenedors.form1')
+    {!! Form::model($ch_generador, ['method' => 'PATCH','route' => ['chGeneradors.update', $ch_generador->id]]) !!}
+        @include('intranet.chGeneradors.form')
     {!! Form::close() !!}
         </div>
     </div>

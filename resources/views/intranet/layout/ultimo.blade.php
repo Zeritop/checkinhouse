@@ -6,6 +6,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <link rel="shortcut icon" type="image/x-icon" href="Imagenes/definitivo.ico">
   <title>
     Intranet
   </title>
@@ -66,6 +67,10 @@
           <li>
             <a href="{{url('contenedors')}}">Contenedores</a>
           </li>
+          <li>
+            <a href="{{url('vehiculos')}}">Vehiculos</a>
+          </li>
+
           <!--<li>
             <a href="#">Separated link</a>
           </li>
@@ -74,6 +79,24 @@
           </li>-->
         </ul>
       </li>
+      <li class="nav-item dropdown"> <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">Administrar 2 <i class="material-icons">content_paste</i>
+       </a>
+
+   <ul class="dropdown-menu" role="menu">
+     <li class="dropdown-header">Listado para administrar</li>
+
+     <li>
+       <a href="{{url('vehiculos')}}">Vehiculos</a>
+     </li>
+
+     <!--<li>
+       <a href="#">Separated link</a>
+     </li>
+     <li>
+       <a href="#">One more separated link</a>
+     </li>-->
+   </ul>
+ </li>
       <li class="nav-item dropdown"> <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">Servicios<i class="material-icons">
 build
 </i></a>
@@ -102,11 +125,24 @@ build
           shop
         </i></a>
      </li>
-    <!-- <li class="nav-item">
-        <a class="nav-link" href="{{url('generadors')}}">Generdor CheckList <i class="material-icons">
-          queue
-      </i></a>
-    </li> -->
+     <li class="nav-item dropdown"> <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">Tareas<i class="material-icons">
+   queue
+   </i></a>
+
+       <ul class="dropdown-menu" role="menu">
+         <li class="dropdown-header">Administrar Tarea</li>
+         <li><a href="{{url('chGeneradors')}}">Generar Tarea</a>
+
+         </li>
+         <li><a href="{{url('diagnosticogeneral')}}">Diagnostico General</a>
+
+         </li>
+         <li><a href="{{url('mantenimientofrenos')}}">Mantenimiento Frenos</a>
+
+         </li>
+
+       </ul>
+     </li>
 
         </ul>
       </div>

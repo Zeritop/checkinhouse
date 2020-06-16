@@ -32,7 +32,9 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Taller:</strong>
-                {{ $contenedor->nombre_taller_contenedor}}
+                @foreach($cont_taller as $contall)
+                {{ $contall->nombre_taller}}
+                @endforeach
             </div>
         </div>
 

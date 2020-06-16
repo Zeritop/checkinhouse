@@ -28,13 +28,21 @@ class HerramientaController extends Controller
         $cod_her = $request->get('cod_her');
         $nombre = $request->get('nom_her');
         $alias = $request->get('alias_her');
+
+        $herr_cont = DB::table('herramientas')->join('contenedors', 'cod_contenedor', '=', 'cod_contenedor_her')
+                                              ->select('nombre_contenedor')
+                                              ->get();
+        $herr_tall = DB::table('herramientas')->join('tallers', 'cod_taller', '=', 'cod_contenedor_her')
+                                              ->select('nombre_taller')
+                                              ->get();
+
         $herramientas = Herramienta::orderBy('created_at', 'ASC')
         ->cod($cod_her)
         ->nombre($nombre)
         ->alias($alias)
         ->paginate(5);
 
-        return view('intranet.herramientas.index',compact('herramientas'))
+        return view('intranet.herramientas.index',compact('herramientas', 'herr_cont', 'herr_tall'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -45,8 +53,8 @@ class HerramientaController extends Controller
      */
     public function create()
     {
-      $herramientaa = DB::table('tallers')->select('nombre_taller')->get();
-      $herra_contenedor = DB::table('contenedors')->select('nombre_contenedor')->get();
+      $herramientaa = DB::table('tallers')->select('nombre_taller', 'cod_taller')->get();
+      $herra_contenedor = DB::table('contenedors')->select('nombre_contenedor', 'cod_contenedor')->get();
 
         return view('intranet.herramientas.create', compact('herramientaa', 'herra_contenedor'));
     }
@@ -100,8 +108,15 @@ class HerramientaController extends Controller
      */
     public function show($id)
     {
+      $herr_cont = DB::table('herramientas')->join('contenedors', 'cod_contenedor', '=', 'cod_contenedor_her')
+                                            ->select('nombre_contenedor')
+                                            ->get();
+      $herr_tall = DB::table('herramientas')->join('tallers', 'cod_taller', '=', 'cod_contenedor_her')
+                                            ->select('nombre_taller')
+                                            ->get();
+
         $herramienta = Herramienta::find($id);
-        return view('intranet.herramientas.show',compact('herramienta'));
+        return view('intranet.herramientas.show',compact('herramienta', 'herr_tall', 'herr_cont'));
     }
 
     /**
@@ -112,10 +127,17 @@ class HerramientaController extends Controller
      */
     public function edit($id)
     {
-       $herramientaa = DB::table('tallers')->select('nombre_taller')->get();
-       $herra_contenedor = DB::table('contenedors')->select('nombre_contenedor')->get();
+      $herr_cont = DB::table('herramientas')->join('contenedors', 'cod_contenedor', '=', 'cod_contenedor_her')
+                                            ->select('nombre_contenedor')
+                                            ->get();
+      $herr_tall = DB::table('herramientas')->join('tallers', 'cod_taller', '=', 'cod_contenedor_her')
+                                            ->select('nombre_taller')
+                                            ->get();
+       $herramientaa = DB::table('tallers')->select('nombre_taller', 'cod_taller')->get();
+       $herra_contenedor = DB::table('contenedors')->select('nombre_contenedor', 'cod_contenedor')->get();
         $herramienta = Herramienta::find($id);
-        return view('intranet.herramientas.edit',compact('herramienta', 'herramientaa', 'herra_contenedor'));
+        return view('intranet.herramientas.edit',compact('herramienta', 'herramientaa', 'herra_contenedor',
+            'herr_cont', 'herr_tall'));
     }
 
     /**

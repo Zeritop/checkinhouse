@@ -26,63 +26,73 @@
                     <h2>Usuarios</h2>
                 </div>
             <div class="card-body">
-                
+
                 @if ($message = Session::get('success'))
         <div class="alert alert-success">
             <p>{{ $message }}</p>
         </div>
     @endif
 
+<div class="table-responsive">
+  <table class="table table-hover">
+      <thead>
+          <tr>
+              <th>No</th>
+              <th>Nombre</th>
+              <th>Email</th>
+              <th>Rol</th>
+              <th width="280px">Action</th>
+          </tr>
+      </thead>
 
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th>No</th>
-                <th>Nombre</th>
-                <th>Email</th>
-                <th>Rol</th>
-                <th width="280px">Action</th>
-            </tr>
-        </thead>
-        
-    @foreach ($users as $user)
-    <tr>
-        <td>{{ ++$i }}</td>
-        <td>{{ $user->name}}</td>
-        <td>{{ $user->email}}</td>
-        <td>{{ $user->admin}}</td>
-        <script>
+  @foreach ($users as $user)
+  <tr>
+      <td>{{ ++$i }}</td>
+      <td>{{ $user->name}}</td>
+      <td>{{ $user->email}}</td>
+      <td>{{ $user->admin}}</td>
+      <script>
 
-  function ConfirmDelete()
-  {
-  var x = confirm("Deseas Eliminarlo?");
-  if (x)
-    return true;
-  else
-    return false;
-  }
+function ConfirmDelete()
+{
+var x = confirm("Deseas Eliminarlo?");
+if (x)
+  return true;
+else
+  return false;
+}
 
 </script>
-        <td>
-           <a class="btn btn-info" href="{{ route('uusers.show',$user->id) }}">Ver</a>
-            <a class="btn btn-warning" href="{{ route('uusers.edit',$user->id) }}">Editar</a>
-            {!! Form::open(['method' => 'DELETE','route' => ['uusers.destroy', $user->id], 'onsubmit'=> 'return ConfirmDelete()','style'=>'display:inline']) !!}
-            {!! Form::submit('Del', ['class' => 'btn btn-danger']) !!}
-            
-            
-            {!! Form::close() !!}
-        </td>
-        </tr>
-    @endforeach
-    </table>
+      <td>
+         <a class="btn btn-info" href="{{ route('uusers.show',$user->id) }}">
+           <span class="material-icons">
+             visibility
+           </span>
+         </a>
+          <a class="btn btn-warning" href="{{ route('uusers.edit',$user->id) }}">
+            <span class="material-icons">
+              edit
+            </span>
+          </a>
+          {!! Form::open(['method' => 'DELETE','route' => ['uusers.destroy', $user->id], 'onsubmit'=> 'return ConfirmDelete()','style'=>'display:inline']) !!}
+          {!! Form::button('<span class="material-icons">delete</span>', ['type' => 'submit', 'class' => 'btn btn-danger']) !!}
+
+
+          {!! Form::close() !!}
+      </td>
+      </tr>
+  @endforeach
+  </table>
+</div>
+
 
     </div>
-            
-            
+
+
 </div>
-        
+
     </div>
-    
+
 </div>
 
 

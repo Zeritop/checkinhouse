@@ -5,61 +5,59 @@
 <div class="content">
     <div class="card">
         <div class="card-header card-header-info">
-            <h2> Ver herramienta <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('herramientas.index') }}">Atras</a>
+            <h2>Detalles del vehiculo <div class="pull-right">
+                <a class="btn btn-primary" href="{{ route('vehiculos.index') }}">Atras</a>
             </div></h2>
         </div>
         <div class="card-body">
             <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Cod:</strong>
-                {{ $herramienta->cod_her}}
+                <strong>Codigo:</strong>
+                {{ $vehiculo->cod_veh}}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Nombre:</strong>
-                {{ $herramienta->nom_her}}
+                <strong>Modelo Vehiculo:</strong>
+                {{ $vehiculo->modelo_veh}}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Alias:</strong>
-                {{ $herramienta->alias_her}}
+                <strong>Año del vehiculo:</strong>
+                {{ $vehiculo->ano_veh}}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Vida:</strong>
-                {{ $herramienta->vida_her}}
+                <strong>Marca Vehiculo:</strong>
+                {{ $vehiculo->marca_veh}}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Marca:</strong>
-                {{ $herramienta->marca_her}}
+                <strong>Patente:</strong>
+                {{ $vehiculo->patente_veh}}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Prioridad:</strong>
-                {{ $herramienta->prioridad_her}}
+                <strong>Tipo vehiculo:</strong>
+                {{ $vehiculo->tipo_veh}}
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Rut cliente:</strong>
+                {{ $vehiculo->rut_cli_veh}}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Taller:</strong>
-                @foreach($herr_tall as $h_t)
-                {{ $h_t->nombre_taller}}
-                @endforeach
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Contenedor:</strong>
-                @foreach($herr_cont as $h_c)
-                {{ $h_c->nombre_contenedor}}
+                @foreach ($vehiculoss as $vehiculos)
+                {{ $vehiculos->nombre_taller}}
                 @endforeach
             </div>
         </div>
@@ -67,23 +65,18 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Creado:</strong>
-                {{ $herramienta->created_at}}
+                {{ $vehiculo->created_at}}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Actualizado:</strong>
-                {{ $herramienta->updated_at}}
+                {{ $vehiculo->updated_at}}
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Foto:</strong>
-                {{ $herramienta->foto_her}}
-            </div>
-        </div>
+
     </div>
-<img class="img" width="500px;" src="/storage/{{ $herramienta->foto_her }}">
+
         </div>
     </div>
 </div>

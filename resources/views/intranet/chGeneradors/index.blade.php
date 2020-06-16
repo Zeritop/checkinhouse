@@ -5,8 +5,8 @@
 <div class="content">
     <div class="card">
         <div class="card-header card-header-success">
-            <h2>Talleres <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('tallers.create') }}"> Crear Nuevo Taller</a>
+            <h2>Generar Tareas <div class="pull-right">
+                <a class="btn btn-primary" href="{{ route('chGeneradors.create') }}"> Crear Nueva Tarea</a>
             </div></h2>
         </div>
         <div class="card-body">
@@ -21,24 +21,18 @@
       <thead>
           <tr>
               <th>No</th>
-              <th>Cod</th>
               <th>Nombre</th>
-              <th>Direccion</th>
-              <th>Capacidad</th>
 
-              <th width="280px">Action</th>
+              <th width="300px">Action</th>
           </tr>
       </thead>
 
-  @foreach ($tallers as $taller)
+  @foreach ($ch_generadors as $generador)
   <tr>
       <td>{{ ++$i }}</td>
-      <td>{{ $taller->cod_taller}}</td>
-      <td>{{ $taller->nombre_taller }}</td>
-      <td>{{ $taller->dir_taller}}</td>
-      <td>{{ $taller->cap_taller}}</td>
+      <td>{{ $generador->titulo_gen}}</td>
 
-<script>
+      <script>
 
 function ConfirmDelete()
 {
@@ -51,18 +45,20 @@ else
 
 </script>
       <td>
-          <a class="btn btn-info" href="{{ route('tallers.show',$taller->id) }}">
+          <a class="btn btn-info" href="{{ route('chGeneradors.show',$generador->id) }}">
             <span class="material-icons">
               visibility
             </span>
           </a>
-          <a class="btn btn-primary" href="{{ route('tallers.edit',$taller->id) }}">
+          <a class="btn btn-primary" href="{{ route('chGeneradors.edit',$generador->id) }}">
             <span class="material-icons">
               edit
             </span>
           </a>
-          {!! Form::open(['method' => 'DELETE','route' => ['tallers.destroy', $taller->id], 'onsubmit'=> 'return ConfirmDelete()','style'=>'display:inline']) !!}
-          {!! Form::button('<span class="material-icons">delete</span>', ['type' => 'submit', 'class' => 'btn btn-danger']) !!}
+          {!! Form::open(['method' => 'DELETE','route' => ['chGeneradors.destroy', $generador->id],
+                                          'onsubmit'=> 'return ConfirmDelete()','style'=>'display:inline']) !!}
+          {!! Form::button('<span class="material-icons">delete</span>', ['type' => 'submit',
+           'class' => 'btn btn-danger']) !!}
 
 
           {!! Form::close() !!}
@@ -79,5 +75,5 @@ else
     </div>
 </div>
 
-    {!! $tallers->links() !!}
+    {!! $ch_generadors->links() !!}
 @endsection
