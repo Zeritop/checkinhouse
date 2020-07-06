@@ -1,10 +1,5 @@
 <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <strong>Codigo herramienta:</strong>
-            {!! Form::text('cod_her', null, array('placeholder' => '001','class' => 'form-control', 'required')) !!}
-        </div>
-    </div>
+
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Nombre herramienta:</strong>
@@ -31,29 +26,36 @@
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Medidas:</strong>
+                {!! Form::text('medidas_her', null, array('placeholder' => '10 cm','class' => 'form-control', 'required')) !!}
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12">
           <label for="exampleFormControlSelect1">Prioridad herramienta</label>
           <select class="form-control" id="exampleFormControlSelect1" name="prioridad_her" style="color: black;">
-            <option disabled>Elije una prioridad...</option>
-            <option>Baja</option>
-            <option>Media</option>
-            <option>Alta</option>
+            <option disabled selected>Elije una prioridad...</option>
+            <option {{ ($herramienta->prioridad_her == 'Baja') ? 'selected' : '' }}>Baja</option>
+            <option {{ ($herramienta->prioridad_her == 'Media') ? 'selected' : '' }}>Media</option>
+            <option {{ ($herramienta->prioridad_her == 'Alta') ? 'selected' : '' }}>Alta</option>
           </select>
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12">
-          <label for="exampleFormControlSelect1">Taller</label>
-          <select class="form-control" id="exampleFormControlSelect1" name="cod_taller_her" style="color: black;">
-            <option disabled selected>Elije un taller...</option>
-            @foreach ($herramientaa as $herra)
-            <option value="{{$herra->cod_taller}}">{{ $herra->nombre_taller }}</option>
+          <label>Foto Herramienta: </label>
+          <input type="file" name="foto_her" id="foto_her">
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12">
+          <label for="exampleFormControlSelect1">Tipo de herramienta</label>
+          <select class="form-control" id="exampleFormControlSelect1" name="id_tipo_herramienta" style="color: black;">
+            <option disabled selected>Elige un tipo de herramienta...</option>
+            @foreach ($tipo as $th)
+            <option value="{{$th->id}}" {{ ($herramienta->id_tipo_herramienta == $th->id) ? 'selected' : '' }} >{{ $th->nombre_th }}</option>
             @endforeach
           </select>
 
-        </div>
-        <div>
-          @foreach($herr_tall as $herrtall)
-          <label style="color: white;">Si no quieres editar el taller, era: {{ $herrtall->nombre_taller}}</label>
-          @endforeach
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -61,16 +63,12 @@
           <select class="form-control" id="exampleFormControlSelect1" name="cod_contenedor_her" style="color: black;">
             <option disabled selected>Elije un contenedor...</option>
             @foreach ($herra_contenedor as $herra)
-            <option value="{{$herra->cod_contenedor}}">{{ $herra->nombre_contenedor }}</option>
+            <option value="{{$herra->cod_contenedor}}" {{ ($herramienta->cod_contenedor_her == $herra->cod_contenedor) ? 'selected' : '' }} >{{ $herra->nombre_contenedor }}</option>
             @endforeach
           </select>
 
         </div>
-        <div>
-          @foreach($herr_cont as $herrcont)
-          <label style="color: white;">Si no quieres editar el contenedor, era: {{ $herrcont->nombre_contenedor}}</label>
-          @endforeach
-        </div>
+
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-primary">Guardar</button>
         </div>

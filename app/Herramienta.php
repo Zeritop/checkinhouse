@@ -7,17 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 class Herramienta extends Model
 {
     protected $fillable = [
-        'cod_her', 'nom_her', 'vida_her', 'marca_her', 'cod_taller_her', 'alias_her', 'prioridad_her', 'foto_her',
-        'cod_contenedor_her'
+        'nom_her', 'vida_her', 'marca_her', 'cod_taller_her', 'alias_her', 'prioridad_her', 'foto_her',
+        'cod_contenedor_her', 'id_tipo_herramienta', 'medidas_her'
     ];
 
       //query Scope
 
-    public function scopeCod($query, $cod_her){
+  /*  public function scopeCod($query, $cod_her){
 
     	if($cod_her)
     		return $query->where('cod_her', $cod_her);
-    }
+    } */
 
     public function scopeNombre($query, $nombre){
 

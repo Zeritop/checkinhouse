@@ -77,78 +77,92 @@
                 {{ $ch_generador->tarea10}}
             </div>
         </div>
+        @if($ext11->tarea11 != null)
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Tarea #11:</strong>
                 {{ $ch_generador->tarea11}}
             </div>
         </div>
-
+        @endif
+        @if($ext12->tarea12 != null)
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Tarea #12:</strong>
                 {{ $ch_generador->tarea12}}
             </div>
         </div>
-
-
+        @endif
+        @if($ext13->tarea13 != null)
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Tarea #13:</strong>
                 {{ $ch_generador->tarea13}}
             </div>
         </div>
-
-
+        @endif
+        @if($ext14->tarea14 != null)
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Tarea #14:</strong>
                 {{ $ch_generador->tarea14}}
             </div>
         </div>
+        @endif
 
+        @if($ext15->tarea15 != null)
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Tarea #15:</strong>
                 {{ $ch_generador->tarea15}}
             </div>
         </div>
+        @endif
 
+        @if($ext16->tarea16 != null)
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Tarea #16:</strong>
                 {{ $ch_generador->tarea16}}
             </div>
         </div>
+        @endif
 
+        @if($ext17->tarea17 != null)
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Tarea #17:</strong>
                 {{ $ch_generador->tarea17}}
             </div>
         </div>
+        @endif
 
+        @if($ext18->tarea18 != null)
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Tarea #18:</strong>
                 {{ $ch_generador->tarea18}}
             </div>
         </div>
+        @endif
 
+        @if($ext19->tarea19 != null)
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Tarea #19:</strong>
                 {{ $ch_generador->tarea19}}
             </div>
         </div>
+        @endif
 
+        @if($ext20->tarea20 != null)
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Tarea #20:</strong>
                 {{ $ch_generador->tarea20}}
             </div>
         </div>
-
+        @endif
 
 
         <div class="col-xs-12 col-sm-12 col-md-12">

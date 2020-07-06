@@ -21,13 +21,23 @@ class ContenedorController extends Controller
 
     public function index()
     {
-      $cont_taller = DB::table('contenedors')->join('tallers','cod_taller', '=', 'nombre_taller_contenedor' )
-                                              ->select('nombre_taller')
-                                              ->get();
+      $cont_taller = DB::table('contenedors')->join('tallers','cod_taller', 'nombre_taller_contenedor' )
+                                            ->select('cod_contenedor', 'tallers.nombre_taller',
+                                              'nombre_contenedor', 'contenedors.id')
+                                              ->orderBy('contenedors.id')
+                                              ->paginate(5);
+
       $contenedores = Contenedor::orderBy('created_at', 'ASC')
       ->paginate(5);
 
-      return view('intranet.contenedors.index',compact('contenedores', 'cont_taller'))
+      $contenedores1 = Contenedor::orderBy('created_at', 'ASC')->get();
+
+      $unionself = DB::table('contenedors AS c1')->join('contenedors AS c2', 'c1.id', '=', 'c2.cid')
+                                                 ->select('c2.nombre_contenedor', 'c1.id')
+                                                 ->get();
+      //dd($unionself);
+      return view('intranet.contenedors.index',compact('contenedores', 'cont_taller', 'contenedores1',
+      'unionself'))
           ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -39,7 +49,9 @@ class ContenedorController extends Controller
     public function create()
     {
       $contenedorr = DB::table('tallers')->select('nombre_taller', 'cod_taller')->get();
-        return view('intranet.contenedors.create', compact('contenedorr'));
+      $conte1 = DB::table('contenedors')->select('id', 'nombre_contenedor')->get();
+      //dd($conte);
+        return view('intranet.contenedors.create', compact('contenedorr', 'conte1'));
     }
 
     /**
@@ -72,11 +84,18 @@ class ContenedorController extends Controller
      */
     public function show($id)
     {
-      $cont_taller = DB::table('contenedors')->join('tallers','cod_taller', '=', 'nombre_taller_contenedor' )
-                                              ->select('nombre_taller')
-                                              ->get();
+      $cont_taller = DB::table('contenedors')->join('tallers','cod_taller', 'nombre_taller_contenedor' )
+                                            ->select( 'tallers.nombre_taller')
+                                            ->where('contenedors.id', $id)
+                                            ->first();
+
+      $unionself = DB::table('contenedors AS c1')->join('contenedors AS c2', 'c1.id', '=', 'c2.cid')
+                                                 ->select('c1.nombre_contenedor')
+                                                 ->first();
+
       $contenedor = Contenedor::find($id);
-      return view('intranet.contenedors.show',compact('contenedor', 'cont_taller'));
+      //dd($contenedor);
+      return view('intranet.contenedors.show',compact('contenedor', 'cont_taller', 'unionself'));
     }
 
     /**
@@ -88,11 +107,16 @@ class ContenedorController extends Controller
     public function edit($id)
     {
       $cont_taller = DB::table('contenedors')->join('tallers','cod_taller', '=', 'nombre_taller_contenedor' )
-                                              ->select('nombre_taller')
-                                              ->get();
+                                              ->select('cod_taller')
+                                              ->where('contenedors.id', $id)
+                                              ->first();
+
       $contenedorr = DB::table('tallers')->select('nombre_taller', 'cod_taller')->get();
+      $conte_cont = DB::table('contenedors')->select('cid')->where('id', $id)->first();
+      $conte1 = DB::table('contenedors')->select('id', 'nombre_contenedor')->get();
       $contenedor = Contenedor::find($id);
-      return view('intranet.contenedors.edit',compact('contenedor', 'contenedorr', 'cont_taller'));
+      return view('intranet.contenedors.edit',compact('contenedor', 'contenedorr', 'cont_taller',
+       'conte_cont', 'conte1'));
     }
 
     /**

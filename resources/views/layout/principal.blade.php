@@ -216,7 +216,7 @@
 
     <!-- Copyright-->
     <div class="footer-copyright py-3 text-center" style="background-color: #000;">
-        Check In House © 2019
+        Check In House © {{ date('Y') }}
     </div>
 </footer>
 

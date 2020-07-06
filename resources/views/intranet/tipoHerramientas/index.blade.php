@@ -5,8 +5,8 @@
 <div class="content">
     <div class="card">
         <div class="card-header card-header-success">
-            <h2>Generar Tareas <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('chGeneradors.create') }}"> Crear Nueva Tarea</a>
+            <h2>Tipo de Herramientas <div class="pull-right">
+                <a class="btn btn-primary" href="{{ route('tipoHerramientas.create') }}"> Crear Nuevo Tipo</a>
             </div></h2>
         </div>
         <div class="card-body">
@@ -22,15 +22,18 @@
           <tr>
               <th>No</th>
               <th>Nombre</th>
+              <th>Descripcion</th>
 
-              <th width="300px">Action</th>
+
+              <th width="280px">Action</th>
           </tr>
       </thead>
 
-  @foreach ($ch_generadors as $generador)
+  @foreach ($tipoH as $th)
   <tr>
       <td>{{ ++$i }}</td>
-      <td>{{ $generador->titulo_gen}}</td>
+      <td>{{ $th->nombre_th}}</td>
+      <td>{{ $th->descripcion_th}}</td>
 
       <script>
 
@@ -45,17 +48,23 @@ else
 
 </script>
       <td>
-          <a class="btn btn-info" href="{{ route('chGeneradors.show',$generador->id) }}">
+          <a class="btn btn-info" href="{{ route('tipoHerramientas.show',$th->id) }}">
             <span class="material-icons">
               visibility
             </span>
           </a>
-          <a class="btn btn-warning" href="{{ route('chGeneradors.edit',$generador->id) }}">
+          <a class="btn btn-warning" href="{{ route('tipoHerramientas.edit',$th->id) }}">
             <span class="material-icons">
               edit
             </span>
           </a>
-        
+          {!! Form::open(['method' => 'DELETE','route' => ['tipoHerramientas.destroy', $th->id],
+          'onsubmit'=> 'return ConfirmDelete()','style'=>'display:inline']) !!}
+          {!! Form::button('<span class="material-icons">delete</span>', ['type' => 'submit',
+          'class' => 'btn btn-danger']) !!}
+
+
+          {!! Form::close() !!}
 
       </td>
       </tr>
@@ -68,6 +77,6 @@ else
         </div>
     </div>
 </div>
+  <div class="container">{!! $tipoH->links() !!}</div>
 
-    {!! $ch_generadors->links() !!}
 @endsection

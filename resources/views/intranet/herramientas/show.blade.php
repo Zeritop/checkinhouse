@@ -11,12 +11,7 @@
         </div>
         <div class="card-body">
             <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Cod:</strong>
-                {{ $herramienta->cod_her}}
-            </div>
-        </div>
+
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Nombre:</strong>
@@ -49,18 +44,23 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Taller:</strong>
-                @foreach($herr_tall as $h_t)
-                {{ $h_t->nombre_taller}}
-                @endforeach
+                <strong>Medidas:</strong>
+                {{ $herramienta->medidas_her}}
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Tipo Herramienta:</strong>
+                {{ $tipoH->nombre_th}}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Contenedor:</strong>
-                @foreach($herr_cont as $h_c)
-                {{ $h_c->nombre_contenedor}}
-                @endforeach
+
+                {{ $herr_jj->nombre_contenedor}}
+
             </div>
         </div>
 
@@ -83,7 +83,11 @@
             </div>
         </div>
     </div>
+    @if($herramienta->foto_her != null)
 <img class="img" width="500px;" src="/storage/{{ $herramienta->foto_her }}">
+@else
+<img class="img" width="500px;" src="/Imagenes/noFoto.png">
+@endif
         </div>
     </div>
 </div>

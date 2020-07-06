@@ -5,8 +5,8 @@
 <div class="content">
     <div class="card">
         <div class="card-header card-header-warning">
-            <h2>Editar herramientas <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('herramientas.index') }}"> Atras</a>
+            <h2>Editar Tarea <div class="pull-right">
+                <a class="btn btn-primary" href="{{ route('chHistorials.index') }}"> Atras</a>
             </div></h2>
         </div>
         <div class="card-body">
@@ -22,8 +22,8 @@
     @endif
 
 
-    {!! Form::model($herramienta, ['method' => 'PATCH', 'enctype' => 'multipart/form-data', 'route' => ['herramientas.update', $herramienta->id]]) !!}
-        @include('intranet.herramientas.form1')
+    {!! Form::model($ch_historial, ['method' => 'PATCH','route' => ['chHistorials.update', $ch_historial->id]]) !!}
+        @include('intranet.chHistorials.form')
     {!! Form::close() !!}
         </div>
     </div>

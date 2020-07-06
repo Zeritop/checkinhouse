@@ -49,6 +49,9 @@ Route::resource('tallers','TallerController');
 Route::resource('contenedors','ContenedorController');
 Route::resource('vehiculos','VehiculoController');
 Route::resource('chGeneradors','ChGeneradorController');
+Route::resource('chRealizars','ChRealizarController');
+Route::resource('chHistorials','ChHistorialController');
+Route::resource('tipoHerramientas','TipoHerramientaController');
 
 
 Auth::routes();

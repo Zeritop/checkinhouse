@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\ChGenerador;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ChGeneradorController extends Controller
 {
@@ -75,8 +76,22 @@ class ChGeneradorController extends Controller
      */
     public function show($id)
     {
+
       $ch_generador = ChGenerador::find($id);
-      return view('intranet.chGeneradors.show',compact('ch_generador'));
+
+      $ext11 = DB::table('ch_generadors')->select('tarea11')->where('id', $id)->first();
+      $ext12 = DB::table('ch_generadors')->select('tarea12')->where('id', $id)->first();
+      $ext13 = DB::table('ch_generadors')->select('tarea13')->where('id', $id)->first();
+      $ext14 = DB::table('ch_generadors')->select('tarea14')->where('id', $id)->first();
+      $ext15 = DB::table('ch_generadors')->select('tarea15')->where('id', $id)->first();
+      $ext16 = DB::table('ch_generadors')->select('tarea16')->where('id', $id)->first();
+      $ext17 = DB::table('ch_generadors')->select('tarea17')->where('id', $id)->first();
+      $ext18 = DB::table('ch_generadors')->select('tarea18')->where('id', $id)->first();
+      $ext19 = DB::table('ch_generadors')->select('tarea19')->where('id', $id)->first();
+      $ext20 = DB::table('ch_generadors')->select('tarea20')->where('id', $id)->first();
+
+      return view('intranet.chGeneradors.show',compact('ch_generador', 'ext11', 'ext12', 'ext13', 'ext14',
+    'ext15', 'ext16', 'ext17', 'ext18', 'ext19', 'ext20'));
     }
 
     /**

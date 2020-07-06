@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class PrincipalController extends Controller
 {
-    
+
 
 	public function index(){
 		return view('index');
@@ -24,21 +24,21 @@ class PrincipalController extends Controller
     public function admin(){
         return view('admin/index');
     }
-    
+
     public function cotizar(){
     	return view('cotizar');
     }
-    
+
     public function programarservicios(){
         return view('programarservicios');
     }
-    
+
     public function correo(){
         return view('correo');
-    
+
     }
-    
-    
+
+
     /*public function intranet(){
         return view('intranet/index');
     }*/
@@ -66,5 +66,5 @@ class PrincipalController extends Controller
         public function confirmar(){
     return view('confirmar');
     }
-        
+
     }

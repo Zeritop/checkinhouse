@@ -67,7 +67,7 @@
           <li>
             <a href="{{url('contenedors')}}">Contenedores</a>
           </li>
-          
+
 
           <!--<li>
             <a href="#">Separated link</a>
@@ -85,6 +85,9 @@
 
      <li>
        <a href="{{url('vehiculos')}}">Vehiculos</a>
+     </li>
+     <li>
+       <a href="{{url('tipoHerramientas')}}">Tipo de Herramientas</a>
      </li>
 
      <!--<li>
@@ -132,10 +135,10 @@ build
          <li><a href="{{url('chGeneradors')}}">Generar Tarea</a>
 
          </li>
-         <li><a href="{{url('diagnosticogeneral')}}">Diagnostico General</a>
+         <li><a href="{{url('chRealizars')}}">Realizar Tarea</a>
 
          </li>
-         <li><a href="{{url('mantenimientofrenos')}}">Mantenimiento Frenos</a>
+         <li><a href="{{url('chHistorials')}}">Historial Tareas</a>
 
          </li>
 

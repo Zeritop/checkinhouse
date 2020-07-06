@@ -5,8 +5,8 @@
 <div class="content">
     <div class="card">
         <div class="card-header card-header-success">
-            <h2>Generar Tareas <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('chGeneradors.create') }}"> Crear Nueva Tarea</a>
+            <h2>Historial de Tareas <div class="pull-right">
+
             </div></h2>
         </div>
         <div class="card-body">
@@ -21,16 +21,20 @@
       <thead>
           <tr>
               <th>No</th>
-              <th>Nombre</th>
+              <th>Nombre Tarea</th>
+              <th>Rut Cliente</th>
+              <th>Patente Cliente</th>
 
               <th width="300px">Action</th>
           </tr>
       </thead>
 
-  @foreach ($ch_generadors as $generador)
+  @foreach ($ch_historials as $historial)
   <tr>
       <td>{{ ++$i }}</td>
-      <td>{{ $generador->titulo_gen}}</td>
+      <td>{{ $historial->nombre_gen_his}}</td>
+      <td>{{ $historial->rut_real_his}}</td>
+      <td>{{ $historial->patente_real_his}}</td>
 
       <script>
 
@@ -45,17 +49,17 @@ else
 
 </script>
       <td>
-          <a class="btn btn-info" href="{{ route('chGeneradors.show',$generador->id) }}">
+          <a class="btn btn-info" href="{{ route('chHistorials.show',$historial->id) }}">
             <span class="material-icons">
               visibility
             </span>
           </a>
-          <a class="btn btn-warning" href="{{ route('chGeneradors.edit',$generador->id) }}">
+          <a class="btn btn-warning" href="{{ route('chHistorials.edit',$historial->id) }}">
             <span class="material-icons">
               edit
             </span>
           </a>
-        
+
 
       </td>
       </tr>
@@ -69,5 +73,5 @@ else
     </div>
 </div>
 
-    {!! $ch_generadors->links() !!}
+    {!! $ch_historials->links() !!}
 @endsection

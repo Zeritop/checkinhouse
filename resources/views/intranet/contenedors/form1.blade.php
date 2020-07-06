@@ -22,17 +22,24 @@
       <select class="form-control" id="exampleFormControlSelect1" name="nombre_taller_contenedor" style="color: black;">
         <option disabled selected>Elige un taller...</option>
         @foreach ($contenedorr as $conte)
-        <option value="{{$conte->cod_taller }}">{{ $conte->nombre_taller }}</option>
+        <option value="{{$conte->cod_taller}}" {{ ($cont_taller->cod_taller == $conte->cod_taller) ? 'selected' : '' }} >{{ $conte->nombre_taller }}</option>
+        @endforeach
+
+
+      </select>
+
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12">
+      <label for="exampleFormControlSelect1">Contenedor donde está el contenedor</label>
+      <select class="form-control" id="exampleFormControlSelect1" name="cid" style="color: black;">
+        <option disabled selected>Elige un contenedor...</option>
+        @foreach ($conte1 as $c)
+        <option value="{{$c->id}}" {{ ($conte_cont->cid == $c->id) ? 'selected' : '' }}>{{ $c->nombre_contenedor }}</option>
         @endforeach
       </select>
 
     </div>
-    <div>
-      @foreach($cont_taller as $contall)
-      <label style="color: white;">Si no quieres editar el taller, era: {{ $contall->nombre_taller}}</label>
-      @endforeach
-    </div>
-
 
 
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">

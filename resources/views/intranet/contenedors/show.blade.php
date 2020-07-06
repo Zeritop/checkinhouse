@@ -32,9 +32,19 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Taller:</strong>
-                @foreach($cont_taller as $contall)
-                {{ $contall->nombre_taller}}
-                @endforeach
+
+                {{ $cont_taller->nombre_taller}}
+
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Contenedor:</strong>
+                @if($contenedor->cid != null)
+                {{ $unionself->nombre_contenedor}}
+                @else
+                No está dentro de otro contenedor.
+                @endif
             </div>
         </div>
 

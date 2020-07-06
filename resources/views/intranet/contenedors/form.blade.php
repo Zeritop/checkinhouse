@@ -28,6 +28,17 @@
 
     </div>
 
+    <div class="col-xs-12 col-sm-12 col-md-12">
+      <label for="exampleFormControlSelect1">Contenedor donde está el contenedor</label>
+      <select class="form-control" id="exampleFormControlSelect1" name="cid" style="color: black;">
+        <option disabled selected>Elige un contenedor...</option>
+        @foreach ($conte1 as $c)
+        <option value="{{$c->id}}">{{ $c->nombre_contenedor }}</option>
+        @endforeach
+      </select>
+
+    </div>
+
 
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-primary">Guardar</button>

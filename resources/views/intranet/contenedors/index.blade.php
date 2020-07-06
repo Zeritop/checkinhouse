@@ -29,14 +29,14 @@
           </tr>
       </thead>
 
-  @foreach ($contenedores as $contenedor)
+  @foreach ($cont_taller as $contenedor)
   <tr>
       <td>{{ ++$i }}</td>
       <td>{{ $contenedor->cod_contenedor}}</td>
       <td>{{ $contenedor->nombre_contenedor}}</td>
-      @foreach($cont_taller as $contall)
-      <td>{{ $contall->nombre_taller}}</td>
-      @endforeach
+
+      <td>{{ $contenedor->nombre_taller}}</td>
+
       <script>
 
 function ConfirmDelete()
@@ -80,5 +80,30 @@ else
     </div>
 </div>
 
-    {!! $contenedores->links() !!}
+    <div class="container">{!! $contenedores->links() !!}</div>
+
+
+<div class="content">
+  <h3 style="color: white;">Visualización de contenedores.</h3>
+  <div class="row">
+    @foreach($contenedores1 as $cont)
+    <div class="col-xl-4 col-lg-12">
+      <div class="card">
+        <div class="card-header card-header-info" style="color:black;">
+          {{ $cont->nombre_contenedor }}
+        </div>
+        <div class="card-body" style="color:white;">
+          @foreach($unionself as $us)
+          @if($cont->id == $us->id)
+          * {{ $us->nombre_contenedor }}<br>
+          @endif
+          @endforeach
+        </div>
+      </div>
+    </div>
+    @endforeach
+  </div>
+
+</div>
+
 @endsection

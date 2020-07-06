@@ -18,7 +18,7 @@
     <h1 id="textoHome" style="font-size:3vw">LA MEJOR ATENCION PARA SU VEHICULO Y A LA PUERTA DE SU CASA</h1>
     </div>
       <div id="botonHome">
-      <span><a href="{{url('programarservicios')}}" id="aBtnHome">Programa tus servicios</a></span>
+      <span><a href="{{url('serviciosss')}}" id="aBtnHome">Programa tus servicios</a></span>
     </div>
     <div class="leftupperdiv"></div>
     <div class="rightupperdiv"></div>
@@ -73,7 +73,7 @@
           <div class="row col-md-3 offset-md-1">
             <img src="Imagenes/guardar.png" class="mx-auto d-block" style="width: 100px; height: 100px;">
             <h3>Ahorre tiempo y extienda la vida útil de sus equipos</h3>
-            <p>Nuestra principal preocupación es generar la menor pérdida de tiempo y la mayo durabilidad de su vehículo. Todo esto en un precio razonable y competitivo.</p>
+            <p>Nuestra principal preocupación es generar la menor pérdida de tiempo y la mayor durabilidad de su vehículo. Todo esto en un precio razonable y competitivo.</p>
           </div>
 
         </div>

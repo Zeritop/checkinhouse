@@ -56,7 +56,7 @@ else
               visibility
             </span>
           </a>
-          <a class="btn btn-primary" href="{{ route('tallers.edit',$taller->id) }}">
+          <a class="btn btn-warning" href="{{ route('tallers.edit',$taller->id) }}">
             <span class="material-icons">
               edit
             </span>
