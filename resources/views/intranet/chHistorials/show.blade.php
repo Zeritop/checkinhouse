@@ -215,7 +215,7 @@
               @if($histo->tarea14 != null)
               <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                  @if($histo->chbx2 != null)
+                  @if($histo->chbx14 != null)
                   <span class="material-icons">
                     check_circle_outline
                   </span>
