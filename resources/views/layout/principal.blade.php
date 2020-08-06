@@ -132,6 +132,7 @@
 								{{ Auth::user()->name }} <!-- <span class="caret"></span> -->
 					</a>
 								<div class="dropdown-menu" aria-labelledby="dropDrop">
+								<!--	<a class="dropdown-item" href="{{ url('calendarioEventos') }}">Calendario</a> -->
 									<div class="dropdown-divider"></div>
 													<a class="dropdown-item" href="{{ route('logout') }}"
 													 onclick="event.preventDefault();
@@ -158,6 +159,7 @@
 		</div>
 	</nav>
 	@yield('content')
+
 
 	<div class="social">
            <div id="facebook"><a href="https://www.facebook.com/CheckInHouseSPA" target="none"><i class="fa fa-facebook"></i></a></div>

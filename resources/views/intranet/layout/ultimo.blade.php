@@ -144,6 +144,11 @@ build
 
        </ul>
      </li>
+     <li class="nav-item">
+       <a class="nav-link" href="{{url('calendario')}}">Calendario<i class="material-icons">
+event
+</i></a>
+     </li>
 
         </ul>
       </div>
@@ -265,9 +270,8 @@ build
   <script src="https://unpkg.com/default-passive-events"></script>
   <script src="{{ asset('assetss/js/plugins/perfect-scrollbar.jquery.min.js') }}"></script>
   <!-- Place this tag in your head or just before your close body tag. -->
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
-  <!--  Google Maps Plugin    -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+ <script async defer src="https://buttons.github.io/buttons.js"></script>
+
   <!-- Chartist JS -->
   <script src="{{ asset('assetss/js/plugins/chartist.min.js') }}"></script>
   <!--  Notifications Plugin    -->

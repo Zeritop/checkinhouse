@@ -27,8 +27,8 @@ Route::get('cuenta','PrincipalController@cuenta')->name('cuenta');
 Route::get('cotizacion','PrincipalController@cotizacion');
 Route::get('crear','PrincipalController@crear');
 Route::get('cotizacion2','ServiciooController@cotizacion2');
-Route::get('calendario','PrincipalController@calendario');
-Route::get('calendario2','PrincipalController@calendario2');
+//Route::get('calendario','PrincipalController@calendario');
+//Route::get('calendario2','PrincipalController@calendario2');
 Route::get('confirmar','PrincipalController@confirmar');
 Route::resource('clientes','ClienteController');
 Route::resource('domicilios','DomicilioController');
@@ -52,6 +52,8 @@ Route::resource('chGeneradors','ChGeneradorController');
 Route::resource('chRealizars','ChRealizarController');
 Route::resource('chHistorials','ChHistorialController');
 Route::resource('tipoHerramientas','TipoHerramientaController');
+Route::resource('calendario', 'CalendarioController');
+Route::resource('calendarioEventos', 'CalendarioUserController');
 
 
 Auth::routes();

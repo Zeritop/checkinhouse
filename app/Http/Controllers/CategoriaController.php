@@ -12,11 +12,13 @@ class CategoriaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
     public function index()
     {
         $categorias = CatServ::orderBy('created_at', 'ASC')
         ->paginate(5);
-  
+
         return view('categorias.index',compact('categorias'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
