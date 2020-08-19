@@ -5,21 +5,18 @@
     <title>Programar servicios</title>
     <link rel="stylesheet" type="text/css" href="css/programarservicios.css">
     <link rel="shortcut icon" type="image/x-icon" href="Imagenes/definitivo.ico">
-    
+
 
     <!--     Fonts and icons     -->
 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-	
+
 
 	<!-- CSS Files -->
 	<link href="assets/css/material-bootstrap-wizard.css" rel="stylesheet" />
-	
-    </head>
-<?php 
-use Illuminate\Support\Facades\DB;
-?>
 
-    
+    </head>
+
+
 <body>
 @extends('layout.principal')
 
@@ -28,11 +25,15 @@ use Illuminate\Support\Facades\DB;
 
 
 <div class="image-container set-full-height" style="background-image: url('assets/img/wizard-book.jpg')">
- 
+  @if (Session::has('message'))
+  <div class="alert alert-success text-center">
+  <p>{{ Session::get('message') }}</p>
+  </div>
+  @endif
 	    <!--   Big container   -->
 	    <div class="container">
             <div id="cajaImagen" class="row col-md-6 d-none d-sm-none d-md-block ">
-              <img src="Imagenes/sevicios-profesionales.jpg" id="imgTipo" class="d-none d-sm-none d-md-block">  
+              <img src="Imagenes/sevicios-profesionales.jpg" id="imgTipo" class="d-none d-sm-none d-md-block">
               </div>
 	        <div class="row">
 		        <div class="col-sm-8 col-sm-offset-2">
@@ -40,7 +41,8 @@ use Illuminate\Support\Facades\DB;
 		            <div class="wizard-container">
 		                <div class="card wizard-card" data-color="green" id="wizard">
                     <!-- Inicio del Formulario -->
-		                    <form action="{{url('cotizacion')}}" method="get">
+		                    <form action="{{route('mail.store')}}" method="POST">
+                          <input type="hidden" name="_token" value="{{ csrf_token() }}">
 		                <!--        You can switch " data-color="blue" "  with one of the next bright colors: "green", "orange", "red", "purple"             -->
                     <div class="container text-center">
                       <div class="alert alert-warning" role="alert">
@@ -67,7 +69,7 @@ use Illuminate\Support\Facades\DB;
 			                            	<div class="col-sm-12">
 			                                	<h4 class="info-text"> Comencemos con sus datos.</h4>
 			                            	</div>
-                                    
+
 		                                	<div class="col-sm-6">
 												<div class="input-group">
 													<span class="input-group-addon">
@@ -124,11 +126,11 @@ use Illuminate\Support\Facades\DB;
                                                     <input name="dir" type="text" class="form-control" required="">
                                                 </div>
                                             </div>
-                                                
+
                                             </div>
 
-		                            	</div> 
-		                            </div> 
+		                            	</div>
+		                            </div>
 		                            <div class="tab-pane" id="captain">
 		                                <h4 class="info-text">Datos de su vehiculo y fecha. </h4>
 		                                <div class="row">
@@ -143,7 +145,7 @@ use Illuminate\Support\Facades\DB;
                                                     <input name="patente" type="text" class="form-control" required="">
                                                 </div>
                                             </div>
-                                         </div>   
+                                         </div>
 
                                         <div class="col-sm-6">
 		                                    	<div class="form-group label-floating">
@@ -206,46 +208,10 @@ use Illuminate\Support\Facades\DB;
 		                                        	<label class="control-label">Año</label>
 	                                        		<select class="form-control" name="ano" required="">
 														<option disabled="" selected=""></option>
-	                                                	<option>1980</option>
-                                                        <option>1981</option>
-                                                        <option>1982</option>
-                                                        <option>1983</option>
-                                                        <option>1984</option>
-                                                        <option>1985</option>
-                                                        <option>1986</option>
-                                                        <option>1987</option>
-                                                        <option>1988</option>
-                                                        <option>1989</option>
-                                                        <option>1990</option>
-                                                        <option>1991</option>
-                                                        <option>1992</option>
-                                                        <option>1993</option>
-                                                        <option>1994</option>
-                                                        <option>1995</option>
-                                                        <option>1996</option>
-                                                        <option>1997</option>
-                                                        <option>1998</option>
-                                                        <option>1999</option>
-                                                        <option>2000</option>
-                                                        <option>2001</option>
-                                                        <option>2002</option>
-                                                        <option>2003</option>
-                                                        <option>2004</option>
-                                                        <option>2005</option>
-                                                        <option>2006</option>
-                                                        <option>2007</option>
-                                                        <option>2008</option>
-                                                        <option>2009</option>
-                                                        <option>2010</option>
-                                                        <option>2011</option>
-                                                        <option>2012</option>
-                                                        <option>2013</option>
-                                                        <option>2014</option>
-                                                        <option>2015</option>
-                                                        <option>2016</option>
-                                                        <option>2017</option>
-                                                        <option>2018</option>
-                                                        <option>2019</option>
+                                                        @for($i = 1980; $i <=  date('Y') ; $i++)
+                                                        <option>{{ $i }}</option>
+                                                        @endfor
+
 		                                        	</select>
 		                                    	</div>
                                             </div>
@@ -255,28 +221,19 @@ use Illuminate\Support\Facades\DB;
                                                     <span class="input-group-addon">
                                                         <i class="material-icons">calendar_today</i>
                                                     </span>
-                                           
+
                                                     <div class="form-group label-floating">
 		                                        	    <label class="control-label">Día</label>
-	                                        		    <select class="form-control" name="dia" required="">
-														    <option disabled="" selected=""></option>
-                                                            <option>Lunes</option>
-                                                            <option>Martes</option>
-                                                            <option>Miercoles</option>
-                                                            <option>Jueves</option>
-                                                            <option>Viernes</option>
-                                                            <option>Sabado</option>
-                                                            <option>Domingo</option>
-		                                        	    </select>
+	                                        		      <input type="date" name="dia" class="form-control">
 		                                    	    </div>
-                                                </div>    
+                                                </div>
                                             </div>
 
                                             <div class="col-sm-6">
                                                 <div class="form-group label-floating">
 		                                        	<label class="control-label">Hora</label>
 	                                        		    <select class="form-control" name="hora" required="">
-                                                  
+
 														    <option disabled="" selected=""></option>
                                                             <option>8:30</option>
                                                             <option>9:00</option>
@@ -289,6 +246,7 @@ use Illuminate\Support\Facades\DB;
                                                             <option>12:30</option>
                                                             <option>13:00</option>
                                                             <option>13:30</option>
+                                                            <option>14:00</option>
                                                             <option>14:30</option>
                                                             <option>15:00</option>
                                                             <option>15:30</option>
@@ -306,7 +264,7 @@ use Illuminate\Support\Facades\DB;
                                                     </span>
                                                     <div class="form-group label-floating">
                                                         <label  class="control-label">Servicios</label>
-                                                        
+
                                                         <select name="servicio" class="form-control" required="">
                                                             @foreach($servicios as $servicio)
                                                             <option disabled="" selected=""></option>
@@ -314,21 +272,26 @@ use Illuminate\Support\Facades\DB;
 
                                                             @endforeach
                                                         </select>
-                                                    </div>    
+                                                    </div>
                                                 </div>
-                                            </div>   
-                                            
+                                            </div>
+
 		                                </div>
-                              
+
 		                            </div>
-		                          
+
 		                        </div>
 	                        	<div class="wizard-footer">
 	                            	<div class="pull-right">
 	                                    <input type='button' class='btn btn-next btn-fill btn-success btn-wd' name='next' value='Siguiente' />
-	                            
+                                      @auth
                                       <button type="submit" class="btn btn-finish btn-success btn-wd" name="finish">Enviar</button>
-                                      
+                                      @endauth
+                                      @guest
+                                        <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Iniciar Sesion">
+                                        <button type="submit" class="btn btn-finish btn-success btn-wd" name="finish" disabled>Enviar (Iniciar Sesion)</button>
+                                        </span>
+                                      @endguest
 	                                </div>
 	                                <div class="pull-left">
 	                                    <input type='button' class='btn btn-previous btn-fill btn-default btn-wd' name='previous' value='Atras' />
@@ -336,7 +299,7 @@ use Illuminate\Support\Facades\DB;
                                   </form>
 	                                <div class="clearfix"></div>
 	                        	</div>
-		                    
+
 		                </div>
 		            </div> <!-- wizard container -->
 		        </div>
@@ -357,7 +320,7 @@ use Illuminate\Support\Facades\DB;
 <!--<div class="alert alert-info" role="alert">
   HORA: Se efectúa un recargo adicional ($5.000) por extenciones entre las 20:00 hrs y 08:00 hrs
 </div>-->
-</div>  
+</div>
 
 
 

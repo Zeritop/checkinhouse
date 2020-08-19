@@ -30,7 +30,7 @@ background: linear-gradient(to right, #2a0845, #6441A5); /* W3C, IE 10+/ Edge, F
 </div>
 
   <div id="app">
-    <calendario></calendario>
+    <calendario :user="{{ Auth::user() }}"></calendario>
   </div>
 </div>
 

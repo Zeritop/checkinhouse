@@ -45,7 +45,7 @@ class CalendarioController extends Controller
      */
     public function store(Request $request)
     {
-       
+
         $calendario = new Calendario;
         $calendario->name = $request->name;
         $calendario->details = $request->details;

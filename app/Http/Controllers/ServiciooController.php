@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Servicio;
+use App\Cliente;
 use Illuminate\Support\Facades\DB;
 
 
@@ -17,7 +18,7 @@ class ServiciooController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-     
+
      /*public function __construct(){
 
         $this->middleware('auth');
@@ -25,27 +26,27 @@ class ServiciooController extends Controller
 
     public function index(Request $request)
     {
-        
-            
+
+
         $servicios = DB::table('servicios')->orderBy('created_at', 'ASC')->get();
-        
-        
+
+
 
         return view('serviciosss.index', ['servicios' => $servicios])
         ->with('i', (request()->input('page', 1) - 1) * 5);
-        
+
     }
     public function index2(Request $request)
     {
-       
-            
+
+
         $servicios = DB::table('servicios')->orderBy('created_at', 'ASC')->get();
-        
-        
+
+
 
         return view('serviciosss.index2', ['servicios' => $servicios])
         ->with('i', (request()->input('page', 1) - 1) * 5);
-        
+
     }
 
     public function create()
@@ -55,7 +56,11 @@ class ServiciooController extends Controller
 
     public function store(Request $request)
     {
-        //
+
+        
+
+        return redirect()->route('serviciosss.index')
+                        ->with('success','Servicio Agendado exitosamente');
     }
 
 
@@ -65,7 +70,7 @@ class ServiciooController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    
+
 
     /**
      * Display the specified resource.

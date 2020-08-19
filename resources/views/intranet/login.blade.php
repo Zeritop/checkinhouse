@@ -16,23 +16,23 @@
                     <input class="form-control" type="email" name="email" placeholder="Ingrese email" value="{{ old('email')}}">
                     {!! $errors->first('email', '<span class="help-block">:message</span>') !!}
                                 </div>
-                <div class="form-group {{ $errors->has('password') ? 'has-error' : '' }}"">
+                <div class="form-group {{ $errors->has('password') ? 'has-error' : '' }}">
                     <label for="password">Password</label>
                     <input class="form-control" type="password" name="password" placeholder="Ingrese Pass">
                     {!! $errors->first('password', '<span class="help-block">:message</span>') !!}
-                  
+
                 </div>
                 <button class="btn btn-primary btn-block" >Acceder</button><br>
                 <a href="../" class="btn btn-danger btn-block">Salir</a>
             </form>
-            
+
         </div>
-        
-        
-        
-        
+
+
+
+
     </div>
-    
+
 </div>
 
 
@@ -42,5 +42,3 @@
 @endsection
 
 </div>
-
-

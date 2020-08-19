@@ -97,9 +97,10 @@
 
                 <v-toolbar-title v-html="selectedEvent.name"></v-toolbar-title>
                 <v-spacer></v-spacer>
-                <v-btn icon @click="deleteEvent(selectedEvent)">
+                <v-btn icon @click="deleteEvent(selectedEvent)" v-if="selectedEvent.id_user ===  user.id ">
                   <v-icon>mdi-delete</v-icon>
                 </v-btn>
+
               </v-toolbar>
               <v-card-text>
 
@@ -131,9 +132,9 @@
                 >
                   Cancel
                 </v-btn>
-                <v-btn text v-if="currentlyEditing !== selectedEvent.id"
+                <v-btn text v-if="currentlyEditing !== selectedEvent.id && selectedEvent.id_user ===  user.id"
                 @click.prevent="editEvent(selectedEvent.id)">Editar</v-btn>
-                <v-btn text v-else @click.prevent="updateEvent(selectedEvent)">Guardar cambios</v-btn>
+                <v-btn text v-else-if="selectedEvent.id_user ===  user.id" @click.prevent="updateEvent(selectedEvent)">Guardar cambios</v-btn>
               </v-card-actions>
             </v-card>
           </v-menu>
@@ -166,13 +167,16 @@
       end: null,
       color: '#1976D2',
       dialog: false,
+      id_user: null,
       currentlyEditing: null,
     }),
+    props: ['user'],
     mounted () {
       this.$refs.calendar.checkChange()
     },
     created () {
       this.getEvents();
+      
     },
     methods: {
       async updateEvent(ev){
@@ -242,6 +246,7 @@
           await axios.get('/calendario')
           .then(res => {
             this.events = res.data;
+
           })
         } catch (e) {
             console.log(e);

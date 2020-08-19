@@ -133,7 +133,7 @@
 					</a>
 								<div class="dropdown-menu" aria-labelledby="dropDrop">
 									<!-- link para el calendario -->
-								<!--	<a class="dropdown-item" href="{{ url('calendarioEventos') }}">Calendario</a> -->
+									<a class="dropdown-item" href="{{ url('calendarioEventos') }}">Calendario</a> 
 
 
 									<div class="dropdown-divider"></div>

@@ -2511,6 +2511,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2532,9 +2533,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       end: null,
       color: '#1976D2',
       dialog: false,
+      id_user: null,
       currentlyEditing: null
     };
   },
+  props: ['user'],
   mounted: function mounted() {
     this.$refs.calendar.checkChange();
   },
@@ -36393,21 +36396,23 @@ var render = function() {
                                 _vm._v(" "),
                                 _c("v-spacer"),
                                 _vm._v(" "),
-                                _c(
-                                  "v-btn",
-                                  {
-                                    attrs: { icon: "" },
-                                    on: {
-                                      click: function($event) {
-                                        return _vm.deleteEvent(
-                                          _vm.selectedEvent
-                                        )
-                                      }
-                                    }
-                                  },
-                                  [_c("v-icon", [_vm._v("mdi-delete")])],
-                                  1
-                                )
+                                _vm.selectedEvent.id_user === _vm.user.id
+                                  ? _c(
+                                      "v-btn",
+                                      {
+                                        attrs: { icon: "" },
+                                        on: {
+                                          click: function($event) {
+                                            return _vm.deleteEvent(
+                                              _vm.selectedEvent
+                                            )
+                                          }
+                                        }
+                                      },
+                                      [_c("v-icon", [_vm._v("mdi-delete")])],
+                                      1
+                                    )
+                                  : _vm._e()
                               ],
                               1
                             ),
@@ -36489,7 +36494,8 @@ var render = function() {
                                   ]
                                 ),
                                 _vm._v(" "),
-                                _vm.currentlyEditing !== _vm.selectedEvent.id
+                                _vm.currentlyEditing !== _vm.selectedEvent.id &&
+                                _vm.selectedEvent.id_user === _vm.user.id
                                   ? _c(
                                       "v-btn",
                                       {
@@ -36505,7 +36511,8 @@ var render = function() {
                                       },
                                       [_vm._v("Editar")]
                                     )
-                                  : _c(
+                                  : _vm.selectedEvent.id_user === _vm.user.id
+                                  ? _c(
                                       "v-btn",
                                       {
                                         attrs: { text: "" },
@@ -36520,6 +36527,7 @@ var render = function() {
                                       },
                                       [_vm._v("Guardar cambios")]
                                     )
+                                  : _vm._e()
                               ],
                               1
                             )

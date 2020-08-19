@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Mail;
 use Session;
 use Redirect;
+use App\Calendario;
 
 class MailController extends Controller
 {
@@ -42,8 +43,22 @@ class MailController extends Controller
             $msj->to('cotinhouse@gmail.com');
 
         });
+
+        $detalle = $request->marca. " ". $request->modelo;
+        $fecha = $request->dia. " ". $request->hora;
+
+        $calendario = new Calendario;
+        $calendario->name = $request->servicio;
+        $calendario->details = $detalle;
+        $calendario->start = $fecha;
+        $calendario->end = $fecha;
+        $calendario->color = '#1976D2';
+        $calendario->id_user = auth()->id();
+        $calendario->save();
+
+
          Session::flash('message', 'Mensaje enviado correctamente');
-         return Redirect::to('servicios');
+         return Redirect::to('serviciosss');
     }
 
     /**

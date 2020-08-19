@@ -77,7 +77,17 @@ class CalendarioUserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+
+      $calendario = Calendario::find($id);
+
+        $calendario->name = $request->name;
+        $calendario->details = $request->details;
+        $calendario->save();
+
+        return $calendario;
+
+
     }
 
     /**
