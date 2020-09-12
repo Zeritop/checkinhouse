@@ -6,7 +6,9 @@
     <div class="card">
         <div class="card-header card-header-success">
             <h2>Generar Tareas <div class="pull-right">
+              @can('chGeneradors.create')
                 <a class="btn btn-primary" href="{{ route('chGeneradors.create') }}"> Crear Nueva Tarea</a>
+                @endcan
             </div></h2>
         </div>
         <div class="card-body">
@@ -45,17 +47,20 @@ else
 
 </script>
       <td>
+        @can('chGeneradors.show')
           <a class="btn btn-info" href="{{ route('chGeneradors.show',$generador->id) }}">
             <span class="material-icons">
               visibility
             </span>
           </a>
+          @endcan
+          @can('chGeneradors.edit')
           <a class="btn btn-warning" href="{{ route('chGeneradors.edit',$generador->id) }}">
             <span class="material-icons">
               edit
             </span>
           </a>
-        
+        @endcan
 
       </td>
       </tr>

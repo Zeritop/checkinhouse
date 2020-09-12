@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Foto;
-use Illuminate\Support\Facades\Storage; 
+use Illuminate\Support\Facades\Storage;
 
 class FotoController extends Controller
 {
@@ -16,14 +16,18 @@ class FotoController extends Controller
 
     public function __construct(){
 
-        $this->middleware('auth');
+      $this->middleware('permission:fotos.create')->only(['create', 'store']);
+      $this->middleware('permission:fotos.index')->only(['index']);
+      $this->middleware('permission:fotos.show')->only(['show']);
+      $this->middleware('permission:fotos.edit')->only(['edit', 'update']);
+      $this->middleware('permission:fotos.destroy')->only(['destroy']);
     }
 
     public function index()
     {
         $fotos = Foto::orderBy('created_at', 'ASC')
         ->paginate(5);
-  
+
         return view('intranet.fotos.index',compact('fotos'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -55,14 +59,14 @@ class FotoController extends Controller
         $foto = new Foto;
         $fototmp = new Foto;
         $foto->nombre = Storage::putFile('public', $request->file('nombre'));
-        $foto->nombre = basename(Storage::putFile('public', $request->file('nombre')));   
+        $foto->nombre = basename(Storage::putFile('public', $request->file('nombre')));
         $foto->precio = $request->precio;
         $foto->cantidad = $request->cantidad;
         $foto->descripcion = $request->descripcion;
-        $foto->save();    
-       
-    
-        
+        $foto->save();
+
+
+
         return redirect()->route('fotos.index')
                         ->with('success','Producto creado exitosamente.');
     }
@@ -105,9 +109,9 @@ class FotoController extends Controller
             'cantidad' => 'required',
             'descripcion' => 'required',
         ]);
-  
+
          Foto::find($id)->update($request->all());
-  
+
         return redirect()->route('fotos.index')
                         ->with('success','Producto actualizado exitosamente');
     }
@@ -121,7 +125,7 @@ class FotoController extends Controller
     public function destroy($id)
     {
         Foto::find($id)->delete();
-  
+
         return redirect()->route('fotos.index')
                         ->with('success','Producto eliminado exitosamente');
     }

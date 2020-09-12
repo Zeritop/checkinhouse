@@ -72,8 +72,6 @@ class LoginController extends Controller
        } else if(Auth::user()->admin == 1){
            //$users['users'] = \App\User::all();
            return view('intranet/index');
-       } else if(Auth::user()->admin == 2){
-           return view('intranet/tecnicos/index');
        }
       //return view('intranet/users/index');
 

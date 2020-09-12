@@ -3,12 +3,13 @@
 
 @section('content')
 <div class="content">
+
     <div class="card">
         <div class="card-header card-header-success">
-            <h2>Talleres <div class="pull-right">
-              @can('tallers.create')
-                <a class="btn btn-primary" href="{{ route('tallers.create') }}"> Crear Nuevo Taller</a>
-                @endcan
+            <h2>Permisos <div class="pull-right">
+              @can('permisos.create')
+                <a class="btn btn-primary" href="{{ route('permisos.create') }}"> Crear Nuevo Permiso</a>
+              @endcan
             </div></h2>
         </div>
         <div class="card-body">
@@ -23,24 +24,18 @@
       <thead>
           <tr>
               <th>No</th>
-              <th>Cod</th>
               <th>Nombre</th>
-              <th>Direccion</th>
-              <th>Capacidad</th>
 
               <th width="280px">Action</th>
           </tr>
       </thead>
 
-  @foreach ($tallers as $taller)
+  @foreach ($permisos as $permiso)
   <tr>
       <td>{{ ++$i }}</td>
-      <td>{{ $taller->cod_taller}}</td>
-      <td>{{ $taller->nombre_taller }}</td>
-      <td>{{ $taller->dir_taller}}</td>
-      <td>{{ $taller->cap_taller}}</td>
+      <td>{{ $permiso->name}}</td>
 
-<script>
+      <script>
 
 function ConfirmDelete()
 {
@@ -53,23 +48,25 @@ else
 
 </script>
       <td>
-        @can('tallers.show')
-          <a class="btn btn-info" href="{{ route('tallers.show',$taller->id) }}">
+        @can('permisos.show')
+          <a class="btn btn-info" href="{{ route('permisos.show',$permiso->id) }}">
             <span class="material-icons">
               visibility
             </span>
           </a>
           @endcan
-          @can('tallers.edit')
-          <a class="btn btn-warning" href="{{ route('tallers.edit',$taller->id) }}">
+          @can('permisos.edit')
+          <a class="btn btn-warning" href="{{ route('permisos.edit',$permiso->id) }}">
             <span class="material-icons">
               edit
             </span>
           </a>
           @endcan
-          @can('tallers.destroy')
-          {!! Form::open(['method' => 'DELETE','route' => ['tallers.destroy', $taller->id], 'onsubmit'=> 'return ConfirmDelete()','style'=>'display:inline']) !!}
-          {!! Form::button('<span class="material-icons">delete</span>', ['type' => 'submit', 'class' => 'btn btn-danger']) !!}
+          @can('permisos.destroy')
+          {!! Form::open(['method' => 'DELETE','route' => ['permisos.destroy', $permiso->id],
+          'onsubmit'=> 'return ConfirmDelete()','style'=>'display:inline']) !!}
+          {!! Form::button('<span class="material-icons">delete</span>', ['type' => 'submit',
+          'class' => 'btn btn-danger']) !!}
 
 
           {!! Form::close() !!}
@@ -80,11 +77,9 @@ else
   </table>
 </div>
 
-
-
-        </div>
-    </div>
 </div>
+</div>
+</div>
+<div class="container">{!! $permisos->links() !!}</div>
 
-    {!! $tallers->links() !!}
 @endsection

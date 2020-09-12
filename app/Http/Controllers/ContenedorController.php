@@ -16,7 +16,11 @@ class ContenedorController extends Controller
      */
      public function __construct(){
 
-        $this->middleware('auth');
+       $this->middleware('permission:contenedors.create')->only(['create', 'store']);
+       $this->middleware('permission:contenedors.index')->only(['index']);
+       $this->middleware('permission:contenedors.show')->only(['show']);
+       $this->middleware('permission:contenedors.edit')->only(['edit', 'update']);
+       $this->middleware('permission:contenedors.destroy')->only(['destroy']);
      }
 
     public function index()

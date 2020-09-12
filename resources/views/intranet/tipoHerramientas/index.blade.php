@@ -6,7 +6,9 @@
     <div class="card">
         <div class="card-header card-header-success">
             <h2>Tipo de Herramientas <div class="pull-right">
+              @can('tipoHerramientas.create')
                 <a class="btn btn-primary" href="{{ route('tipoHerramientas.create') }}"> Crear Nuevo Tipo</a>
+                @endcan
             </div></h2>
         </div>
         <div class="card-body">
@@ -48,16 +50,21 @@ else
 
 </script>
       <td>
+        @can('tipoHerramientas.show')
           <a class="btn btn-info" href="{{ route('tipoHerramientas.show',$th->id) }}">
             <span class="material-icons">
               visibility
             </span>
           </a>
+          @endcan
+          @can('tipoHerramientas.edit')
           <a class="btn btn-warning" href="{{ route('tipoHerramientas.edit',$th->id) }}">
             <span class="material-icons">
               edit
             </span>
           </a>
+          @endcan
+          @can('tipoHerramientas.destroy')
           {!! Form::open(['method' => 'DELETE','route' => ['tipoHerramientas.destroy', $th->id],
           'onsubmit'=> 'return ConfirmDelete()','style'=>'display:inline']) !!}
           {!! Form::button('<span class="material-icons">delete</span>', ['type' => 'submit',
@@ -65,7 +72,7 @@ else
 
 
           {!! Form::close() !!}
-
+          @endcan
       </td>
       </tr>
   @endforeach

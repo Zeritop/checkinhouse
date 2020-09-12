@@ -6,7 +6,9 @@
     <div class="card">
         <div class="card-header card-header-success">
             <h2>Categoria Servicios <div class="pull-right">
+              @can('catServs.create')
                 <a class="btn btn-primary" href="{{ route('catServs.create') }}"> Crear Nueva Categoria</a>
+              @endcan
             </div></h2>
         </div>
         <div class="card-body">
@@ -46,21 +48,27 @@ else
 
 </script>
       <td>
+        @can('catServs.show')
           <a class="btn btn-info" href="{{ route('catServs.show',$categoria->id) }}">
             <span class="material-icons">
             visibility
           </span>
         </a>
+        @endcan
+        @can('catServs.edit')
           <a class="btn btn-primary" href="{{ route('catServs.edit',$categoria->id) }}">
             <span class="material-icons">
               edit
             </span>
           </a>
+          @endcan
+          @can('catServs.destroy')
           {!! Form::open(['method' => 'DELETE','route' => ['catServs.destroy', $categoria->id],
                             'onsubmit'=> 'return ConfirmDelete()','style'=>'display:inline']) !!}
           {!! Form::button('<span class="material-icons">delete</span>', ['type' => 'submit',
                                                                               'class' => 'btn btn-danger']) !!}
           {!! Form::close() !!}
+          @endcan
       </td>
       </tr>
   @endforeach

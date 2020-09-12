@@ -16,7 +16,12 @@ class ChHistorialController extends Controller
      */
      public function __construct(){
 
-        $this->middleware('auth');
+       $this->middleware('permission:chHistorials.create')->only(['create', 'store']);
+       $this->middleware('permission:chHistorials.index')->only(['index']);
+       $this->middleware('permission:chHistorials.show')->only(['show']);
+       $this->middleware('permission:chHistorials.edit')->only(['edit', 'update']);
+       $this->middleware('permission:chHistorials.destroy')->only(['destroy']);
+   }
     }
 
     public function index()
@@ -120,7 +125,7 @@ class ChHistorialController extends Controller
     public function update(Request $request, $id)
     {
       $ch_realizars = ChRealizar::find($id);
-      
+
         if(isset($_POST["chbx1"])){
         //El usuario marco el checkbox
       $ch_realizars->chbx1 = true;

@@ -13,10 +13,14 @@ class FrenoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-     
+
      public function __construct(){
 
-        $this->middleware('auth');
+       $this->middleware('permission:mantenimientofrenos.create')->only(['create', 'store']);
+       $this->middleware('permission:mantenimientofrenos.index')->only(['index']);
+       $this->middleware('permission:mantenimientofrenos.show')->only(['show']);
+       $this->middleware('permission:mantenimientofrenos.edit')->only(['edit', 'update']);
+       $this->middleware('permission:mantenimientofrenos.destroy')->only(['destroy']);
     }
 
     public function index(Request $request)
@@ -27,15 +31,15 @@ class FrenoController extends Controller
         ->id($id)
         ->nombre($nombre)
         ->paginate(5);
-  
+
         return view('intranet.servicioss.index',compact('servicios'))
             ->with('i', (request()->input('page', 1) - 1) * 5);*/
-            
+
         $servicios = DB::table('servicios')->where('nombre', 'Mantenimiento Frenos')->orderBy('created_at', 'ASC')->get();
 
         return view('intranet.servicioss.mantenimientofrenos.index', ['servicios' => $servicios])
         ->with('i', (request()->input('page', 1) - 1) * 5);
-        
+
     }
 
     /**
@@ -60,11 +64,11 @@ class FrenoController extends Controller
             'nombre' => 'required',
             'descripcion' => 'required',
             'precio' => 'required',
-            
+
         ]);
-  
+
         Servicio::create($request->all());
-   
+
         return redirect()->route('mantenimientofrenos.index')
                         ->with('success','Servicio creado exitosamente.');
     }
@@ -106,11 +110,11 @@ class FrenoController extends Controller
             'nombre' => 'required',
             'descripcion' => 'required',
             'precio' => 'required',
-            
+
         ]);
-  
+
          Servicio::find($id)->update($request->all());
-  
+
         return redirect()->route('mantenimientofrenos.index')
                         ->with('success','Servicio actualizado exitosamente');
     }
@@ -124,7 +128,7 @@ class FrenoController extends Controller
     public function destroy($id)
     {
         Servicio::find($id)->delete();
-  
+
         return redirect()->route('mantenimientofrenos.index')
                         ->with('success','Servicio eliminado exitosamente');
     }

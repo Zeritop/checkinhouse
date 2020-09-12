@@ -18,7 +18,11 @@ class ChRealizarController extends Controller
      */
      public function __construct(){
 
-        $this->middleware('auth');
+       $this->middleware('permission:chRealizars.create')->only(['create', 'store']);
+       $this->middleware('permission:chRealizars.index')->only(['index']);
+       $this->middleware('permission:chRealizars.show')->only(['show']);
+       $this->middleware('permission:chRealizars.edit')->only(['edit', 'update']);
+       $this->middleware('permission:chRealizars.destroy')->only(['destroy']);
     }
 
     public function index(Request $request)

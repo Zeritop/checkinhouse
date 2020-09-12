@@ -15,7 +15,7 @@
             <p>{{ $message }}</p>
         </div>
     @endif
-
+  @can('chRealizars.create')
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-6">
           <form action="{{route('chRealizars.index')}}" method="get">
@@ -39,6 +39,7 @@
     {!! Form::open(array('route' => 'chRealizars.store','method'=>'POST')) !!}
          @include('intranet.chRealizars.form')
     {!! Form::close() !!}
+    @endcan
 
 
 

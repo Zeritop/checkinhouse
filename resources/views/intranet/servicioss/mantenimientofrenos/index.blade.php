@@ -23,7 +23,9 @@
     <div class="card">
         <div class="card-header card-header-success">
             <h2>Mantenimiento Frenos <div class="pull-right">
+              @can('mantenimientofrenos.create')
                 <a class="btn btn-primary" href="{{ route('mantenimientofrenos.create') }}"> Crear Nuevo Mantenimiento</a>
+              @endcan
             </div></h2>
         </div>
         <div class="card-body">
@@ -66,22 +68,27 @@ else
 
 </script>
       <td>
+        @can('mantenimientofrenos.show')
           <a class="btn btn-info" href="{{ route('mantenimientofrenos.show',$servicio->id) }}">
             <span class="material-icons">
               visibility
             </span>
           </a>
+          @endcan
+          @can('mantenimientofrenos.edit')
           <a class="btn btn-warning" href="{{ route('mantenimientofrenos.edit',$servicio->id) }}">
             <span class="material-icons">
               edit
             </span>
           </a>
+          @endcan
+          @can('mantenimientofrenos.destroy')
           {!! Form::open(['method' => 'DELETE','route' => ['mantenimientofrenos.destroy', $servicio->id], 'onsubmit'=> 'return ConfirmDelete()','style'=>'display:inline']) !!}
           {!! Form::button('<span class="material-icons">delete</span>', ['type' => 'submit', 'class' => 'btn btn-danger']) !!}
 
 
           {!! Form::close() !!}
-
+          @endcan
       </td>
       </tr>
   @endforeach

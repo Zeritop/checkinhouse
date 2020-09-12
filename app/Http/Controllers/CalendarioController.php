@@ -14,7 +14,11 @@ class CalendarioController extends Controller
      */
      public function __construct(){
 
-         $this->middleware('auth');
+       $this->middleware('permission:calendarios.create')->only(['create', 'store']);
+       $this->middleware('permission:calendarios.index')->only(['index']);
+       $this->middleware('permission:calendarios.show')->only(['show']);
+       $this->middleware('permission:calendarios.edit')->only(['edit', 'update']);
+       $this->middleware('permission:calendarios.destroy')->only(['destroy']);
      }
 
     public function index(Request $request)

@@ -50,16 +50,21 @@
 
                         </script>
                               <td>
+                                @can('herramientas.show')
                                   <a class="btn btn-info" href="{{ route('herramientas.show',$herramienta->id) }}">
                                     <span class="material-icons">
                                       visibility
                                     </span>
                                   </a>
+                                  @endcan
+                                  @can('herramientas.edit')
                                   <a class="btn btn-warning" href="{{ route('herramientas.edit',$herramienta->id) }}">
                                     <span class="material-icons">
                                       edit
                                     </span>
                                   </a>
+                                  @endcan
+                                  @can('herramientas.destroy')
                                   {!! Form::open(['method' => 'DELETE','route' => ['herramientas.destroy', $herramienta->id],
                                   'onsubmit'=> 'return ConfirmDelete()','style'=>'display:inline']) !!}
                                   {!! Form::button('<span class="material-icons">delete</span>', ['type' => 'submit',
@@ -67,7 +72,7 @@
 
 
                                   {!! Form::close() !!}
-
+                                  @endcan
                               </td>
                               </tr>
                           @endforeach
@@ -79,7 +84,9 @@
     <div class="card">
         <div class="card-header card-header-success">
             <h2>Herramientas <div class="pull-right">
+              @can('herramientas.create')
                 <a class="btn btn-primary" href="{{ route('herramientas.create') }}"> Crear Nueva Herramienta</a>
+              @endcan
             </div></h2>
         </div>
         <div class="card-body">
@@ -123,16 +130,21 @@ else
 
 </script>
       <td>
+        @can('herramientas.show')
           <a class="btn btn-info" href="{{ route('herramientas.show',$herramienta->id) }}">
             <span class="material-icons">
               visibility
             </span>
           </a>
+          @endcan
+          @can('herramientas.edit')
           <a class="btn btn-warning" href="{{ route('herramientas.edit',$herramienta->id) }}">
             <span class="material-icons">
               edit
             </span>
           </a>
+          @endcan
+          @can('herramientas.destroy')
           {!! Form::open(['method' => 'DELETE','route' => ['herramientas.destroy', $herramienta->id],
           'onsubmit'=> 'return ConfirmDelete()','style'=>'display:inline']) !!}
           {!! Form::button('<span class="material-icons">delete</span>', ['type' => 'submit',
@@ -140,7 +152,7 @@ else
 
 
           {!! Form::close() !!}
-
+          @endcan
       </td>
       </tr>
   @endforeach

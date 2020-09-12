@@ -15,7 +15,11 @@ class TipoHerramientaController extends Controller
 
      public function __construct(){
 
-        $this->middleware('auth');
+       $this->middleware('permission:tipoHerramientas.create')->only(['create', 'store']);
+       $this->middleware('permission:tipoHerramientas.index')->only(['index']);
+       $this->middleware('permission:tipoHerramientas.show')->only(['show']);
+       $this->middleware('permission:tipoHerramientas.edit')->only(['edit', 'update']);
+       $this->middleware('permission:tipoHerramientas.destroy')->only(['destroy']);
     }
 
     public function index()

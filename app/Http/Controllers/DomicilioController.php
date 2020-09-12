@@ -14,7 +14,11 @@ class DomicilioController extends Controller
      */
      public function __construct(){
 
-        $this->middleware('auth');
+       $this->middleware('permission:domicilios.create')->only(['create', 'store']);
+       $this->middleware('permission:domicilios.index')->only(['index']);
+       $this->middleware('permission:domicilios.show')->only(['show']);
+       $this->middleware('permission:domicilios.edit')->only(['edit', 'update']);
+       $this->middleware('permission:domicilios.destroy')->only(['destroy']);
     }
 
     public function index(Request $request)
@@ -25,7 +29,7 @@ class DomicilioController extends Controller
         ->cod($cod)
         ->direccion($direccion)
         ->paginate(5);
-  
+
         return view('intranet.domicilios.index',compact('domicilios'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -52,9 +56,9 @@ class DomicilioController extends Controller
             'cod_dom' => 'required',
             'dir_dom' => 'required',
         ]);
-  
+
         Domicilio::create($request->all());
-   
+
         return redirect()->route('domicilios.index')
                         ->with('success','Domicilio creado exitosamente.');
     }
@@ -96,9 +100,9 @@ class DomicilioController extends Controller
             'cod_dom' => 'required',
             'dir_dom' => 'required',
         ]);
-  
+
          Domicilio::find($id)->update($request->all());
-  
+
         return redirect()->route('domicilios.index')
                         ->with('success','Domiclio actualizado exitosamente');
     }
@@ -112,7 +116,7 @@ class DomicilioController extends Controller
     public function destroy($id)
     {
         Domicilio::find($id)->delete();
-  
+
         return redirect()->route('domicilios.index')
                         ->with('success','Domicilio eliminado exitosamente');
     }

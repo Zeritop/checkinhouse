@@ -64,21 +64,27 @@ else
 
 </script>
       <td>
+        @can('uusers.show')
          <a class="btn btn-info" href="{{ route('uusers.show',$user->id) }}">
            <span class="material-icons">
              visibility
            </span>
          </a>
+         @endcan
+         @can('uusers.edit')
           <a class="btn btn-warning" href="{{ route('uusers.edit',$user->id) }}">
             <span class="material-icons">
               edit
             </span>
           </a>
+          @endcan
+          @can('uusers.destroy')
           {!! Form::open(['method' => 'DELETE','route' => ['uusers.destroy', $user->id], 'onsubmit'=> 'return ConfirmDelete()','style'=>'display:inline']) !!}
           {!! Form::button('<span class="material-icons">delete</span>', ['type' => 'submit', 'class' => 'btn btn-danger']) !!}
 
 
           {!! Form::close() !!}
+          @endcan
       </td>
       </tr>
   @endforeach

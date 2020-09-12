@@ -6,7 +6,9 @@
     <div class="card">
         <div class="card-header card-header-success">
             <h2>Contenedores <div class="pull-right">
+              @can('contenedors.create')
                 <a class="btn btn-primary" href="{{ route('contenedors.create') }}"> Crear Nuevo Contenedor</a>
+                @endcan
             </div></h2>
         </div>
         <div class="card-body">
@@ -50,16 +52,21 @@ else
 
 </script>
       <td>
+        @can('contenedors.show')
           <a class="btn btn-info" href="{{ route('contenedors.show',$contenedor->id) }}">
             <span class="material-icons">
               visibility
             </span>
           </a>
+          @endcan
+          @can('contenedors.edit')
           <a class="btn btn-warning" href="{{ route('contenedors.edit',$contenedor->id) }}">
             <span class="material-icons">
               edit
             </span>
           </a>
+          @endcan
+          @can('contenedors.destroy')
           {!! Form::open(['method' => 'DELETE','route' => ['contenedors.destroy', $contenedor->id],
                         'onsubmit'=> 'return ConfirmDelete()','style'=>'display:inline']) !!}
           {!! Form::button('<span class="material-icons">delete</span>', ['type' => 'submit',
@@ -67,6 +74,7 @@ else
 
 
           {!! Form::close() !!}
+          @endcan
 
       </td>
       </tr>

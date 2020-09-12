@@ -6,7 +6,9 @@
     <div class="card">
         <div class="card-header card-header-success">
             <h2>Productos <div class="pull-right">
+              @can('fotos.create')
                 <a class="btn btn-primary" href="{{ route('fotos.create') }}"> Crear Nuevo Producto</a>
+                @endcan
             </div></h2>
         </div>
         <div class="card-body">
@@ -50,21 +52,27 @@ else
 
 </script>
       <td>
+        @can('fotos.show')
           <a class="btn btn-info" href="{{ route('fotos.show',$foto->id) }}">
             <span class="material-icons">
               visibility
             </span>
           </a>
+          @endcan
+          @can('fotos.edit')
           <a class="btn btn-warning" href="{{ route('fotos.edit',$foto->id) }}">
             <span class="material-icons">
               edit
             </span>
           </a>
+          @endcan
+          @can('fotos.destroy')
           {!! Form::open(['method' => 'DELETE','route' => ['fotos.destroy', $foto->id],
                                           'onsubmit'=> 'return ConfirmDelete()','style'=>'display:inline']) !!}
           {!! Form::button('<span class="material-icons">delete</span>', ['type' => 'submit',
                                                     'class' => 'btn btn-danger']) !!}
           {!! Form::close() !!}
+          @endcan
       </td>
       </tr>
   @endforeach

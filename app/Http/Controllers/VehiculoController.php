@@ -16,7 +16,11 @@ class VehiculoController extends Controller
      */
      public function __construct(){
 
-        $this->middleware('auth');
+       $this->middleware('permission:vehiculos.create')->only(['create', 'store']);
+       $this->middleware('permission:vehiculos.index')->only(['index']);
+       $this->middleware('permission:vehiculos.show')->only(['show']);
+       $this->middleware('permission:vehiculos.edit')->only(['edit', 'update']);
+       $this->middleware('permission:vehiculos.destroy')->only(['destroy']);
     }
 
     public function index(Request $request)

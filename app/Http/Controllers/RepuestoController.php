@@ -15,7 +15,11 @@ class RepuestoController extends Controller
 
     public function __construct(){
 
-        $this->middleware('auth');
+      $this->middleware('permission:repuestos.create')->only(['create', 'store']);
+      $this->middleware('permission:repuestos.index')->only(['index']);
+      $this->middleware('permission:repuestos.show')->only(['show']);
+      $this->middleware('permission:repuestos.edit')->only(['edit', 'update']);
+      $this->middleware('permission:repuestos.destroy')->only(['destroy']);
     }
 
     public function index(Request $request)

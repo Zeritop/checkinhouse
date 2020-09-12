@@ -22,7 +22,9 @@
     <div class="card">
         <div class="card-header card-header-success">
             <h2>Vehiculos <div class="pull-right">
+              @can('vehiculos.create')
                 <a class="btn btn-primary" href="{{ route('vehiculos.create') }}"> Crear Nuevo Vehiculo</a>
+                @endcan
             </div></h2>
         </div>
         <div class="card-body">
@@ -73,22 +75,27 @@ else
 
 </script>
       <td>
+        @can('vehiculos.show')
           <a class="btn btn-info" href="{{ route('vehiculos.show',$vehiculo->id) }}">
             <span class="material-icons">
               visibility
             </span>
           </a>
+          @endcan
+          @can('vehiculos.edit')
           <a class="btn btn-warning" href="{{ route('vehiculos.edit',$vehiculo->id) }}">
             <span class="material-icons">
               edit
             </span>
           </a>
+          @endcan
+          @can('vehiculos.destroy')
           {!! Form::open(['method' => 'DELETE','route' => ['vehiculos.destroy', $vehiculo->id],
                             'onsubmit'=> 'return ConfirmDelete()','style'=>'display:inline']) !!}
           {!! Form::button('<span class="material-icons">delete</span>', ['type' => 'submit',
                                                                           'class' => 'btn btn-danger']) !!}
           {!! Form::close() !!}
-
+          @endcan
       </td>
       </tr>
   @endforeach

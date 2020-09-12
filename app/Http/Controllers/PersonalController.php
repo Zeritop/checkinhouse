@@ -12,10 +12,14 @@ class PersonalController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-     
+
      public function __construct(){
 
-        $this->middleware('auth');
+       $this->middleware('permission:personales.create')->only(['create', 'store']);
+       $this->middleware('permission:personales.index')->only(['index']);
+       $this->middleware('permission:personales.show')->only(['show']);
+       $this->middleware('permission:personales.edit')->only(['edit', 'update']);
+       $this->middleware('permission:personales.destroy')->only(['destroy']);
     }
 
     public function index(Request $request)
@@ -26,7 +30,7 @@ class PersonalController extends Controller
         ->rut($rut)
         ->nombre($nombre)
         ->paginate(5);
-  
+
         return view('intranet.personales.index',compact('personales'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -56,9 +60,9 @@ class PersonalController extends Controller
             'dir_pers' => 'required',
             'tel_pers' => 'required',
         ]);
-  
+
         Personal::create($request->all());
-   
+
         return redirect()->route('personales.index')
                         ->with('success','Personal creado exitosamente.');
     }
@@ -103,9 +107,9 @@ class PersonalController extends Controller
             'dir_pers' => 'required',
             'tel_pers' => 'required',
         ]);
-  
+
          Personal::find($id)->update($request->all());
-  
+
         return redirect()->route('personales.index')
                         ->with('success','Personal actualizado exitosamente');
     }
@@ -119,7 +123,7 @@ class PersonalController extends Controller
     public function destroy($id)
     {
         Personal::find($id)->delete();
-  
+
         return redirect()->route('personales.index')
                         ->with('success','Personal eliminado exitosamente');
     }

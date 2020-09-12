@@ -13,20 +13,21 @@ class IntranetController extends Controller
 
 	public function __construct(){
 
-        $this->middleware('auth');
+	     $this->middleware('permission:intranet.index')->only(['index']);
+
     }
 
     public function intranet(Request $request){
-        
-        
+
+
         //Auth::user()->authorizeRoles('admin');
         //dd(Auth::user()->roles);
-        
-        
+
+
     	return view('intranet/index');
     }
 
-    
 
-    
+
+
 }

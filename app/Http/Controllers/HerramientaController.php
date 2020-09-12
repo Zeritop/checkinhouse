@@ -20,7 +20,12 @@ class HerramientaController extends Controller
 
      public function __construct(){
 
-        $this->middleware('auth');
+        //$this->middleware('auth');
+        $this->middleware('permission:herramientas.create')->only(['create', 'store']);
+        $this->middleware('permission:herramientas.index')->only(['index']);
+        $this->middleware('permission:herramientas.show')->only(['show']);
+        $this->middleware('permission:herramientas.edit')->only(['edit', 'update']);
+        $this->middleware('permission:herramientas.destroy')->only(['destroy']);
     }
 
     public function index(Request $request)

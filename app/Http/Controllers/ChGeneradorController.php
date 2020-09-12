@@ -16,7 +16,12 @@ class ChGeneradorController extends Controller
 
      public function __construct(){
 
-        $this->middleware('auth');
+       $this->middleware('permission:chGeneradors.create')->only(['create', 'store']);
+       $this->middleware('permission:chGeneradors.index')->only(['index']);
+       $this->middleware('permission:chGeneradors.show')->only(['show']);
+       $this->middleware('permission:chGeneradors.edit')->only(['edit', 'update']);
+       $this->middleware('permission:chGeneradors.destroy')->only(['destroy']);
+   }
     }
 
     public function index()

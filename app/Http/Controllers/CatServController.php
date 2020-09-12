@@ -17,7 +17,12 @@ class CatServController extends Controller
      */
     public function __construct(){
 
-        $this->middleware('auth');
+      $this->middleware('permission:catServs.create')->only(['create', 'store']);
+      $this->middleware('permission:catServs.index')->only(['index']);
+      $this->middleware('permission:catServs.show')->only(['show']);
+      $this->middleware('permission:catServs.edit')->only(['edit', 'update']);
+      $this->middleware('permission:catServs.destroy')->only(['destroy']);
+  }
     }
 
     public function index()

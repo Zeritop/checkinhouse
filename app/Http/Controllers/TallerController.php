@@ -14,7 +14,11 @@ class TallerController extends Controller
      */
      public function __construct(){
 
-        $this->middleware('auth');
+       $this->middleware('permission:tallers.create')->only(['create', 'store']);
+       $this->middleware('permission:tallers.index')->only(['index']);
+       $this->middleware('permission:tallers.show')->only(['show']);
+       $this->middleware('permission:tallers.edit')->only(['edit', 'update']);
+       $this->middleware('permission:tallers.destroy')->only(['destroy']);
      }
 
     public function index()

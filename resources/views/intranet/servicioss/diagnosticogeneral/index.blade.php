@@ -23,7 +23,9 @@
     <div class="card">
         <div class="card-header card-header-success">
             <h2>Diagnostico General <div class="pull-right">
+              @can('diagnosticogeneral.create')
                 <a class="btn btn-primary" href="{{ route('diagnosticogeneral.create') }}"> Crear Nuevo Diagnostico</a>
+              @endcan
             </div></h2>
         </div>
         <div class="card-body">
@@ -66,22 +68,27 @@ else
 
 </script>
       <td>
+        @can('diagnosticogeneral.show')
           <a class="btn btn-info" href="{{ route('diagnosticogeneral.show',$servicio->id) }}">
             <span class="material-icons">
               visibility
             </span>
           </a>
+          @endcan
+          @can('diagnosticogeneral.edit')
           <a class="btn btn-warning" href="{{ route('diagnosticogeneral.edit',$servicio->id) }}">
             <span class="material-icons">
               edit
             </span>
           </a>
+          @endcan
+          @can('diagnosticogeneral.destroy')
           {!! Form::open(['method' => 'DELETE','route' => ['diagnosticogeneral.destroy', $servicio->id], 'onsubmit'=> 'return ConfirmDelete()','style'=>'display:inline']) !!}
           {!! Form::button('<span class="material-icons">delete</span>', ['type' => 'submit', 'class' => 'btn btn-danger']) !!}
 
 
           {!! Form::close() !!}
-
+          @endcan
       </td>
       </tr>
   @endforeach

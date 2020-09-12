@@ -1,3 +1,4 @@
+@can('intranet.index')
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,35 +39,52 @@
               <p>Dashboard</p>
             </a>
           </li>
+@canany(['clientes.index', 'uuser.index', 'domicilios.index', 'personales.index', 'herramientas.index', 'repuestos.index', 'tallers.index', 'contenedors.index'])
            <li class="nav-item dropdown"> <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">Administrar <i class="material-icons">content_paste</i>
             </a>
 
         <ul class="dropdown-menu" role="menu">
           <li class="dropdown-header">Listado para administrar</li>
+          @can('clientes.index')
           <li>
             <a class="nav-link" href="{{url('clientes')}}">Clientes</a>
           </li>
+          @endcan
+          @can('uusers.index')
           <li>
         <a href="{{url('uusers')}}">Usuarios</a>
       </li>
+      @endcan
+      @can('domicilios.index')
           <li>
             <a href="{{url('domicilios')}}">Domicilio</a>
           </li>
+      @endcan
+      @can('personales.index')
           <li>
             <a href="{{url('personales')}}">Personal</a>
           </li>
+      @endcan
+          @can('herramientas.index')
           <li>
             <a href="{{url('herramientas')}}">Herramientas</a>
           </li>
+          @endcan
+          @can('repuestos.index')
           <li>
             <a href="{{url('repuestos')}}">Repuestos</a>
           </li>
+          @endcan
+          @can('tallers.index')
           <li>
             <a href="{{url('tallers')}}">Talleres</a>
           </li>
+          @endcan
+          @can('contenedors.index')
           <li>
             <a href="{{url('contenedors')}}">Contenedores</a>
           </li>
+          @endcan
 
 
           <!--<li>
@@ -77,19 +95,23 @@
           </li>-->
         </ul>
       </li>
+@endcanany
+@canany(['vehiculos.index', 'tipoHerramientas.index'])
       <li class="nav-item dropdown"> <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">Administrar 2 <i class="material-icons">content_paste</i>
        </a>
 
    <ul class="dropdown-menu" role="menu">
      <li class="dropdown-header">Listado para administrar</li>
-
+     @can('vehiculos.index')
      <li>
        <a href="{{url('vehiculos')}}">Vehiculos</a>
      </li>
+     @endcan
+     @can('tipoHerramientas.index')
      <li>
        <a href="{{url('tipoHerramientas')}}">Tipo de Herramientas</a>
      </li>
-
+     @endcan
      <!--<li>
        <a href="#">Separated link</a>
      </li>
@@ -98,58 +120,98 @@
      </li>-->
    </ul>
  </li>
+@endcanany
+@canany(['servicioss.index', 'diagnosticogeneral.index', 'mantenimientofrenos.index'])
       <li class="nav-item dropdown"> <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">Servicios<i class="material-icons">
 build
 </i></a>
 
         <ul class="dropdown-menu" role="menu">
           <li class="dropdown-header">Administrar Servicios</li>
+          @can('servicioss.index')
           <li><a href="{{url('servicioss')}}">Cambio de Aceite</a>
 
           </li>
+          @endcan
+          @can('diagnosticogeneral.index')
           <li><a href="{{url('diagnosticogeneral')}}">Diagnostico General</a>
 
           </li>
+          @endcan
+          @can('mantenimientofrenos.index')
           <li><a href="{{url('mantenimientofrenos')}}">Mantenimiento Frenos</a>
 
           </li>
-
+          @endcan
         </ul>
       </li>
+@endcanany
+      @can('catServs.index')
        <li class="nav-item">
           <a class="nav-link" href="{{url('catServs')}}">Categoria Servicios <i class="material-icons">
             folder
           </i></a>
      </li>
+     @endcan
+     @can('fotos.index')
      <li class="nav-item">
         <a class="nav-link" href="{{url('fotos')}}">Productos <i class="material-icons">
           shop
         </i></a>
      </li>
+     @endcan
+@canany(['chGeneradors.index', 'chRealizars.index', 'chHistorials.index'])
      <li class="nav-item dropdown"> <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">Tareas<i class="material-icons">
    queue
    </i></a>
 
        <ul class="dropdown-menu" role="menu">
          <li class="dropdown-header">Administrar Tarea</li>
+         @can('chGeneradors.index ')
          <li><a href="{{url('chGeneradors')}}">Generar Tarea</a>
 
          </li>
+         @endcan
+         @can('chRealizars.index')
          <li><a href="{{url('chRealizars')}}">Realizar Tarea</a>
 
          </li>
+         @endcan
+         @can('chHistorials.index')
          <li><a href="{{url('chHistorials')}}">Historial Tareas</a>
 
          </li>
-
+         @endcan
        </ul>
      </li>
+@endcanany
+@canany(['roles.index', 'permisos.index'])
+     <li class="nav-item dropdown"> <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">Roles y pemisos<i class="material-icons">
+   queue
+   </i></a>
+
+       <ul class="dropdown-menu" role="menu">
+         <li class="dropdown-header">Administrar Rol y Permisos</li>
+         @can('roles.index')
+         <li><a href="{{url('roles')}}">Roles</a>
+
+         </li>
+         @endcan
+         @can('permisos.index')
+         <li><a href="{{url('permisos')}}">Permisos</a>
+
+         </li>
+         @endcan
+       </ul>
+     </li>
+@endcanany
+     @can('calendarios.index')
      <li class="nav-item">
        <a class="nav-link" href="{{url('calendario')}}">Calendario<i class="material-icons">
 event
 </i></a>
      </li>
-
+     @endcan
         </ul>
       </div>
     </div>
@@ -449,4 +511,6 @@ event
   </script>
 </body>
 
+
 </html>
+@endcan
