@@ -2,8 +2,15 @@
 @section('content')
 
 
+
 <div class="row">
+
     <div class="col-md-4 col-md-offset-4">
+      @if (session()->has('status'))
+        <div class="alert alert-danger">
+          <p>{{ session()->get('status') }}</p>
+        </div>
+      @endif
     <div style="background-color:#1e1e2f; padding:20px; border-radius:5px;">
         LOGIN
         <div class="panel panel-default"></div>

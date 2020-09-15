@@ -6,6 +6,7 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Mail;
 
 class RegisterController extends Controller
 {
@@ -27,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = 'ingresar';
+    protected $redirectTo = 'verificarCuenta';
 
     /**
      * Create a new controller instance.
@@ -39,7 +40,7 @@ class RegisterController extends Controller
         $this->middleware('guest', ['only'=>'loginShowForm']);
     }
 
-  
+
 
     /**
      * Get a validator for an incoming registration request.
@@ -64,12 +65,36 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+      $data['confirmation_code'] = str_random(25);
+
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'confirmation_code' => $data['confirmation_code'],
         ]);
-        
-        
+
+        //Envio de correo
+        Mail::send('emails.confirmation_code', $data, function($message) use ($data){
+          $message->to($data['email'], $data['name'])->subject('Por favor confirma tu correo');
+        });
+
+        return $user;
+
+    }
+
+    public function verify($code){
+      $user = User::where('confirmation_code', $code)->first();
+
+      if(!$user){
+        return redirect('/');
+      }
+
+      $user->confirmed = true;
+      $user->confirmation_code = null;
+      $user->save();
+
+      return redirect('ingresar');
+
     }
 }

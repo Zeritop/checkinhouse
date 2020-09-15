@@ -37,6 +37,10 @@ class PrincipalController extends Controller
         return view('correo');
 
     }
+		public function verificar(){
+        return view('verificarCuenta');
+
+    }
 
 
     /*public function intranet(){

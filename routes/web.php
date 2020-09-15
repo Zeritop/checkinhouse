@@ -12,14 +12,12 @@
 
 Route::get('/', 'PrincipalController@index');
 Route::get('index', 'PrincipalController@index');
-
-
 Route::get('nosotros', 'PrincipalController@nosotros');
 Route::get('programarservicios', 'PrincipalController@programarservicios');
 Route::get('horarios', 'PrincipalController@horarios');
 Route::get('correo', 'PrincipalController@correo');
 Route::resource('mail', 'MailController');
-Route::get('ingresar','PrincipalController@ingresar');
+Route::get('ingresar','PrincipalController@ingresar')->name('ingresar');
 Route::post('login','Auth/LoginController@login')->name('login');
 Route::post('register','Auth/RegisterController@login')->name('register');
 Route::post('logOut','Auth\LoginController@logOut')->name('logOut');
@@ -30,33 +28,16 @@ Route::get('cotizacion2','ServiciooController@cotizacion2');
 //Route::get('calendario','PrincipalController@calendario');
 //Route::get('calendario2','PrincipalController@calendario2');
 Route::get('confirmar','PrincipalController@confirmar');
-
-
-
 Route::resource('usuarios','UsuarioController');
-
-
 Route::resource('servicioss','ServicioController');
-
-
-
 Route::resource('productos','ProductoController');
-
-
 Route::resource('categorias','CategoriaController');
-
-
-
-
-
-
-
-
-
 Route::resource('calendarioEventos', 'CalendarioUserController');
-
+Route::get('verificarCuenta','PrincipalController@verificar');
 
 Auth::routes();
+
+Route::get('register/verify/{code}', 'Auth\RegisterController@verify');
 
 /*Route::group(['middleware' => ['web']], function () {
     Route::get('intranet', 'IntranetController@intranet')->name('intranet');

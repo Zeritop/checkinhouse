@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 
 
@@ -59,23 +60,36 @@ class LoginController extends Controller
    public function login(Request $request){
      $credentials = $this->validate(request(),[
            'email'=>'email|required|string',
-           'password'=>'required|string'
+           'password'=>'required|string',
 
            ]);
 
 
-
     //return $credentials;
-    if(Auth::attempt($credentials)){
-        if(Auth::user()->admin == 0){
-           return view('index');
-       } else if(Auth::user()->admin == 1){
-           //$users['users'] = \App\User::all();
-           return view('intranet/index');
-       }
-      //return view('intranet/users/index');
 
-  }
+
+        if(Auth::attempt($credentials)){
+            if(Auth::user()->admin == 0){
+
+                if(Auth::user()->confirmed == 0){
+                  return redirect()->route('ingresar')->with('status', 'Por favor verifica tu cuenta');
+                }
+
+               return view('index');
+           } else if(Auth::user()->admin == 1){
+               //$users['users'] = \App\User::all();
+
+                 if(Auth::user()->confirmed == 0){
+                   return redirect()->route('ingresar')->with('status', 'Por favor verifica tu cuenta');
+                 }
+
+               return view('intranet/index');
+           }
+          //return view('intranet/users/index');
+
+      }
+
+
     return back()
         ->withErrors(['email' => trans('auth.failed')])
         ->withInput(request(['email']));
