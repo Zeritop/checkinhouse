@@ -188,17 +188,18 @@
             </div>
 
             <!--Segunda columna-->
-            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4" id="columna-footer">
+           <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4" id="columna-footer">
                 <h6 class="text-uppercase font-weight-bold">
                     <strong>Servicios</strong>
                 </h6>
                 <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #151515;">
 
                 <p>
-                    <a href="{{url('servicios')}}" id="linkFooter">Lubricación</a>
+             <!--       <a href="{{url('servicios')}}" id="linkFooter">Lubricación</a> -->
+             Lubricación
                 </p>
 
-            </div>
+            </div> 
 
 
 
