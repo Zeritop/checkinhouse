@@ -166,7 +166,7 @@
 
 	<div class="social">
            <div id="facebook"><a href="https://www.facebook.com/CheckInHouseSPA" target="none"><i class="fa fa-facebook"></i></a></div>
-           <div id="instagram"><a href="https://www.instagram.com/checkInHouse_Oficial/" target="none"><i class="fa fa-instagram"></i></a></div>
+           <div id="instagram"><a href="https://www.instagram.com/contacto.checkinhouse/" target="none"><i class="fa fa-instagram"></i></a></div>
    </div>
 
 
