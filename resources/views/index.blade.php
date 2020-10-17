@@ -2,16 +2,16 @@
 <html>
 <head><meta http-equiv="Content-Type" content="text/html; charset=gb18030">
 	<title>Check In House</title>
-	<link rel="stylesheet" type="text/css" href="css/imagenHome.css">
+<link rel="stylesheet" type="text/css" href="{{ asset('css/imagenHome.css') }}">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="css-bootstrap/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="{{ asset('css-bootstrap/bootstrap.min.css') }}">
 	<link href="https://fonts.googleapis.com/css?family=Nova+Flat" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/redesSociales.css">
+<link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('css/redesSociales.css') }}">
     <link rel="shortcut icon" type="image/x-icon" href="Imagenes/definitivo.ico">
-    <link rel="stylesheet" href="owlcarousel/dist/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="{{ asset('owlcarousel/dist/assets/owl.carousel.min.css') }}">
     
 
 
