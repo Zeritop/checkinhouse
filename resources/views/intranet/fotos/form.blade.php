@@ -14,6 +14,12 @@
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
+            <strong>Nombre del producto:</strong>
+            {!! Form::text('name', null, array('placeholder' => 'Nombre','class' => 'form-control', 'required')) !!}
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
             <strong>Precio:</strong>
             {!! Form::text('precio', null, array('placeholder' => 'Precio','class' => 'form-control', 'required')) !!}
         </div>
@@ -21,7 +27,7 @@
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Descripcion:</strong>
-            {!! Form::text('descripcion', null, array('placeholder' => 'Descripcion','class' => 'form-control', 'required')) !!}
+            {!! Form::textarea('descripcion', null, array('placeholder' => 'Descripcion','class' => 'form-control', 'required')) !!}
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">

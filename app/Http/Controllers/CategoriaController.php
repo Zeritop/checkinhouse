@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\CatServ;
+use Illuminate\Support\Facades\DB;
 
 class CategoriaController extends Controller
 {
@@ -16,11 +17,11 @@ class CategoriaController extends Controller
 
     public function index()
     {
-        $categorias = CatServ::orderBy('created_at', 'ASC')
-        ->paginate(5);
+        $categoriasVl = DB::table('cat_servs')->select('*')->where('vl', true)->get();
+        $categoriasVp = DB::table('cat_servs')->select('*')->where('vp', true)->get();
+        
 
-        return view('categorias.index',compact('categorias'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('categorias.index',compact('categoriasVl', 'categoriasVp'));
     }
 
     /**

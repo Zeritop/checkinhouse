@@ -22,7 +22,7 @@ class ChHistorialController extends Controller
        $this->middleware('permission:chHistorials.edit')->only(['edit', 'update']);
        $this->middleware('permission:chHistorials.destroy')->only(['destroy']);
    }
-    }
+    
 
     public function index()
     {

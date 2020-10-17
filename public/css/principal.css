@@ -7,3 +7,20 @@
 
     }
 }
+
+.header{
+    background: url(../Imagenes/imagenHome1.jpg) no-repeat center;
+    background-size: cover;
+    min-height: 50vh;
+}
+
+.header .navbar a i{
+    padding: 4px;
+}
+
+.header .navbar a:hover i{
+    transform:rotate(360deg);
+    -ms-transform:rotate(360deg);
+    -webkit-transform:rotate(360deg); 
+    transition: all 1s ease;
+}

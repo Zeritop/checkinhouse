@@ -22,7 +22,7 @@ class ChGeneradorController extends Controller
        $this->middleware('permission:chGeneradors.edit')->only(['edit', 'update']);
        $this->middleware('permission:chGeneradors.destroy')->only(['destroy']);
    }
-    }
+    
 
     public function index()
     {

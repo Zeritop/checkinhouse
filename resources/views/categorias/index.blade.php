@@ -22,40 +22,52 @@
 @section('content')
 <body>
 <br>
-<div class="container text-center">
-	<h2 style="color: #04B45F;">SERVICIOS</h2>
-</div>
-
-<div class="container text-center">
-	<h5>Contamos con diversos servicios para ofrecer, en los que destacan Limpieza, Lubricación y Electricidad.<br>
-		Estos servicios serán realizados por nosotros en el lugar y hora que prefiera:</h5>
-</div>
 <br>
-<br>
-	
 <div class="container">
-    
+	<div id="cajaFrase">
+		<cite id="frase"><h3><q>Contamos con diversos servicios para ofrecer,<br> en los que destacan Limpieza, Lubricación y Electricidad.<br>
+			Estos servicios serán realizados por nosotros<br> en el lugar y hora que prefiera</q></h3></cite>
+	</div>
+	<hr style="background-color: black;">
+
+</div>
+	
+
+<div class="container">
+    <br>
     <div class="container">
-        
+        <h3>Vehiculos Livianos</h3>
     	<div class="row justify-content-center col-md-12 col-12 col-lg-12">
-        @foreach($categorias as $categoria)
-		    	<a href="#{{$categoria->nombre}}"><span><div id="imagenCA">
-		    		<img src="/storage/{{$categoria->foto}}" style="width: 100%;">
-		    		</div><p style="color: #000;">{{$categoria->nombre}}</p></span></a>	
+			
+        @foreach($categoriasVl as $categoriavl)
+		<a href="" data-toggle="modal" data-target="#{{$categoriavl->id}}"><span><div id="imagenCA">
+		    		<img src="/storage/{{$categoriavl->foto}}" style="width: 100%;">
+		    		</div><p style="color: #000; text-align: center;">{{$categoriavl->nombre}}</p></span></a>	
+        @endforeach	  
+		</div><br><br>
+		<hr style="background-color: black;">
+		<br>
+		<h3>Vehiculos Pesados</h3>
+    	<div class="row justify-content-center col-md-12 col-12 col-lg-12">
+			
+        @foreach($categoriasVp as $categoriavp)
+		<a href="" data-toggle="modal" data-target="#{{$categoriavp->id}}"><span><div id="imagenCA">
+		    		<img src="/storage/{{$categoriavp->foto}}" style="width: 100%;">
+		    		</div><p style="color: #000; text-align: center;">{{$categoriavp->nombre}}</p></span></a>	
         @endforeach	  
 		</div><br><br>
        
 
-        @foreach($categorias as $categoria)
-	    <div class="row col-sm-12 col-md-12 col-12 col-lg-12" style="border: 2px solid #00FF00; border-bottom-left-radius: 50px; border-bottom-right-radius: 50px;">
-  			<div id="{{$categoria->nombre}}">
+        @foreach($categoriasVl as $categoriavl)
+	  <!--  <div class="row col-sm-12 col-md-12 col-12 col-lg-12" style="border: 2px solid #00FF00; border-bottom-left-radius: 50px; border-bottom-right-radius: 50px;">
+  			<div id="">
   				<div id="cajaTextoAceite">
-  					{{$categoria->titulo}}
+  					
   				</div><br>
   					<div class="row col-sm-12 col-md-12 col-12 col-lg-12">
                         <div class="col-sm-12 col-md-12 col-12 col-lg-12">
                          
-                             <strong><pre>{{$categoria->descripcion}}</pre></strong>
+                             <strong><pre></pre></strong>
 
                             <br><br>
 						</div>
@@ -65,13 +77,62 @@
 
  
             </div>
-        </div>
+        </div> -->
+
+		<!-- Modal vl-->
+	<div class="modal fade" id="{{$categoriavl->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <h5 class="modal-title" id="exampleModalLabel"><img src="/storage/{{$categoriavl->foto}}" style="width: 10%;">{{$categoriavl->nombre}}</h5>
+		  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		  </button>
+		</div>
+		<div class="modal-body">
+			<strong><pre>{{$categoriavl->descripcion}}</pre></strong>
+
+		</div>
+		<div class="modal-footer">
+		<a href="{{url('serviciosss')}}" class="btn btn-success">Agenda ahora</a>
+		 <!--<button type="button" class="btn btn-success">Agenda ahora</button> -->
+		 <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button> -->
+		  
+		</div>
+	  </div>
+	</div>
+  </div>
+
 
     
     
     <br><br>
-    @endforeach
-    {!! $categorias->links() !!}
+	@endforeach
+	@foreach($categoriasVp as $categoriavp)
+     <!-- Modal vp-->
+	<div class="modal fade" id="{{$categoriavp->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <h5 class="modal-title" id="exampleModalLabel"><img src="/storage/{{$categoriavp->foto}}" style="width: 10%;">{{$categoriavp->nombre}}</h5>
+			  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			  </button>
+			</div>
+			<div class="modal-body">
+				<strong><pre>{{$categoriavp->descripcion}}</pre></strong>
+	
+			</div>
+			<div class="modal-footer">
+			<a href="{{url('serviciosss')}}" class="btn btn-success">Agenda ahora</a>
+			 <!--<button type="button" class="btn btn-success">Agenda ahora</button> -->
+			 <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button> -->
+			  
+			</div>
+		  </div>
+		</div>
+	  </div>
+	  @endforeach
 </div>
   
 </div>

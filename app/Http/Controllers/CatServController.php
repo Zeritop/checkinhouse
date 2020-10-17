@@ -23,7 +23,7 @@ class CatServController extends Controller
       $this->middleware('permission:catServs.edit')->only(['edit', 'update']);
       $this->middleware('permission:catServs.destroy')->only(['destroy']);
   }
-    }
+    
 
     public function index()
     {
@@ -59,15 +59,56 @@ class CatServController extends Controller
             'descripcion' => 'required',
             'foto' => 'required',
         ]);
+
         $categoria = new CatServ;
-        $categoriatmp = new CatServ;
+        if(isset($_POST["vl"]) && isset($_POST["vp"])){
+            //El usuario marco el checkbox
+            
         $categoria->foto = Storage::putFile('public', $request->file('foto'));
         $categoria->foto = basename(Storage::putFile('public', $request->file('foto')));
         $categoria->nombre = $request->nombre;
         $categoria->titulo = $request->titulo;
         $categoria->descripcion = $request->descripcion;
+        $categoria->vl = true;
+        $categoria->vp = true;
+        $categoria->save();
+        
+        return redirect()->route('catServs.index')
+                        ->with('success','Categoria Servicio creada exitosamente.');
+          
+        }
+        
+        if(isset($_POST["vl"])){
+            //El usuario marco el checkbox
+            
+        $categoria->foto = Storage::putFile('public', $request->file('foto'));
+        $categoria->foto = basename(Storage::putFile('public', $request->file('foto')));
+        $categoria->nombre = $request->nombre;
+        $categoria->titulo = $request->titulo;
+        $categoria->descripcion = $request->descripcion;
+        $categoria->vl = true;
         $categoria->save();
 
+        return redirect()->route('catServs.index')
+                        ->with('success','Categoria Servicio creada exitosamente.');
+          
+        }
+
+        if(isset($_POST["vp"])){
+            //El usuario marco el checkbox
+            
+        $categoria->foto = Storage::putFile('public', $request->file('foto'));
+        $categoria->foto = basename(Storage::putFile('public', $request->file('foto')));
+        $categoria->nombre = $request->nombre;
+        $categoria->titulo = $request->titulo;
+        $categoria->descripcion = $request->descripcion;
+        $categoria->vp = true;
+        $categoria->save();
+
+        return redirect()->route('catServs.index')
+                        ->with('success','Categoria Servicio creada exitosamente.');
+          
+        }
 
 
         return redirect()->route('catServs.index')

@@ -26,7 +26,7 @@
               <th>Foto</th>
               <th>Precio</th>
               <th>Cantidad</th>
-              <th>Descripcion</th>
+              <th>nombre</th>
               <th width="280px">Action</th>
           </tr>
       </thead>
@@ -37,7 +37,7 @@
       <td><img width="100px;" src="/storage/{{ $foto->nombre }}" alt=""></td>
       <td>{{ $foto->precio}}</td>
       <td>{{ $foto->cantidad}}</td>
-      <td>{{ $foto->descripcion}}</td>
+      <td>{{ $foto->name}}</td>
 
    <script>
 

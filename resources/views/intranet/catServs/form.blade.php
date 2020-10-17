@@ -27,6 +27,38 @@
       </select>
 
     </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12">
+
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" value="" name="vl" id="vl">
+              <span class="form-check-sign">
+                <span class="check"></span>
+              </span>
+    
+              Vehiculos Livianos
+    
+          </label>
+        </div>
+    
+      </div>
+
+      <div class="col-xs-12 col-sm-12 col-md-12">
+
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" value="" name="vp" id="vp">
+              <span class="form-check-sign">
+                <span class="check"></span>
+              </span>
+    
+              Vehiculos Pesados
+    
+          </label>
+        </div>
+    
+      </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-primary">Aceptar</button>
         </div>

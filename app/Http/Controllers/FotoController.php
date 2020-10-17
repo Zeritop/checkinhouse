@@ -52,14 +52,15 @@ class FotoController extends Controller
     {
         $request->validate([
             'nombre' => 'required',
+            'name' => 'required',
             'precio' => 'required',
             'cantidad' => 'required',
             'descripcion' => 'required',
         ]);
         $foto = new Foto;
-        $fototmp = new Foto;
         $foto->nombre = Storage::putFile('public', $request->file('nombre'));
         $foto->nombre = basename(Storage::putFile('public', $request->file('nombre')));
+        $foto->name = $request->name;
         $foto->precio = $request->precio;
         $foto->cantidad = $request->cantidad;
         $foto->descripcion = $request->descripcion;
@@ -105,6 +106,7 @@ class FotoController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
+            'name' => 'required',
             'precio' => 'required',
             'cantidad' => 'required',
             'descripcion' => 'required',

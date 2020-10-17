@@ -10,7 +10,7 @@
     position:absolute;
     width:50%; 
     height:50px;
-    margin-top: 400px;  
+    margin-top: 38.5%;  
     border-radius: 0px 30px 0px 0px;
     background-color: white;
     display: inline-block;
@@ -19,7 +19,7 @@
 .rightupperdiv{
     z-index:1;
     position:absolute;
-    margin-top:400px;
+    margin-top:38.5%;
     margin-left:50%;
     width:50%;
     height:50px;
@@ -32,32 +32,37 @@
     color: white;
     margin-top: 100px;
 
-    text-align: center;
+    text-align: left;
 }
 
 #cajaTextoHome{
     position: relative;
-
-    width: 100%;
+    margin-left: 10%;
+    
+    width: 30%;
 }
 
 #botonHome{
     position: absolute;
-    width: 20%;
-    margin-top: 300px;
-    margin-left: 40%;
+    width: 15%;
+    margin-top: 15%;
+    margin-left: 65%;
     background-color: #3ADF00;
-    padding: 10px;
+    padding: 15px;
     text-align: center;
     border-radius: 12px;
-    border: 1px solid #000;
+    border: 2px solid #000;
     font-family: 'Nova Flat', cursive;
     display: inline-block;
     cursor:pointer;
+    text-transform: uppercase;
 }
 
+
 #botonHome:hover{
-    background-color: #000;
+    background-color: #228b22;
+    border: 2px solid #3ADF00;
+    
 }
 
 #aBtnHome{
@@ -79,4 +84,125 @@
     font-family: 'Nova Flat', cursive;
     display: inline-block;
     }
+}
+
+
+.card-profile .card-avatar {
+    width: 130px;
+    max-width: 130px;
+    max-height: 130px;
+    margin: -50px auto 0;
+    border-radius: 50%;
+    overflow: hidden;
+    padding: 0;
+    box-shadow: 0 16px 38px -12px rgba(0,0,0,.56), 0 4px 25px 0 rgba(0,0,0,.12), 0 8px 10px -5px rgba(0,0,0,.2);
+}
+
+.card-profile .card-avatar img{
+    width: 100%;
+}
+.card-profile .card-avatar+.card-body{
+    margin-top: 15px;
+}
+
+.header .navbar a i{
+    padding: 4px;
+}
+
+.header .navbar a:hover i{
+    transform:rotate(360deg);
+    -ms-transform:rotate(360deg);
+    -webkit-transform:rotate(360deg); 
+    transition: all 1s ease;
+}
+
+.header{
+    background: url(../Imagenes/imagenHome1.jpg) no-repeat center;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+.top-right {
+    position: absolute;
+    right: 10px;
+    top: 18px;
+}
+
+.links > a {
+    color: #636b6f;
+    padding: 0 25px;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.nav-item > a{
+    font-size: 18px;
+}
+
+nav{
+    height: 80px;
+}
+
+.navbar{
+    background-color: transparent !important;
+
+}
+
+.footer{
+    background-color: #000;
+    color: #fff;
+    padding-top: 20px;
+}
+
+div #columna-footer p a{
+    text-decoration: none;
+    color: #fff;
+}
+
+#caja-imagen{
+    position: relative;
+    right: 30px;
+    height: 80px;
+    padding: 5px;
+
+
+}
+
+#textNavbar{
+    color: #fff;
+    font-family: 'Nova Flat', cursive;
+}
+
+#textNavbar:hover{
+    color: #3ADF00;
+    text-decoration: underline;
+}
+
+body{
+    font-family: 'Nova Flat', cursive;
+}
+
+.navbar-toggler{
+    color: #fff;
+}
+
+#linkFooter:hover{
+    color: #3ADF00;
+    text-decoration: underline;
+}
+
+#logoFooter{
+    border: 2px solid #228b22;
+    width: 80%;
+    text-align: center;
+    
+}
+
+.owl-carousel img{
+    border-radius: 30%;
+    max-width: 100%;
+    max-height: 200px;
+    /*border: 3px solid black; */
 }

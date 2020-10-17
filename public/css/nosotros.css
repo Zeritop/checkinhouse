@@ -8,7 +8,7 @@
 	position: absolute;
 	width: 50%;
 	height: 600px;
-	
+		
 }
 
 
@@ -31,26 +31,117 @@
 
 #imagenNosotros2{
 	float: right;
+	position: relative;
 	width: 60%;
-	height: 600px;
+	height: 350px;
+	top: -65%;
+	border: 4px solid black;
 }
+
+#equipo1 img{
+	border-radius: 50%;
+	-webkit-box-shadow: -8px 8px 10px #909090;
+	-moz-box-shadow: -8px 8px 10px #909090;
+	box-shadow: -8px 8px 10px #909090;
+	z-index: 12;
+}
+
+#equipo1Nombre{
+	
+	width: 60%;
+	-webkit-box-shadow: -8px 8px 10px #909090;
+	-moz-box-shadow: -8px 8px 10px #909090;
+	box-shadow: -8px 8px 10px #909090;
+	background-color: white;
+	margin: 10px;
+	padding: 7px;
+	padding-left: 15px;
+	padding-bottom: 15px;
+	position: relative;
+	left: 35%;
+	top: -55%;
+	height: 17%;
+	z-index: -2;
+	border-radius: 35px 0px 35px 0px;
+-moz-border-radius: 35px 0px 35px 0px;
+-webkit-border-radius: 35px 0px 35px 0px;
+}
+#equipo2Nombre{
+	
+	width: 60%;
+	-webkit-box-shadow: -8px 8px 10px #909090;
+	-moz-box-shadow: -8px 8px 10px #909090;
+	box-shadow: -8px 8px 10px #909090;
+	background-color: white;
+	margin: 10px;
+	padding: 7px;
+	padding-left: 15px;
+	padding-bottom: 15px;
+	position: relative;
+	left: 35%;
+	top: -55%;
+	height: 17%;
+	z-index: -2;
+	border-radius: 35px 0px 35px 0px;
+-moz-border-radius: 35px 0px 35px 0px;
+-webkit-border-radius: 35px 0px 35px 0px;
+	
+}
+
+#descripcion1{
+	width: 60%;
+	left: 38%;
+	top: -55%;
+	padding: 10px;
+	position: relative;
+	z-index: -3;
+	-webkit-box-shadow: 8px 8px 10px #909090;
+	-moz-box-shadow: 8px 8px 10px #909090;
+	box-shadow: 8px 8px 10px #909090;
+	border-radius: 0px 0px 35px 0px;
+}
+
+#descripcion2{
+	width: 60%;
+	left: 38%;
+	top: -55%;
+	padding: 10px;
+	position: relative;
+	z-index: -3;
+	-webkit-box-shadow: 8px 8px 10px #909090;
+	-moz-box-shadow: 8px 8px 10px #909090;
+	box-shadow: 8px 8px 10px #909090; 
+	border-radius: 0px 0px 35px 0px;
+}
+
+
 
 #cajaVision{
 	position: relative;
 	width: 30%;
-	color: white;
-	top: 400px;
+	color: black;
+	top: 100px;
 	text-align: justify;
 	font-family: 'Nova Flat', cursive;
 	padding-top: 20px;
 	padding-right: 20px;
-
+	
 }
 
 #visionLetra{
 	position: relative;
 	left: 10%;
-	top: 400px;
+	top: 100px;
+	text-transform: uppercase;
+}
+
+#cajaFrase{
+	color: rgb(163, 151, 149);
+	
+}
+
+#frase{
+	right: 0;
 }
 
 

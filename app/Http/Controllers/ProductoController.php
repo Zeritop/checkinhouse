@@ -12,13 +12,37 @@ class ProductoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $fotos = Foto::orderBy('created_at', 'ASC')
-        ->paginate(16);
+      /*  $fotos = Foto::orderBy('created_at', 'ASC')
+        ->paginate(4);
   
         return view('productos.index',compact('fotos'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
+        return [
+            'paginate' => [
+
+            ],
+            'fotos' => $fotos
+        ];  */
+        $fotos = Foto::orderBy('created_at', 'ASC')
+            ->paginate(5);
+        if($request->ajax()){
+            return [
+                'pagination' => [
+                    'total'        => $fotos->total(),
+                    'current_page' => $fotos->currentPage(),
+                    'per_page'     => $fotos->perPage(),
+                    'last_page'    => $fotos->lastPage(),
+                    'from'         => $fotos->firstItem(),
+                    'to'           => $fotos->lastPage(),
+                ],
+                'fotos' => $fotos
+            ];
+          }else{
+            return view('productos.index',compact('fotos'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
+          }
     }
 
     /**
