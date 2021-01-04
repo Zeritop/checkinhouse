@@ -2834,6 +2834,27 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2992,6 +3013,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         'to': 0
       },
       fotos: [],
+      imagenes: [],
       model: null,
       offset: 2,
       dialog: false,
@@ -3004,6 +3026,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     console.log(this.getProducts());
   },
   computed: {
+    splitedFotos: function splitedFotos() {
+      var newArr = _toConsumableArray(this.fotos);
+
+      newArr.map(function (el) {
+        return el.images = el.images.split(',');
+      });
+      return newArr;
+    },
     isActived: function isActived() {
       return this.pagination.current_page;
     },
@@ -3046,7 +3076,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _context.prev = 0;
                 _context.next = 3;
                 return axios.get('/productos?page=' + page).then(function (res) {
-                  _this.fotos = res.data.fotos.data, _this.pagination = res.data.pagination;
+                  _this.fotos = res.data.fotos.data, _this.pagination = res.data.pagination, _this.imagenes = res.data.fotos_producto;
                 });
 
               case 3:
@@ -36912,7 +36942,7 @@ var render = function() {
                           expression: "model"
                         }
                       },
-                      _vm._l(_vm.fotos, function(foto) {
+                      _vm._l(_vm.splitedFotos, function(foto) {
                         return _c(
                           "v-slide-item",
                           { key: foto.id },
@@ -36933,8 +36963,7 @@ var render = function() {
                                             attrs: {
                                               height: "200",
                                               width: "150"
-                                            },
-                                            on: { click: _vm.toggle }
+                                            }
                                           },
                                           [
                                             _c(
@@ -36956,7 +36985,7 @@ var render = function() {
                                                         attrs: {
                                                           src:
                                                             "/storage/" +
-                                                            foto.nombre,
+                                                            foto.portada,
                                                           height: "200px"
                                                         },
                                                         on: {
@@ -37138,7 +37167,7 @@ var render = function() {
                         _c(
                           "v-dialog",
                           {
-                            attrs: { width: "500" },
+                            attrs: { width: "600" },
                             model: {
                               value: _vm.dialog,
                               callback: function($$v) {
@@ -37157,7 +37186,7 @@ var render = function() {
                                     _c("v-card-title", [
                                       _c("h3", [
                                         _vm._v(
-                                          " Titulo: " +
+                                          " Producto: " +
                                             _vm._s(_vm.selectedFoto.name) +
                                             " "
                                         )
@@ -37169,28 +37198,51 @@ var render = function() {
                                     _c(
                                       "v-card-text",
                                       [
-                                        _c("v-img", {
-                                          attrs: {
-                                            src:
-                                              "/storage/" +
-                                              _vm.selectedFoto.nombre,
-                                            height: "100%"
-                                          }
-                                        }),
-                                        _vm._v(" "),
-                                        _c("hr"),
-                                        _vm._v(" "),
-                                        _c("br"),
-                                        _vm._v(" "),
                                         _c("h3", [
                                           _vm._v(
-                                            "Descripcion: " +
+                                            "Detalle: " +
                                               _vm._s(
                                                 _vm.selectedFoto.descripcion
                                               ) +
                                               " "
                                           )
-                                        ])
+                                        ]),
+                                        _vm._v(" "),
+                                        _c("br"),
+                                        _vm._v(" "),
+                                        _c(
+                                          "v-carousel",
+                                          _vm._l(
+                                            _vm.selectedFoto.images,
+                                            function(fotito) {
+                                              return _c(
+                                                "v-carousel-item",
+                                                {
+                                                  key: fotito,
+                                                  attrs: {
+                                                    "reverse-transition":
+                                                      "fade-transition",
+                                                    transition:
+                                                      "fade-transition"
+                                                  }
+                                                },
+                                                [
+                                                  _c("v-img", {
+                                                    attrs: {
+                                                      src: "/storage/" + fotito
+                                                    }
+                                                  })
+                                                ],
+                                                1
+                                              )
+                                            }
+                                          ),
+                                          1
+                                        ),
+                                        _vm._v(" "),
+                                        _c("hr"),
+                                        _vm._v(" "),
+                                        _c("br")
                                       ],
                                       1
                                     )

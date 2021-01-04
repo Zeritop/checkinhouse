@@ -23,7 +23,7 @@
       <thead>
           <tr>
               <th>No</th>
-              <th>Foto</th>
+              
               <th>Precio</th>
               <th>Cantidad</th>
               <th>nombre</th>
@@ -34,7 +34,7 @@
   @foreach ($fotos as $foto)
   <tr>
       <td>{{ ++$i }}</td>
-      <td><img width="100px;" src="/storage/{{ $foto->nombre }}" alt=""></td>
+      
       <td>{{ $foto->precio}}</td>
       <td>{{ $foto->cantidad}}</td>
       <td>{{ $foto->name}}</td>

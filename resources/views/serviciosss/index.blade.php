@@ -24,7 +24,7 @@
 
 
 
-<div class="image-container set-full-height" style="background-image: url('assets/img/wizard-book.jpg')">
+<div class="" style="">
   @if (Session::has('message'))
   <div class="alert alert-success text-center">
   <p>{{ Session::get('message') }}</p>
@@ -32,6 +32,10 @@
   @endif
 	    <!--   Big container   -->
 	    <div class="container">
+            <div class="container text-center">
+                <br>
+                <h2 style="color: #04B45F;">Agendar Servicios</h2>
+            </div>
             <div id="cajaImagen" class="row col-md-6 d-none d-sm-none d-md-block ">
               <img src="Imagenes/sevicios-profesionales.jpg" id="imgTipo" class="d-none d-sm-none d-md-block">
               </div>

@@ -38,7 +38,7 @@
 				<h4 style="color: black;" id="visionLetra">¿Quienes somos?</h4>
 				<br>
 				<div id="cajaVision">
-					<h6 style="font-size: 19px;">Buscamos transformarnos en una empresa que logre llevar la vanguardia en mantencion automotriz a nivel nacional. Apoyando en los pilares de la mejor atencion a nuestros clientes, la mayor eficiencia en nuestras operaciones, el menor impacto al medio ambiente y entregar una mejor calidad de vida a nuestros trabajadores.</h6>	
+					<h6 style="font-size: 19px;">Somos un grupo de trabajadores que mezcla experienca, juventud e innovación, buscamos entregar servicios automotrices de calidad, que se acomoden a nuestros clientes y a un precio justo. Contamos con un taller para vehículos livianos y reparaciones, además de la posibilidad de prestar servicios a terreno en todo el gran Concepción. Nuestra cartera de servicios se seguirá ampliando con el tiempo y su confianza al preferirnos.</h6>	
 				</div>
 			</div>
 			<div class="ml-auto d-none d-sm-block col-md-12 col-sm-12 col-12 col-lg-12">

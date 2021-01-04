@@ -12,12 +12,7 @@
         </div>
         <div class="card-body">
             <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Foto:</strong>
-                {{ $foto->nombre}}
-            </div>
-        </div>
+       
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Nombre Producto:</strong>
@@ -55,7 +50,12 @@
             </div>
         </div>
     </div>
-    <img class="img" width="500px;" src="/storage/{{ $foto->nombre }}" alt="">
+    @foreach($fotos_producto as $ft)
+    <img class="img" width="500px;" src="/storage/{{ $ft->nombre }}" alt="">    
+    @endforeach
+        
+    
+    
         </div>
     </div>
 </div>

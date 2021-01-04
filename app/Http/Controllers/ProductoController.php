@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Foto;
+use Illuminate\Support\Facades\DB;
 
 class ProductoController extends Controller
 {
@@ -25,8 +26,30 @@ class ProductoController extends Controller
             ],
             'fotos' => $fotos
         ];  */
-        $fotos = Foto::orderBy('created_at', 'ASC')
-            ->paginate(5);
+        /*$fotos = Foto::orderBy('created_at', 'ASC')
+        ->paginate(5);*/ 
+        
+       /*$fotos = DB::table('fotos')->join('fproductos', 'fproductos.id_producto', '=', 'fotos.id')
+        ->distinct('nombre', 'fproductos.id_producto')
+        ->paginate(5);*/
+        
+        $fotos = DB::table('fotos')->join('fproductos', 'fproductos.id_producto', '=', 'fotos.id')
+        ->select('fotos.portada','fotos.name', 'fotos.descripcion', 'fproductos.id_producto', DB::raw('group_concat(fproductos.nombre) as images'))
+        ->groupBy('fotos.portada', 'fotos.name', 'fotos.descripcion', 'fproductos.id_producto')
+        ->paginate(5);
+
+        $fotos_producto = DB::table('fotos')->join('fproductos', 'fproductos.id_producto', '=', 'fotos.id')
+        ->select('fproductos.nombre')
+        ->get();
+
+         /*$fotos_producto = DB::table('fproductos')->join('fotos', 'fproductos.id_producto', '=', 'fotos.id')
+         ->select('fotos.name', 'fotos.descripcion', 'fproductos.id_producto', DB::raw('group_concat(fproductos.nombre) as images'))
+         //->distinct('fotos.id', 'fproductos.nombre', 'fotos.name', 'fotos.descripcion')
+         ->groupBy('fotos.name', 'fotos.descripcion', 'fproductos.id_producto')
+         //->having(DB::raw('count(fotos.name)', '>', 1))
+         ->get();*/
+         //dd($fotos_producto); 
+            
         if($request->ajax()){
             return [
                 'pagination' => [
@@ -40,7 +63,7 @@ class ProductoController extends Controller
                 'fotos' => $fotos
             ];
           }else{
-            return view('productos.index',compact('fotos'))
+            return view('productos.index',compact('fotos', 'fotos_producto'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
           }
     }

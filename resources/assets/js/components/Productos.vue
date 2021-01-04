@@ -15,7 +15,7 @@
       show-arrows
     >
       <v-slide-item
-        v-for="foto in fotos"
+        v-for="foto in splitedFotos"
         :key="foto.id"
         
         
@@ -28,7 +28,6 @@
           class="ma-4"
           height="200"
           width="150"
-          @click="toggle"
         >
           <v-row
             class="fill-height"
@@ -37,7 +36,7 @@
           >
             <v-scale-transition>
               <v-img
-              :src="'/storage/'+foto.nombre"
+              :src="'/storage/'+foto.portada"
               height="200px"
               @click="openfotoDialog(foto)"
               >
@@ -95,27 +94,37 @@
       <div id=""  v-if="selectedFoto" >
           <v-dialog   
           v-model="dialog"
-          width="500"
+          width="600"
           
           >
-            <v-card>
+            <v-card> 
               <v-container>
                 <v-card-title>
-               <h3> Titulo: {{ selectedFoto.name }} </h3>                  
+               <h3> Producto: {{ selectedFoto.name }} </h3>                  
               
                 </v-card-title>
                 <hr>
-                <v-card-text>
+                <v-card-text> 
+              <h3>Detalle: {{ selectedFoto.descripcion }} </h3>
+              <br>
+               <v-carousel>
+                <v-carousel-item
+                  v-for="fotito in selectedFoto.images"
+                  :key="fotito"
+                  
+                  reverse-transition="fade-transition"
+                  transition="fade-transition"
+                  
+                >
                 <v-img
-              :src="'/storage/'+selectedFoto.nombre"
-              height="100%"
+                :src="'/storage/'+fotito"
+                ></v-img>
+                </v-carousel-item>
+              </v-carousel>    
               
-              > 
-                
-              </v-img>
               <hr>
               <br>
-               <h3>Descripcion: {{ selectedFoto.descripcion }} </h3>
+               
               </v-card-text>
               </v-container>
              
@@ -156,6 +165,7 @@
       'to':0
     },
     fotos: [],
+    imagenes: [],
     model: null,
     offset: 2,
     dialog: false,
@@ -171,6 +181,13 @@
       
     },
     computed:{
+      splitedFotos: function(){
+        let newArr = [...this.fotos]
+        newArr.map(el => {
+          return el.images = el.images.split(',')
+        })
+        return newArr
+      },
       isActived: function(){
         return this.pagination.current_page;
       },
@@ -202,7 +219,9 @@
           await axios.get('/productos?page='+page)
           .then(res => {
             this.fotos = res.data.fotos.data,
-            this.pagination = res.data.pagination
+            this.pagination = res.data.pagination,
+            this.imagenes = res.data.fotos_producto
+            
 
           })
         } catch (e) {

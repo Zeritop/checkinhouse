@@ -42,7 +42,7 @@
         @foreach($categoriasVl as $categoriavl)
 		<a href="" data-toggle="modal" data-target="#{{$categoriavl->id}}"><span><div id="imagenCA">
 		    		<img src="/storage/{{$categoriavl->foto}}" style="width: 100%;">
-		    		</div><p style="color: #000; text-align: center;">{{$categoriavl->nombre}}</p></span></a>	
+		    		</div><p style="color: #000; text-align: center;">{{$categoriavl->titulo}}</p></span></a>	
         @endforeach	  
 		</div><br><br>
 		<hr style="background-color: black;">
@@ -53,7 +53,7 @@
         @foreach($categoriasVp as $categoriavp)
 		<a href="" data-toggle="modal" data-target="#{{$categoriavp->id}}"><span><div id="imagenCA">
 		    		<img src="/storage/{{$categoriavp->foto}}" style="width: 100%;">
-		    		</div><p style="color: #000; text-align: center;">{{$categoriavp->nombre}}</p></span></a>	
+		    		</div><p style="color: #000; text-align: center;">{{$categoriavp->titulo}}</p></span></a>	
         @endforeach	  
 		</div><br><br>
        
@@ -84,7 +84,7 @@
 	<div class="modal-dialog">
 	  <div class="modal-content">
 		<div class="modal-header">
-		  <h5 class="modal-title" id="exampleModalLabel"><img src="/storage/{{$categoriavl->foto}}" style="width: 10%;">{{$categoriavl->nombre}}</h5>
+		  <h5 class="modal-title" id="exampleModalLabel"><img src="/storage/{{$categoriavl->foto}}" style="width: 10%;">{{$categoriavl->titulo}}</h5>
 		  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 			<span aria-hidden="true">&times;</span>
 		  </button>
@@ -114,7 +114,7 @@
 		<div class="modal-dialog">
 		  <div class="modal-content">
 			<div class="modal-header">
-			  <h5 class="modal-title" id="exampleModalLabel"><img src="/storage/{{$categoriavp->foto}}" style="width: 10%;">{{$categoriavp->nombre}}</h5>
+			  <h5 class="modal-title" id="exampleModalLabel"><img src="/storage/{{$categoriavp->foto}}" style="width: 10%;">{{$categoriavp->titulo}}</h5>
 			  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				<span aria-hidden="true">&times;</span>
 			  </button>

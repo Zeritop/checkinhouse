@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Foto;
+use App\Fproducto;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 
 class FotoController extends Controller
 {
@@ -51,23 +53,50 @@ class FotoController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nombre' => 'required',
             'name' => 'required',
             'precio' => 'required',
             'cantidad' => 'required',
             'descripcion' => 'required',
         ]);
+        
+        
         $foto = new Foto;
-        $foto->nombre = Storage::putFile('public', $request->file('nombre'));
-        $foto->nombre = basename(Storage::putFile('public', $request->file('nombre')));
         $foto->name = $request->name;
         $foto->precio = $request->precio;
         $foto->cantidad = $request->cantidad;
         $foto->descripcion = $request->descripcion;
+        $foto->portada      = basename(Storage::putFile('public', $request->portada));
         $foto->save();
 
+        $id_del_producto = DB::table('fotos')->select('id')
+                                             ->orderBy('id', 'desc')
+                                             ->limit(1)
+                                             ->first();
+                                            
+                                             
 
+        
 
+        if($request->hasFile('nombre')){
+
+            $files = $request->file('nombre');
+            
+
+            foreach($files as $file){
+        
+                $fproducto = new Fproducto;
+                //$fproducto->nombre      = Storage::putFile('public', $file);
+                $fproducto->nombre      = basename(Storage::putFile('public', $file));
+                $fproducto->id_producto = $id_del_producto->id;
+                $fproducto->save(); 
+                
+            }
+            
+                
+        }    
+                
+        
+        
         return redirect()->route('fotos.index')
                         ->with('success','Producto creado exitosamente.');
     }
@@ -81,7 +110,13 @@ class FotoController extends Controller
     public function show($id)
     {
         $foto = Foto::find($id);
-        return view('intranet.fotos.show',compact('foto'));
+
+        $fotos_producto = DB::table('fotos')->join('fproductos', 'fproductos.id_producto', '=', 'fotos.id')
+                                            ->select('nombre', 'fproductos.id_producto')
+                                            ->where('fproductos.id_producto', $id)
+                                            ->get();
+        //dd($fotos_producto);                            
+        return view('intranet.fotos.show',compact('foto', 'fotos_producto'));
     }
 
     /**

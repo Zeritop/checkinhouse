@@ -29,7 +29,7 @@ Route::get('cotizacion2','ServiciooController@cotizacion2');
 //Route::get('calendario2','PrincipalController@calendario2');
 Route::get('confirmar','PrincipalController@confirmar');
 Route::resource('usuarios','UsuarioController');
-Route::resource('servicioss','ServicioController');
+Route::resource('serviciosss','ServiciooController');
 Route::resource('productos','ProductoController');
 Route::resource('categorias','CategoriaController');
 Route::resource('calendarioEventos', 'CalendarioUserController');
@@ -90,7 +90,7 @@ Route::middleware(['auth'])->group(function () {
     //repuestos
     Route::resource('repuestos','RepuestoController');
     //servicios
-    Route::resource('serviciosss','ServiciooController');
+    Route::resource('servicioss','ServicioController');
     //diagnostico
     Route::resource('diagnosticogeneral','DiagnosticoController');
     //frenos
